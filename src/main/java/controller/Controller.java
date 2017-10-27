@@ -4,9 +4,7 @@ import interfaces.ButtonController;
 import model.Model;
 import view.View;
 
-/**
- * Created by rebeccamarsh on 10/27/17.
- */
+
 public class Controller implements ButtonController {
     Model model;
     View view;

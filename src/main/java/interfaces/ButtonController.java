@@ -1,8 +1,5 @@
 package interfaces;
 
-/**
- * Created by rebeccamarsh on 10/27/17.
- */
 public interface ButtonController {
     void addAll();
     void addToPlaylist();
@@ -15,5 +12,4 @@ public interface ButtonController {
 
     void load();
     void save();
-
 }

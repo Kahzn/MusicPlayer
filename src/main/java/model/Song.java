@@ -3,9 +3,7 @@ package model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 
-/**
- * Created by rebeccamarsh on 10/2/17.
- */
+
 public class Song implements interfaces.Song {
 
 

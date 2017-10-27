@@ -7,9 +7,7 @@ import javafx.collections.ModifiableObservableListBase;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-/**
- * Created by rebeccamarsh on 10/27/17.
- */
+
 public class Playlist extends ModifiableObservableListBase<interfaces.Song> implements interfaces.Playlist  {
     private ArrayList<Song> songs = new ArrayList<Song>();
 
