@@ -1,30 +1,42 @@
 package controller;
 
 import interfaces.ButtonController;
+import interfaces.Song;
+import javafx.scene.media.MediaPlayer;
 import model.Model;
 import view.View;
 
+import java.rmi.RemoteException;
 
 public class Controller implements ButtonController {
     Model model;
     View view;
-    //making a change...
+    private MediaPlayer player;
+
 
 
     public void link(Model model, View view){
         this.model = model;
         this.view = view;
 
-        //Bind data to view. D.h.: die ListView elements werden Elemente hinzufügt aus dem Model mit Methode setItems
+        //Bind data to view. D.h.: die ListView elements werden Elemente aus dem Model mit Methode setItems hinzugefügt
         this.view.bindData(this.model);
 
+        //Wichtig: eine Instanz der View Klasse braucht einen ButtonController Feld um die EventHandling auszuführen
+        view.setListener(this);
 
-        this.view.getPlayButton().setOnAction(e -> play());
     }
 
 
     @Override
     public void addAll() {
+        for(Song song : model.getLibrary()) {
+            try {
+                model.getPlaylist().addSong(song);
+            } catch (RemoteException e) {
+                System.out.println("Entfernter Rechner nicht zu erreichen");
+            }
+        }
 
     }
 

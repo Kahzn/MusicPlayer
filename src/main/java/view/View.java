@@ -1,5 +1,7 @@
 package view;
 
+import controller.Controller;
+import interfaces.ButtonController;
 import interfaces.Song;
 import javafx.collections.FXCollections;
 import javafx.scene.control.*;
@@ -11,8 +13,8 @@ import model.Playlist;
 
 
 public class View extends BorderPane {
-    //Model model;
 
+    //BorderPane Top Content
     private HBox hbox = new HBox();
     private ChoiceBox dropDownMenu = new ChoiceBox(
             FXCollections.observableArrayList("Binary", "XML", "JDBC", "OpenJPA"));
@@ -20,48 +22,66 @@ public class View extends BorderPane {
     private Button load = new Button("load");
     private Button save = new Button("save");
 
+    //BorderPane Left and Center Content
     private ListView<Song> library = new ListView<>();
     private ListView<Song> playlist = new ListView<>();
 
-    private VBox vbox = new VBox();
-    private Button play = new Button(">");
-    private Button pause = new Button("||");
-    private Button skip = new Button(">>|");
-    private Button enter = new Button("enter");
-
+    //Border Pane Bottom Content
     private Button addToPlaylist = new Button("Add Song");
     private Button addAll   = new Button ("Add All Songs");
     private Button delete = new Button("Delete Song");
 
+    //Border Pane Right Content
+    private TextField title = new TextField();
+    private TextField interpret = new TextField();
+    private TextField album = new TextField();
+    private Button play = new Button(">");
+    private Button pause = new Button("||");
+    private Button skip = new Button(">>|");
+    private Button edit = new Button("enter");
+
+    //Event Handling
+    ButtonController listener;
+
 
 
     public View(){
-        //this.model = model;
         createTopPanel();
         createLibraryPanel();
         createPlaylistPanel();
         createRightPanel();
         createBottomPanel();
 
+    }
+
+    public void setListener(Controller listener){
+        this.listener = listener;
+    }
+
+    private void createTopPanel() {
 
     }
 
     private void createRightPanel() {
-        //todo
+
     }
 
     private void createBottomPanel() {
-        //todo
+        setBottom(new HBox(addAll, addToPlaylist, delete));
+        addAll.setOnAction(e -> listener.addAll());
+        addToPlaylist.setOnAction(e -> listener.addToPlaylist());
+        delete.setOnAction(e -> listener.removeFromPlaylist());
     }
 
     private void createPlaylistPanel() {
-        //todo
+        setCellFactory(playlist);
+        setCenter(new VBox(new Label("Playlist"),playlist));
 
     }
 
     private void createLibraryPanel() {
         setCellFactory(library);
-        setLeft(library);
+        setLeft(new VBox(new Label("Library"),library));
 
     }
 
@@ -70,6 +90,7 @@ public class View extends BorderPane {
         //this means that the java compiler can deduce that the lambda express will implement
         //the Callback interface with its one method call
         list.setCellFactory(e -> {
+            System.out.println("Whoa ");
             ListCell<Song> cell = new ListCell<Song>() {
                 @Override
                 protected void updateItem(Song myObject, boolean b) {
@@ -88,10 +109,7 @@ public class View extends BorderPane {
         });
     }
 
-    private void createTopPanel() {
-        hbox.getChildren().addAll(dropDownMenu, time, load, save);
-        setTop(hbox);
-    }
+
 
     public void bindData(Model model){
         //Sets items in listview objects so that they are filled with objects in the model,
@@ -100,11 +118,6 @@ public class View extends BorderPane {
         playlist.setItems(model.getPlaylist());
     }
 
-    public Button getPlayButton(){
-        return play;
-    }
-
-    //todo: Button getters ....
 
 
 
