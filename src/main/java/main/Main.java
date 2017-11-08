@@ -23,7 +23,7 @@ public class Main extends Application {
 
         //Show GUI
         primaryStage.setTitle("Music Player");
-        Scene scene = new Scene(view, 800, 500);
+        Scene scene = new Scene(view);
         primaryStage.setScene(scene);
         //primaryStage.setResizable(false);
         primaryStage.show();

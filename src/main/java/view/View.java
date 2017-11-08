@@ -11,7 +11,9 @@ import javafx.scene.layout.VBox;
 import model.Model;
 import model.Playlist;
 
-
+/**
+ * Created by rebeccamarsh on 9/28/17.
+ */
 public class View extends BorderPane {
 
     //BorderPane Top Content
@@ -40,7 +42,7 @@ public class View extends BorderPane {
     private Button skip = new Button(">>|");
     private Button edit = new Button("enter");
 
-    //Event Handling
+    //Event listener hinzufügen
     ButtonController listener;
 
 
@@ -58,12 +60,13 @@ public class View extends BorderPane {
         this.listener = listener;
     }
 
-    private void createTopPanel() {
-
-    }
-
     private void createRightPanel() {
-
+        setRight(new VBox(new Label("Titel:"), title, new Label("Interpret:"), interpret,
+                new Label("Album:"), album, new HBox(play, pause, skip, edit)));
+        play.setOnAction(e -> listener.play());
+        pause.setOnAction(e -> listener.pause());
+        skip.setOnAction(e -> listener.skip());
+        edit.setOnAction(e -> listener.edit());
     }
 
     private void createBottomPanel() {
@@ -83,6 +86,7 @@ public class View extends BorderPane {
         setCellFactory(library);
         setLeft(new VBox(new Label("Library"),library));
 
+
     }
 
     public void setCellFactory(ListView<Song> list){
@@ -90,7 +94,6 @@ public class View extends BorderPane {
         //this means that the java compiler can deduce that the lambda express will implement
         //the Callback interface with its one method call
         list.setCellFactory(e -> {
-            System.out.println("Whoa ");
             ListCell<Song> cell = new ListCell<Song>() {
                 @Override
                 protected void updateItem(Song myObject, boolean b) {
@@ -109,7 +112,12 @@ public class View extends BorderPane {
         });
     }
 
-
+    private void createTopPanel() {
+        hbox.getChildren().addAll(dropDownMenu, time, load, save);
+        setTop(hbox);
+        load.setOnAction(e -> listener.load());
+        save.setOnAction(e -> listener.save());
+    }
 
     public void bindData(Model model){
         //Sets items in listview objects so that they are filled with objects in the model,
