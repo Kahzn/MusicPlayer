@@ -42,8 +42,15 @@ public class Controller implements ButtonController {
 
     @Override
     public void addToPlaylist() {
-
-
+        Song song = view.getLibrary().getSelectionModel().getSelectedItem();
+        if (song != null) {
+            try {
+                model.getPlaylist().addSong(song);
+            } catch (RemoteException e) {
+                System.out.println("Remote connection failed.");
+            }
+        }else
+            System.out.println("No Song selected.");
     }
 
     @Override
