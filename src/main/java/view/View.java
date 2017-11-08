@@ -11,9 +11,7 @@ import javafx.scene.layout.VBox;
 import model.Model;
 import model.Playlist;
 
-/**
- * Created by rebeccamarsh on 9/28/17.
- */
+
 public class View extends BorderPane {
 
     //BorderPane Top Content
