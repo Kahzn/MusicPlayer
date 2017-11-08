@@ -126,6 +126,14 @@ public class View extends BorderPane {
         playlist.setItems(model.getPlaylist());
     }
 
+    public ListView<Song> getLibrary(){
+        return this.library;
+    }
+
+    public ListView<Song> getPlaylist(){
+        return this.playlist;
+    }
+
 
 
 

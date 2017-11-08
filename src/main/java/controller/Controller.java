@@ -43,6 +43,7 @@ public class Controller implements ButtonController {
     @Override
     public void addToPlaylist() {
 
+
     }
 
     @Override

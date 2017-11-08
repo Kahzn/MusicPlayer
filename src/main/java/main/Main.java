@@ -25,7 +25,6 @@ public class Main extends Application {
         primaryStage.setTitle("Music Player");
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
-        //primaryStage.setResizable(false);
         primaryStage.show();
 
     }
