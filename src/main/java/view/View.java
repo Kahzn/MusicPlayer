@@ -6,14 +6,17 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import model.Model;
 import model.Playlist;
+
+import javax.persistence.criteria.CriteriaBuilder;
 
 
 public class View extends BorderPane {
     //Model model;
 
-    private HBox hbox = new HBox();
+    private HBox hboxTop = new HBox();
     private ChoiceBox dropDownMenu = new ChoiceBox(
             FXCollections.observableArrayList("Binary", "XML", "JDBC", "OpenJPA"));
     private Label time = new Label("00:00");
@@ -24,11 +27,19 @@ public class View extends BorderPane {
     private ListView<Song> playlist = new ListView<>();
 
     private VBox vbox = new VBox();
+    private HBox hboxRight = new HBox();
+    private TextField Titel = new TextField();
+    private TextField Interpret = new TextField();
+    private TextField Album = new TextField();
+    private Text TitelText = new Text("Titel");
+    private Text AlbumText = new Text("Album");
+    private Text InterpretText = new Text("Interpret");
     private Button play = new Button(">");
     private Button pause = new Button("||");
     private Button skip = new Button(">>|");
     private Button enter = new Button("enter");
 
+    private HBox hboxBottom = new HBox();
     private Button addToPlaylist = new Button("Add Song");
     private Button addAll   = new Button ("Add All Songs");
     private Button delete = new Button("Delete Song");
@@ -47,15 +58,22 @@ public class View extends BorderPane {
     }
 
     private void createRightPanel() {
-        //todo
+        vbox.setSpacing(2);
+        hboxRight.setSpacing(5);
+        hboxRight.getChildren().addAll(play, pause, skip, enter);
+        vbox.getChildren().addAll(TitelText, Titel, InterpretText, Interpret, AlbumText, Album, hboxRight);
+        setRight(vbox);
     }
 
     private void createBottomPanel() {
-        //todo
+        hboxBottom.setSpacing(10);
+        hboxBottom.getChildren().addAll(addToPlaylist, addAll, delete);
+        setBottom(hboxBottom);
     }
 
     private void createPlaylistPanel() {
-        //todo
+        setCellFactory(playlist);
+        setCenter(playlist);
 
     }
 
@@ -89,8 +107,9 @@ public class View extends BorderPane {
     }
 
     private void createTopPanel() {
-        hbox.getChildren().addAll(dropDownMenu, time, load, save);
-        setTop(hbox);
+        hboxTop.setSpacing(10);
+        hboxTop.getChildren().addAll(dropDownMenu, time, load, save);
+        setTop(hboxTop);
     }
 
     public void bindData(Model model){
@@ -100,11 +119,35 @@ public class View extends BorderPane {
         playlist.setItems(model.getPlaylist());
     }
 
+    public Button getLoadButton() { return load; }
+
+    public Button getSaveButton() { return save; }
+
     public Button getPlayButton(){
         return play;
     }
 
-    //todo: Button getters ....
+    public Button getPauseButton(){
+        return pause;
+    }
+
+    public Button getSkipButton(){
+        return skip;
+    }
+
+    public Button getEnterButton(){
+        return enter;
+    }
+
+    public Button getaddToPlaylistButton(){
+        return addToPlaylist;
+    }
+
+    public Button getaddAllButton(){
+        return addAll;
+    }
+
+    public Button getDeleteButton() { return delete; }
 
 
 
