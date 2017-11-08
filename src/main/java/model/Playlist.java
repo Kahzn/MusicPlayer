@@ -13,17 +13,17 @@ public class Playlist extends ModifiableObservableListBase<interfaces.Song> impl
 
     @Override
     public boolean addSong(Song s) throws RemoteException {
-        return songs.add(s);
+        return add(s);
     }
 
     @Override
     public boolean deleteSong(Song s) throws RemoteException {
-        return songs.remove(s);
+        return remove(s);
     }
 
     @Override
     public boolean deleteSongByID(long id) throws RemoteException {
-        return songs.remove(id);
+        return remove(id);
     }
 
     @Override
@@ -49,19 +49,25 @@ public class Playlist extends ModifiableObservableListBase<interfaces.Song> impl
 
     @Override
     public Song findSongByPath(String name) throws RemoteException {
-        for(Song s : songs){
-            if(s.getPath().equals(name))
-                return s;
-        }
-        return null;
+//        for(Song s : songs){
+//            if(s.getPath().equals(name))
+//                return s;
+//        }
+//        return null;
+
+        //equivalent use with a stream
+        return songs.stream().filter(s -> s.getPath().equals(name)).findFirst().get();
     }
 
     @Override
     public Song findSongByID(long id) throws RemoteException {
-        for( interfaces.Song s : songs){
-            long ident = s.getId();
-            if(ident == id) return s;
-        }return null;
+//        for( interfaces.Song s : songs){
+//            long ident = s.getId();
+//            if(ident == id) return s;
+//        }return null;
+//
+        //equivalent use with a stream
+        return songs.stream().filter(s-> s.getId() == id).findFirst().get();
 
     }
 
