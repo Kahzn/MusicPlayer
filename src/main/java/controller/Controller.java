@@ -55,9 +55,20 @@ public class Controller implements ButtonController {
 
     @Override
     public void removeFromPlaylist() {
+        Song song = view.getPlaylist().getSelectionModel().getSelectedItem();
+        long indexOfSongInPlaylist = view.getPlaylist().getSelectionModel().getSelectedIndex();
 
+        if(song != null){
+            try {
+                model.getPlaylist().deleteSongByID(indexOfSongInPlaylist);
+
+            } catch (RemoteException e) {
+                System.err.println("Remote connection error");
+            }
+        }else System.out.println("No song selected.");
     }
 
+    //MusicPlayer methods (play, pause, skip)
     @Override
     public void play() {
 
@@ -80,11 +91,13 @@ public class Controller implements ButtonController {
 
     @Override
     public void load() {
+        //todo with deserialization
 
     }
 
     @Override
     public void save() {
+        //todo serialization
 
     }
 
