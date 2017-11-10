@@ -2,10 +2,10 @@ package interfaces;
 
 public interface ButtonController {
     void addAll();
-    void addToPlaylist();
+    void addToPlaylist(Song s);
     void removeFromPlaylist();
 
-    void play();
+    void play(int index);
     void pause();
     void skip();
     void edit();

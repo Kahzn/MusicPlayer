@@ -1,5 +1,7 @@
 package view;
 
+import controller.Controller;
+import interfaces.ButtonController;
 import interfaces.Song;
 import javafx.collections.FXCollections;
 import javafx.scene.control.*;
@@ -11,6 +13,7 @@ import model.Model;
 import model.Playlist;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.util.EventListener;
 
 
 public class View extends BorderPane {
@@ -44,6 +47,8 @@ public class View extends BorderPane {
     private Button addAll   = new Button ("Add All Songs");
     private Button delete = new Button("Delete Song");
 
+    private ButtonController listener;
+
 
 
     public View(){
@@ -53,6 +58,8 @@ public class View extends BorderPane {
         createPlaylistPanel();
         createRightPanel();
         createBottomPanel();
+        play.setOnAction(e -> listener.play(playlist.getSelectionModel().getSelectedIndex()));
+        addToPlaylist.setOnAction(e -> listener.addToPlaylist(library.getSelectionModel().getSelectedItem()));
 
 
     }
@@ -119,36 +126,7 @@ public class View extends BorderPane {
         playlist.setItems(model.getPlaylist());
     }
 
-    public Button getLoadButton() { return load; }
-
-    public Button getSaveButton() { return save; }
-
-    public Button getPlayButton(){
-        return play;
+    public void setListener(ButtonController listener) {
+        this.listener = listener;
     }
-
-    public Button getPauseButton(){
-        return pause;
-    }
-
-    public Button getSkipButton(){
-        return skip;
-    }
-
-    public Button getEnterButton(){
-        return enter;
-    }
-
-    public Button getaddToPlaylistButton(){
-        return addToPlaylist;
-    }
-
-    public Button getaddAllButton(){
-        return addAll;
-    }
-
-    public Button getDeleteButton() { return delete; }
-
-
-
 }

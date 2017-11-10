@@ -11,6 +11,7 @@ import java.rmi.RemoteException;
 public class Controller implements ButtonController {
     Model model;
     View view;
+    //Song song;
     private MediaPlayer player;
 
 
@@ -29,20 +30,27 @@ public class Controller implements ButtonController {
 
 
     @Override
+    //adds all Songs from library to playlist
     public void addAll() {
         for(Song song : model.getLibrary()) {
             try {
                 model.getPlaylist().addSong(song);
             } catch (RemoteException e) {
-                System.out.println("Entfernter Rechner nicht zu erreichen");
+                System.out.println("Entfernter Rechner nicht zu erreichen:");
+                e.printStackTrace();
             }
         }
 
     }
 
     @Override
-    public void addToPlaylist() {
-
+    public void addToPlaylist(Song s) {
+        try {
+            if (s !=  null) model.getPlaylist().addSong(s);
+        } catch (RemoteException e) {
+            System.out.println("Entfernter Rechner nicht zu erreichen:");
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -51,8 +59,10 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    public void play() {
+    public void play(int index) {
+        if (index >= 0) {
 
+        }
     }
 
     @Override
