@@ -55,7 +55,13 @@ public class Controller implements ButtonController {
 
     @Override
     public void removeFromPlaylist() {
-
+        Song s = view.getPlaylist().getSelectionModel().getSelectedItem();
+        try {
+            if (s != null) model.getPlaylist().deleteSong(s);
+        } catch (RemoteException e) {
+            System.out.println(("Entfernter Rechner nicht zu erreichen:"));
+            e.printStackTrace();
+        }
     }
 
     @Override

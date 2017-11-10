@@ -60,6 +60,7 @@ public class View extends BorderPane {
         createBottomPanel();
         play.setOnAction(e -> listener.play(playlist.getSelectionModel().getSelectedIndex()));
         addToPlaylist.setOnAction(e -> listener.addToPlaylist(library.getSelectionModel().getSelectedItem()));
+        delete.setOnAction(e -> listener.removeFromPlaylist());
 
 
     }
@@ -128,5 +129,8 @@ public class View extends BorderPane {
 
     public void setListener(ButtonController listener) {
         this.listener = listener;
+    }
+    public ListView<Song> getPlaylist() {
+        return playlist;
     }
 }
