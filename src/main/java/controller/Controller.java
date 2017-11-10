@@ -2,6 +2,7 @@ package controller;
 
 import interfaces.ButtonController;
 import interfaces.Song;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import model.Model;
 import view.View;
@@ -44,9 +45,13 @@ public class Controller implements ButtonController {
     }
 
     @Override
+    //adds one Song (selected) from library to playlist
     public void addToPlaylist(Song s) {
         try {
-            if (s !=  null) model.getPlaylist().addSong(s);
+            if (s !=  null) {
+                model.getPlaylist().addSong(s);
+                System.out.println(s.getPath());
+            }
         } catch (RemoteException e) {
             System.out.println("Entfernter Rechner nicht zu erreichen:");
             e.printStackTrace();
@@ -54,6 +59,7 @@ public class Controller implements ButtonController {
     }
 
     @Override
+    //removes one Song (selected) from playlist
     public void removeFromPlaylist() {
         Song s = view.getPlaylist().getSelectionModel().getSelectedItem();
         try {
@@ -65,10 +71,33 @@ public class Controller implements ButtonController {
     }
 
     @Override
+    /*makes the MusicPlayer play
+    * needed for other method-implementations:
+    *      pause()
+    *      skip()
+    */
+    //needs to be revised
     public void play(int index) {
+        Song so = view.getPlaylist().getSelectionModel().getSelectedItem();
+        if (player == null) { //kein Lied wird gespielt
+            //throws IllegalArgumentException...
+            player = new MediaPlayer(new Media(so.getPath())); //player wird auf die ID des ausgewählten Liedes initialisiert
+            player.play(); //spiele Lied ab
+        }
+        if (player != null && player.getStatus().equals(MediaPlayer.Status.PLAYING)) { //ein Lied wird gespielt
+            player.play(); //spiele Lied ab
+        }
+        if (player != null && player.getStatus().equals(MediaPlayer.Status.PAUSED)) { //ein Lied ist pausiert
+            player.play(); //spiele Lied ab
+        }
     }
 
     @Override
+    /*makes the MusicPlay pause a playing song
+    * needed for other method-implementations:
+    *      skip()
+    * implementation: analogue to play()
+    */
     public void pause() {
         //todo
     }
@@ -79,7 +108,11 @@ public class Controller implements ButtonController {
     }
 
 
-    //Funktioniert noch nicht. Logikfehler?
+    /*lets the user edit a song's attributes
+    *
+    *
+    * Funktioniert noch nicht. Logikfehler?
+    */
     @Override
     public void edit() {
         Song s = view.getPlaylist().getSelectionModel().getSelectedItem();
