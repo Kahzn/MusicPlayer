@@ -97,9 +97,13 @@ public class Controller implements ButtonController {
     * needed for other method-implementations:
     *      skip()
     * implementation: analogue to play()
+    * needs to be revised
     */
     public void pause() {
-        //todo
+        Song lied = view.getPlaylist().getSelectionModel().getSelectedItem();
+        if (player != null && player.getStatus().equals(MediaPlayer.Status.PLAYING)) { //ein Lied wird gespiet
+            player.pause(); //pausiert ein lied
+        }
     }
 
     @Override
