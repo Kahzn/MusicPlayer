@@ -1,6 +1,5 @@
 package view;
 
-import controller.Controller;
 import interfaces.ButtonController;
 import interfaces.Song;
 import javafx.collections.FXCollections;
@@ -10,10 +9,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import model.Model;
-import model.Playlist;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.EventListener;
 
 
 public class View extends BorderPane {
@@ -31,12 +26,12 @@ public class View extends BorderPane {
 
     private VBox vbox = new VBox();
     private HBox hboxRight = new HBox();
-    private TextField Titel = new TextField();
-    private TextField Interpret = new TextField();
-    private TextField Album = new TextField();
-    private Text TitelText = new Text("Titel");
-    private Text AlbumText = new Text("Album");
-    private Text InterpretText = new Text("Interpret");
+    private TextField titel = new TextField("");
+    private TextField interpret = new TextField("");
+    private TextField album = new TextField("");
+    private Text titelText = new Text("Titel");
+    private Text albumText = new Text("Album");
+    private Text interpretText = new Text("Interpret");
     private Button play = new Button(">");
     private Button pause = new Button("||");
     private Button skip = new Button(">>|");
@@ -45,7 +40,7 @@ public class View extends BorderPane {
     private HBox hboxBottom = new HBox();
     private Button addToPlaylist = new Button("Add Song");
     private Button addAll   = new Button ("Add All Songs");
-    private Button delete = new Button("Delete Song");
+    private Button delete = new Button("Delete Song ");
 
     private ButtonController listener;
 
@@ -61,6 +56,8 @@ public class View extends BorderPane {
         play.setOnAction(e -> listener.play(playlist.getSelectionModel().getSelectedIndex()));
         addToPlaylist.setOnAction(e -> listener.addToPlaylist(library.getSelectionModel().getSelectedItem()));
         delete.setOnAction(e -> listener.removeFromPlaylist());
+        enter.setOnAction(e -> listener.edit());
+        addAll.setOnAction(e -> listener.addAll());
 
 
     }
@@ -69,7 +66,7 @@ public class View extends BorderPane {
         vbox.setSpacing(2);
         hboxRight.setSpacing(5);
         hboxRight.getChildren().addAll(play, pause, skip, enter);
-        vbox.getChildren().addAll(TitelText, Titel, InterpretText, Interpret, AlbumText, Album, hboxRight);
+        vbox.getChildren().addAll(titelText, titel, interpretText, interpret, albumText, album, hboxRight);
         setRight(vbox);
     }
 
@@ -132,5 +129,17 @@ public class View extends BorderPane {
     }
     public ListView<Song> getPlaylist() {
         return playlist;
+    }
+
+    public String getTitel() {
+        return titel.getText();
+    }
+
+    public String getInterpret() {
+        return interpret.getText();
+    }
+
+    public String getAlbum() {
+        return album.getText();
     }
 }

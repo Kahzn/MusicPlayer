@@ -66,34 +66,54 @@ public class Controller implements ButtonController {
 
     @Override
     public void play(int index) {
-        if (index >= 0) {
-
-        }
     }
 
     @Override
     public void pause() {
-
+        //todo
     }
 
     @Override
     public void skip() {
-
+        //todo
     }
 
+
+    //Funktioniert noch nicht. Logikfehler?
     @Override
     public void edit() {
+        Song s = view.getPlaylist().getSelectionModel().getSelectedItem();
+        String titel = view.getTitel();
+        String interpret = view.getInterpret();
+        String album = view.getAlbum();
+        try {
+            if (s != null) {
+                if (!titel.isEmpty()) {
+                    s.setTitle(titel);
+                }
+                if (!interpret.isEmpty()) {
+                    s.setInterpret(interpret);
+                }
+                if (!album.isEmpty()) {
+                    s.setAlbum(album);
+                }
+            }
+        }catch (Exception e) {
+            System.out.println(("Entfernter Rechner nicht zu erreichen:"));
+            e.printStackTrace();
+        }
+
 
     }
 
     @Override
     public void load() {
-
+        //Noch nicht nötig für diese Übung
     }
 
     @Override
     public void save() {
-
+        //Noch nicht nötig für diese Übung
     }
 
 
