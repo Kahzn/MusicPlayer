@@ -80,7 +80,10 @@ public class Controller implements ButtonController {
     public void play(int index) {
         Song so = view.getPlaylist().getSelectionModel().getSelectedItem();
         if (player == null) { //kein Lied wird gespielt
-            //wirft IllegalArgumentException...
+            //der MediaPlayer arbeitet mit Media Objekten
+            //Klasse Media nimmt sich ein File Objekt
+            //toURI() konvertiert den Pfad ins richtige Format
+            //toString() konvertiert das Ergebnis von toURI() in einen String
             player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //player wird auf die ID des ausgewählten Liedes initialisiert
             player.play(); //spiele Lied ab
         }
@@ -115,14 +118,29 @@ public class Controller implements ButtonController {
     */
     public void skip() {
         Song s2 = view.getPlaylist().getSelectionModel().getSelectedItem();
+
+        /*
+        //Zustand 1: kein Lied wird gespielt
         if (player == null) { //kein Lied wird gespielt
-            //wirft IllegalArgumentException...
+            //Erklaerung: siehe play() -> 87
             player = new MediaPlayer(new Media(new File((s2.getPath())).toURI().toString())); //player wird auf die ID des ausgewählten Liedes initialisiert
         }
+        //Zustand 2: ein lied wird gespielt
+        if (player != null && player.getStatus().equals(MediaPlayer.Status.PLAYING)) {
+            player.pause();
+            if (s2.getId() >= laenge der playlist -1 ) {
+                //todo
+            }
+        }
+        //Zustand 3: ein Lied ist pausiert
+        if(player != null && player.getStatus().equals(MediaPlayer.Status.PAUSED)){
+            if (s2.getId() >= /* laenge der playlist -1 ) {
+                //todo
+            }
+        }
+        */
 
-
-
-
+        //todo
 
     }
 
