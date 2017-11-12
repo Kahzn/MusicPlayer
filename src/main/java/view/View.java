@@ -55,9 +55,11 @@ public class View extends BorderPane {
         createBottomPanel();
         play.setOnAction(e -> listener.play(playlist.getSelectionModel().getSelectedIndex()));
         addToPlaylist.setOnAction(e -> listener.addToPlaylist(library.getSelectionModel().getSelectedItem()));
-        delete.setOnAction(e -> listener.removeFromPlaylist());
+        delete.setOnAction(e -> listener.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem()));
         enter.setOnAction(e -> listener.edit());
         addAll.setOnAction(e -> listener.addAll());
+        skip.setOnAction(e -> listener.skip());
+        pause.setOnAction(e -> listener.pause());
 
 
     }

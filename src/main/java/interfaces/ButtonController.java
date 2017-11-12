@@ -3,7 +3,7 @@ package interfaces;
 public interface ButtonController {
     void addAll();
     void addToPlaylist(Song s);
-    void removeFromPlaylist();
+    void removeFromPlaylist(Song s);
 
     void play(int index);
     void pause();

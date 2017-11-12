@@ -7,6 +7,7 @@ import javafx.scene.media.MediaPlayer;
 import model.Model;
 import view.View;
 
+import java.io.File;
 import java.rmi.RemoteException;
 
 public class Controller implements ButtonController {
@@ -31,7 +32,7 @@ public class Controller implements ButtonController {
 
 
     @Override
-    //adds all Songs from library to playlist
+    //fügt alle Songs aus der library der playlist hinzu
     public void addAll() {
         for(Song song : model.getLibrary()) {
             try {
@@ -45,12 +46,12 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    //adds one Song (selected) from library to playlist
+    //fügt einen Song aus der library der playlist hinzu
     public void addToPlaylist(Song s) {
         try {
             if (s !=  null) {
                 model.getPlaylist().addSong(s);
-                System.out.println(s.getPath());
+                System.out.println(s.getPath()); //wenn alles klappt: auskommentieren
             }
         } catch (RemoteException e) {
             System.out.println("Entfernter Rechner nicht zu erreichen:");
@@ -59,9 +60,9 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    //removes one Song (selected) from playlist
-    public void removeFromPlaylist() {
-        Song s = view.getPlaylist().getSelectionModel().getSelectedItem();
+    //entfernt einen Song aus der playlist
+    public void removeFromPlaylist(Song s) {
+        s = view.getPlaylist().getSelectionModel().getSelectedItem();
         try {
             if (s != null) model.getPlaylist().deleteSong(s);
         } catch (RemoteException e) {
@@ -71,17 +72,16 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    /*makes the MusicPlayer play
-    * needed for other method-implementations:
+    /*spielt einen Song ab
+    * gebraucht für andere Implementationen:
     *      pause()
     *      skip()
     */
-    //needs to be revised
     public void play(int index) {
         Song so = view.getPlaylist().getSelectionModel().getSelectedItem();
         if (player == null) { //kein Lied wird gespielt
-            //throws IllegalArgumentException...
-            player = new MediaPlayer(new Media(so.getPath())); //player wird auf die ID des ausgewählten Liedes initialisiert
+            //wirft IllegalArgumentException...
+            player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //player wird auf die ID des ausgewählten Liedes initialisiert
             player.play(); //spiele Lied ab
         }
         if (player != null && player.getStatus().equals(MediaPlayer.Status.PLAYING)) { //ein Lied wird gespielt
@@ -93,22 +93,37 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    /*makes the MusicPlay pause a playing song
-    * needed for other method-implementations:
+    /*pausiert einen (gespielten) Song
+    * bei erneutem pausieren: Song wird abgespielt
+    * gebraucht für andere Implementationen:
     *      skip()
-    * implementation: analogue to play()
-    * needs to be revised
     */
     public void pause() {
-        Song lied = view.getPlaylist().getSelectionModel().getSelectedItem();
+        //Song lied = view.getPlaylist().getSelectionModel().getSelectedItem();
         if (player != null && player.getStatus().equals(MediaPlayer.Status.PLAYING)) { //ein Lied wird gespiet
             player.pause(); //pausiert ein lied
+        }
+        if (player != null && player.getStatus().equals(MediaPlayer.Status.PAUSED)) { //ein Lied wird gespiet
+            player.play(); //spielt den pausierten Song (weiter) ab
         }
     }
 
     @Override
+    /*überspringt einen Song in der Playlist
+    * Ende der Playlist: beginne mit erstem Song in dr Playlist
+    * muss überarbeitet werden
+    */
     public void skip() {
-        //todo
+        Song s2 = view.getPlaylist().getSelectionModel().getSelectedItem();
+        if (player == null) { //kein Lied wird gespielt
+            //wirft IllegalArgumentException...
+            player = new MediaPlayer(new Media(new File((s2.getPath())).toURI().toString())); //player wird auf die ID des ausgewählten Liedes initialisiert
+        }
+
+
+
+
+
     }
 
 
