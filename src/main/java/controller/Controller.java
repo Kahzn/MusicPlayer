@@ -88,9 +88,12 @@ public class Controller implements ButtonController {
             player.play(); //spiele Lied ab
         }
         if (player != null && player.getStatus().equals(MediaPlayer.Status.PLAYING)) { //ein Lied wird gespielt
+            player.pause(); //pausiere aktuellen Song
+            player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //Initialisierung auf den neuen Song
             player.play(); //spiele Lied ab
         }
         if (player != null && player.getStatus().equals(MediaPlayer.Status.PAUSED)) { //ein Lied ist pausiert
+            player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //Initialisierung auf den neuen Song
             player.play(); //spiele Lied ab
         }
     }
@@ -102,11 +105,12 @@ public class Controller implements ButtonController {
     *      skip()
     */
     public void pause() {
-        //Song lied = view.getPlaylist().getSelectionModel().getSelectedItem();
+        Song lied = view.getPlaylist().getSelectionModel().getSelectedItem();
         if (player != null && player.getStatus().equals(MediaPlayer.Status.PLAYING)) { //ein Lied wird gespiet
             player.pause(); //pausiert ein lied
         }
         if (player != null && player.getStatus().equals(MediaPlayer.Status.PAUSED)) { //ein Lied wird gespiet
+            player = new MediaPlayer(new Media(new File((lied.getPath())).toURI().toString())); //Initialisierung auf den neuen Song
             player.play(); //spielt den pausierten Song (weiter) ab
         }
     }
@@ -117,7 +121,7 @@ public class Controller implements ButtonController {
     * muss überarbeitet werden
     */
     public void skip() {
-        Song s2 = view.getPlaylist().getSelectionModel().getSelectedItem();
+        //Song s2 = view.getPlaylist().getSelectionModel().getSelectedItem();
 
         /*
         //Zustand 1: kein Lied wird gespielt
