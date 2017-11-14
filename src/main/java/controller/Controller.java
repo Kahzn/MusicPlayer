@@ -144,7 +144,7 @@ public class Controller implements ButtonController {
     /*lets the user edit a song's attributes
     *
     *
-    * Funktioniert noch nicht. Logikfehler?
+    * Funktioniert jetzt - die View muss entsprechend geupdated werden.
     */
     @Override
     public void edit() {
