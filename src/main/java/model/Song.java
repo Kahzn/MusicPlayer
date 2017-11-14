@@ -10,18 +10,19 @@ public class Song implements interfaces.Song {
     private SimpleStringProperty path = new SimpleStringProperty();
     private SimpleStringProperty title = new SimpleStringProperty();
     private SimpleStringProperty album = new SimpleStringProperty();
-    private SimpleStringProperty interpreter = new SimpleStringProperty();
+    private SimpleStringProperty interpret = new SimpleStringProperty();
     private long id ;
 
+    /**
     public Song(){
 
-    }
+    }**/
 
-    public Song(String path, String title, String album, String interpreter, long id){
+    public Song(String path, String title, String album, String interpret, long id){
         this.path.set(path);
         this.title.set(title);
         this.album.set(album);
-        this.interpreter.set(interpreter);
+        this.interpret.set(interpret);
         this.id = id;
         System.out.println("Added Song: " + getTitle());
     }
@@ -40,12 +41,12 @@ public class Song implements interfaces.Song {
 
     @Override
     public String getInterpret() {
-        return interpreter.getValue();
+        return interpret.getValue();
     }
 
     @Override
     public void setInterpret(String interpret) {
-        this.interpreter.setValue(interpret);
+        this.interpret.setValue(interpret);
     }
 
     @Override
@@ -90,7 +91,7 @@ public class Song implements interfaces.Song {
 
     @Override
     public ObservableValue<String> interpretProperty() {
-        return interpreter;
+        return interpret;
     }
 
     @Override

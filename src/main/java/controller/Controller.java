@@ -13,8 +13,8 @@ import java.rmi.RemoteException;
 public class Controller implements ButtonController {
     Model model;
     View view;
-    //Song song;
     private MediaPlayer player;
+    private String path;
 
 
 
@@ -25,8 +25,9 @@ public class Controller implements ButtonController {
         //Bind data to view. D.h.: den ListView elements werden Elemente aus dem Model mit Methode setItems hinzugefügt
         this.view.bindData(this.model);
 
+
         //Wichtig: eine Instanz der View Klasse braucht einen ButtonController Feld um das EventHandling auszuführen
-        view.setListener(this);
+        view.setController(this);
 
     }
 
@@ -63,8 +64,9 @@ public class Controller implements ButtonController {
     //entfernt einen Song aus der playlist
     public void removeFromPlaylist(Song s) {
         s = view.getPlaylist().getSelectionModel().getSelectedItem();
+        long id = view.getPlaylist().getSelectionModel().getSelectedIndex();
         try {
-            if (s != null) model.getPlaylist().deleteSong(s);
+            if (s != null) model.getPlaylist().deleteSongByID(id);
         } catch (RemoteException e) {
             System.out.println(("Entfernter Rechner nicht zu erreichen:"));
             e.printStackTrace();
@@ -80,22 +82,24 @@ public class Controller implements ButtonController {
     public void play(int index) {
         try {
             Song so = view.getPlaylist().getSelectionModel().getSelectedItem();
-            if (player == null) { //kein Lied wird gespielt
-                //der MediaPlayer arbeitet mit Media Objekten
-                //Klasse Media nimmt sich ein File Objekt
-                //toURI() konvertiert den Pfad ins richtige Format
-                //toString() konvertiert das Ergebnis von toURI() in einen String
-                player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //player wird auf die ID des ausgewählten Liedes initialisiert
-                player.play(); //spiele Lied ab
+            if(so != null) {
+                if(player!=null){
+                    player.pause();
+                }
+
+                if(player == null || !so.getPath().equals(path)){
+                    path = so.getPath();
+                    //der MediaPlayer arbeitet mit Media Objekten
+                    //Klasse Media nimmt sich ein File Objekt
+                    //toURI() konvertiert den Pfad ins richtige Format
+                    //toString() konvertiert das Ergebnis von toURI() in einen String
+                    player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //player wird auf die ID des ausgewählten Liedes initialisiert
+                }
+                player.play();
             }
-            if (player != null && player.getStatus().equals(MediaPlayer.Status.PLAYING)) { //ein Lied wird gespielt
-                player.pause(); //pausiere aktuellen Song
-                player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //Initialisierung auf den neuen Song
-                player.play(); //spiele Lied ab
-            }
-            if (player != null && player.getStatus().equals(MediaPlayer.Status.PAUSED)) { //ein Lied ist pausiert
-                player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //Initialisierung auf den neuen Song
-                player.play(); //spiele Lied ab
+            else{
+                //avoid NullPointerException in case user presses play before player has been initialized
+                if(player != null && player.getStatus().equals(MediaPlayer.Status.PAUSED)) player.play();
             }
         }
         catch(NullPointerException e){
@@ -110,19 +114,20 @@ public class Controller implements ButtonController {
     *      skip()
     */
     public void pause() {
+
+        // todo: Weiterspielen nach Pause (nicht neustarten!)
+
         Song lied = view.getPlaylist().getSelectionModel().getSelectedItem();
         if (player != null && player.getStatus().equals(MediaPlayer.Status.PLAYING)) { //ein Lied wird gespiet
             player.pause(); //pausiert ein lied
         }
         if (player != null && player.getStatus().equals(MediaPlayer.Status.PAUSED)) { //ein Lied wird gespiet
-            player = new MediaPlayer(new Media(new File((lied.getPath())).toURI().toString())); //Initialisierung auf den neuen Song
-            player.play(); //spielt den pausierten Song (weiter) ab
+            play(view.getPlaylist().getSelectionModel().getSelectedIndex()); //spielt den pausierten Song ab
         }
     }
 
     @Override
     /*überspringt einen Song in der Playlist
-    * Ende der Playlist: beginne mit erstem Song in dr Playlist
     * muss überarbeitet werden
     */
     public void skip() {

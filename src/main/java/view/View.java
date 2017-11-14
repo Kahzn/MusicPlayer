@@ -12,7 +12,6 @@ import model.Model;
 
 
 public class View extends BorderPane {
-    //Model model;
 
     private HBox hboxTop = new HBox();
     private ChoiceBox dropDownMenu = new ChoiceBox(
@@ -42,28 +41,44 @@ public class View extends BorderPane {
     private Button addAll   = new Button ("Add All Songs");
     private Button delete = new Button("Delete Song ");
 
-    private ButtonController listener;
+    private ButtonController controller;
 
 
 
     public View(){
-        //this.model = model;
+
         createTopPanel();
         createLibraryPanel();
         createPlaylistPanel();
         createRightPanel();
         createBottomPanel();
-        play.setOnAction(e -> listener.play(playlist.getSelectionModel().getSelectedIndex()));
-        addToPlaylist.setOnAction(e -> listener.addToPlaylist(library.getSelectionModel().getSelectedItem()));
-        delete.setOnAction(e -> listener.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem()));
-        enter.setOnAction(e -> listener.edit());
-        addAll.setOnAction(e -> listener.addAll());
-        skip.setOnAction(e -> listener.skip());
-        pause.setOnAction(e -> listener.pause());
+        play.setOnAction(e -> controller.play(playlist.getSelectionModel().getSelectedIndex()));
+        addToPlaylist.setOnAction(e -> controller.addToPlaylist(library.getSelectionModel().getSelectedItem()));
+        delete.setOnAction(e -> controller.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem()));
+        enter.setOnAction(e -> controller.edit());
+        addAll.setOnAction(e -> controller.addAll());
+        skip.setOnAction(e -> controller.skip());
+        pause.setOnAction(e -> controller.pause());
 
 
     }
 
+    private void createTopPanel() {
+        hboxTop.setSpacing(10);
+        hboxTop.getChildren().addAll(dropDownMenu, time, load, save);
+        setTop(hboxTop);
+    }
+    private void createLibraryPanel() {
+        setCellFactory(library);
+        setLeft(library);
+
+    }
+
+    public void createPlaylistPanel() {
+        setCellFactory(playlist);
+        setCenter(playlist);
+
+    }
     private void createRightPanel() {
         vbox.setSpacing(2);
         hboxRight.setSpacing(5);
@@ -78,22 +93,9 @@ public class View extends BorderPane {
         setBottom(hboxBottom);
     }
 
-    public void createPlaylistPanel() {
-        setCellFactory(playlist);
-        setCenter(playlist);
-
-    }
-
-    private void createLibraryPanel() {
-        setCellFactory(library);
-        setLeft(library);
-
-    }
 
     public void setCellFactory(ListView<Song> list){
-        //the setCellFactory method takes a single parameter of type Callback<P, R>.
-        //this means that the java compiler can deduce that the lambda express will implement
-        //the Callback interface with its one method call
+        //setCelfactory ersetzt die Speicherreferenz des Objekts mit dem Titel, dem Albumnamen und Künstlernamen.
         list.setCellFactory(e -> {
             ListCell<Song> cell = new ListCell<Song>() {
                 @Override
@@ -101,10 +103,10 @@ public class View extends BorderPane {
                     super.updateItem(myObject, myObject == null || b);
 
                     if(myObject != null) {
-                        setText(myObject.getTitle());
-                        // System.out.println("Whoa "+ myObject);
+                        setText(myObject.getTitle() + " - " + myObject.getInterpret() + " - " + myObject.getAlbum());
+
                     } else {
-                        setText("");
+                        setText(" ");
                     }
                 }
             };
@@ -113,11 +115,7 @@ public class View extends BorderPane {
         });
     }
 
-    private void createTopPanel() {
-        hboxTop.setSpacing(10);
-        hboxTop.getChildren().addAll(dropDownMenu, time, load, save);
-        setTop(hboxTop);
-    }
+
 
     public void bindData(Model model){
         //Sets items in listview objects so that they are filled with objects in the model,
@@ -126,8 +124,8 @@ public class View extends BorderPane {
         playlist.setItems(model.getPlaylist());
     }
 
-    public void setListener(ButtonController listener) {
-        this.listener = listener;
+    public void setController(ButtonController controller) {
+        this.controller = controller;
     }
     public ListView<Song> getPlaylist() {
         return playlist;
