@@ -168,7 +168,7 @@ public class Controller implements ButtonController {
             System.out.println(("Entfernter Rechner nicht zu erreichen:"));
             e.printStackTrace();
         }
-
+        view.createPlaylistPanel();
 
     }
 

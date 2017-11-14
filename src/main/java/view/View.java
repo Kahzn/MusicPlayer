@@ -78,7 +78,7 @@ public class View extends BorderPane {
         setBottom(hboxBottom);
     }
 
-    private void createPlaylistPanel() {
+    public void createPlaylistPanel() {
         setCellFactory(playlist);
         setCenter(playlist);
 
