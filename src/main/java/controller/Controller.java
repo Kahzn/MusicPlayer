@@ -81,7 +81,22 @@ public class Controller implements ButtonController {
     */
     public void play(int index) {
         try {
-            Song so = view.getPlaylist().getSelectionModel().getSelectedItem();
+            /** vorherige Implementierung = redumdant
+             *      immer wieder initialisierung des Song objektes
+             *  jetzt: tatsächlicher Index des Liedes dient als Parameter der Play-Methode
+             */
+            Song so; //Objekt des Liedes wird erstellt (Typ Song) = null
+
+            /** übersteigt der Index des ausgewählten Liedes die Größe der Playlist:
+             *       beginne mit dem ersten Element in der Playlist
+             *  ansonsten: arbeite mit ausgewähltem Index
+             */
+            if (index >= view.getPlaylist().getItems().size()) {
+                so = view.getPlaylist().getItems().get(0);
+            } else {
+                so = view.getPlaylist().getItems().get(index);
+            }
+
             if(so != null) {
                 if(player!=null){
                     player.pause();
@@ -96,11 +111,28 @@ public class Controller implements ButtonController {
                     player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //player wird auf die ID des ausgewählten Liedes initialisiert
                 }
                 player.play();
+
+                /**
+                 * spiele den nächsten Song ab
+                 *
+                 * setOnEndOfMedia ist eine Methode des Medialayers
+                 *
+                 * ausgeschrieben:
+                 * player.setOnEndOfMedia(e -> new Runnable() {
+                 *    public void run() { player.play(); } )
+                 *
+                 * Runnable() = Interface
+                 * run() = einzige Methode des Interfaces Runnable
+                 *    muss überschrieben werden
+                **/
+                player.setOnEndOfMedia( () -> play(index + 1 ) );
             }
             else{
                 //avoid NullPointerException in case user presses play before player has been initialized
                 if(player != null && player.getStatus().equals(MediaPlayer.Status.PAUSED)) player.play();
             }
+
+
         }
         catch(NullPointerException e){
             System.out.println("kein Lied ausgewählt!");

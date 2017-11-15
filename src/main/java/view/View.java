@@ -127,6 +127,7 @@ public class View extends BorderPane {
     public void setController(ButtonController controller) {
         this.controller = controller;
     }
+
     public ListView<Song> getPlaylist() {
         return playlist;
     }
