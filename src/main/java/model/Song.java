@@ -14,7 +14,6 @@ public class Song implements interfaces.Song {
     private long id ;
 
     public Song(){
-
     }
 
     public Song(String path, String title, String album, String interpreter, long id){
