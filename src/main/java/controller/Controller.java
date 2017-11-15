@@ -172,7 +172,7 @@ public class Controller implements ButtonController {
 
             play(currentIndex+1);
         }
-        catch(NullPointerException e){
+        catch(NullPointerException | IndexOutOfBoundsException e){
             System.out.println("kein Lied ausgewählt!");
     }
     }
