@@ -13,6 +13,7 @@ import java.rmi.RemoteException;
 public class Controller implements ButtonController {
     Model model;
     View view;
+    private int currentIndex = 0; //index des ausgewählten Liedes
     private MediaPlayer player;
     private String path;
 
@@ -81,6 +82,9 @@ public class Controller implements ButtonController {
     */
     public void play(int index) {
         try {
+
+            currentIndex = index;
+
             /** vorherige Implementierung = redumdant
              *      immer wieder initialisierung des Song objektes
              *  jetzt: tatsächlicher Index des Liedes dient als Parameter der Play-Methode
@@ -134,7 +138,7 @@ public class Controller implements ButtonController {
 
 
         }
-        catch(NullPointerException e){
+        catch(NullPointerException | ArrayIndexOutOfBoundsException e){
             System.out.println("kein Lied ausgewählt!");
         }
     }
@@ -142,14 +146,10 @@ public class Controller implements ButtonController {
     @Override
     /*pausiert einen (gespielten) Song
     * bei erneutem pausieren: Song wird abgespielt
-    * gebraucht für andere Implementationen:
-    *      skip()
     */
     public void pause() {
 
-        // todo: Weiterspielen nach Pause (nicht neustarten!)
-
-        Song lied = view.getPlaylist().getSelectionModel().getSelectedItem();
+        //Song lied = view.getPlaylist().getSelectionModel().getSelectedItem();
         if (player != null && player.getStatus().equals(MediaPlayer.Status.PLAYING)) { //ein Lied wird gespiet
             player.pause(); //pausiert ein lied
         }
@@ -167,10 +167,10 @@ public class Controller implements ButtonController {
         try {
             //die selectNext()-Methode wählt das Lied mit dem nächsthöheren Index in der ListView aus.
             //Wenn aktuell kein Lied gewählt ist, wählt diese Methode das erste Lied aus.
-            view.getPlaylist().getSelectionModel().selectNext();
-            Song naechstesLied = view.getPlaylist().getSelectionModel().getSelectedItem();
+            //view.getPlaylist().getSelectionModel().selectNext();
+            //Song naechstesLied = view.getPlaylist().getSelectionModel().getSelectedItem();
 
-            play(view.getPlaylist().getSelectionModel().getSelectedIndex());
+            play(currentIndex+1);
         }
         catch(NullPointerException e){
             System.out.println("kein Lied ausgewählt!");
