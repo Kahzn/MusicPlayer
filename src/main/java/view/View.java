@@ -1,6 +1,5 @@
 package view;
 
-import controller.Controller;
 import interfaces.ButtonController;
 import interfaces.Song;
 import javafx.collections.FXCollections;
@@ -8,99 +7,106 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import model.Model;
-import model.Playlist;
 
 
 public class View extends BorderPane {
 
-    //BorderPane Top Content
-    private HBox hbox = new HBox();
+    private HBox hboxTop = new HBox();
     private ChoiceBox dropDownMenu = new ChoiceBox(
             FXCollections.observableArrayList("Binary", "XML", "JDBC", "OpenJPA"));
     private Label time = new Label("00:00");
     private Button load = new Button("load");
     private Button save = new Button("save");
 
-    //BorderPane Left and Center Content
     private ListView<Song> library = new ListView<>();
     private ListView<Song> playlist = new ListView<>();
 
-    //Border Pane Bottom Content
-    private Button addToPlaylist = new Button("Add Song");
-    private Button addAll   = new Button ("Add All Songs");
-    private Button delete = new Button("Delete Song");
-
-    //Border Pane Right Content
-    private TextField title = new TextField();
-    private TextField interpret = new TextField();
-    private TextField album = new TextField();
+    private VBox vbox = new VBox();
+    private HBox hboxRight = new HBox();
+    private TextField titel = new TextField("");
+    private TextField interpret = new TextField("");
+    private TextField album = new TextField("");
+    private Text titelText = new Text("Titel");
+    private Text albumText = new Text("Album");
+    private Text interpretText = new Text("Interpret");
     private Button play = new Button(">");
     private Button pause = new Button("||");
     private Button skip = new Button(">>|");
-    private Button edit = new Button("enter");
+    private Button enter = new Button("enter");
 
-    //Event Handling
-    ButtonController listener;
+    private HBox hboxBottom = new HBox();
+    private Button addToPlaylist = new Button("Add Song");
+    private Button addAll   = new Button ("Add All Songs");
+    private Button delete = new Button("Delete Song ");
+
+    private ButtonController controller;
 
 
 
     public View(){
+
         createTopPanel();
         createLibraryPanel();
         createPlaylistPanel();
         createRightPanel();
         createBottomPanel();
+        play.setOnAction(e -> controller.play(playlist.getSelectionModel().getSelectedIndex()));
+        addToPlaylist.setOnAction(e -> controller.addToPlaylist(library.getSelectionModel().getSelectedItem()));
+        delete.setOnAction(e -> controller.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem()));
+        enter.setOnAction(e -> controller.edit());
+        addAll.setOnAction(e -> controller.addAll());
+        skip.setOnAction(e -> controller.skip());
+        pause.setOnAction(e -> controller.pause());
 
-    }
 
-    public void setListener(Controller listener){
-        this.listener = listener;
     }
 
     private void createTopPanel() {
+        hboxTop.setSpacing(10);
+        hboxTop.getChildren().addAll(dropDownMenu, time, load, save);
+        setTop(hboxTop);
+    }
+    private void createLibraryPanel() {
+        setCellFactory(library);
+        setLeft(library);
 
     }
 
-    private void createRightPanel() {
+    public void createPlaylistPanel() {
+        setCellFactory(playlist);
+        setCenter(playlist);
 
+    }
+    private void createRightPanel() {
+        vbox.setSpacing(2);
+        hboxRight.setSpacing(5);
+        hboxRight.getChildren().addAll(play, pause, skip, enter);
+        vbox.getChildren().addAll(titelText, titel, interpretText, interpret, albumText, album, hboxRight);
+        setRight(vbox);
     }
 
     private void createBottomPanel() {
-        setBottom(new HBox(addAll, addToPlaylist, delete));
-        addAll.setOnAction(e -> listener.addAll());
-        addToPlaylist.setOnAction(e -> listener.addToPlaylist());
-        delete.setOnAction(e -> listener.removeFromPlaylist());
+        hboxBottom.setSpacing(10);
+        hboxBottom.getChildren().addAll(addToPlaylist, addAll, delete);
+        setBottom(hboxBottom);
     }
 
-    private void createPlaylistPanel() {
-        setCellFactory(playlist);
-        setCenter(new VBox(new Label("Playlist"),playlist));
-
-    }
-
-    private void createLibraryPanel() {
-        setCellFactory(library);
-        setLeft(new VBox(new Label("Library"),library));
-
-    }
 
     public void setCellFactory(ListView<Song> list){
-        //the setCellFactory method takes a single parameter of type Callback<P, R>.
-        //this means that the java compiler can deduce that the lambda express will implement
-        //the Callback interface with its one method call
+        //setCelfactory ersetzt die Speicherreferenz des Objekts mit dem Titel, dem Albumnamen und Künstlernamen.
         list.setCellFactory(e -> {
-            System.out.println("Whoa ");
             ListCell<Song> cell = new ListCell<Song>() {
                 @Override
                 protected void updateItem(Song myObject, boolean b) {
                     super.updateItem(myObject, myObject == null || b);
 
                     if(myObject != null) {
-                        setText(myObject.getTitle());
-                        // System.out.println("Whoa "+ myObject);
+                        setText(myObject.getTitle() + " - " + myObject.getInterpret() + " - " + myObject.getAlbum());
+
                     } else {
-                        setText("");
+                        setText(" ");
                     }
                 }
             };
@@ -118,7 +124,23 @@ public class View extends BorderPane {
         playlist.setItems(model.getPlaylist());
     }
 
+    public void setController(ButtonController controller) {
+        this.controller = controller;
+    }
 
+    public ListView<Song> getPlaylist() {
+        return playlist;
+    }
 
+    public String getTitel() {
+        return titel.getText();
+    }
 
+    public String getInterpret() {
+        return interpret.getText();
+    }
+
+    public String getAlbum() {
+        return album.getText();
+    }
 }

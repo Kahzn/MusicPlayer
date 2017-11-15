@@ -23,7 +23,8 @@ public class Playlist extends ModifiableObservableListBase<interfaces.Song> impl
 
     @Override
     public boolean deleteSongByID(long id) throws RemoteException {
-        return remove(id);
+        remove((int)id);
+        return true;
     }
 
     @Override
