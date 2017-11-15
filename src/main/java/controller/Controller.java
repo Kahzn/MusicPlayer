@@ -127,7 +127,7 @@ public class Controller implements ButtonController {
                 /* player.setOnEndOfMedia(new Runnable() {
                     @Override
                     public void run() {
-                        player.play();
+                        this.play(index + 1);
                     }
                 });
                 */
