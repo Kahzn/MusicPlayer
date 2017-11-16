@@ -128,16 +128,21 @@ public class Controller implements ButtonController {
                  * spiele den nächsten Song ab
                  *
                  * setOnEndOfMedia ist eine Methode des Medialayers
-                 *
-                 * ausgeschrieben:
-                 * player.setOnEndOfMedia(e -> new Runnable() {
-                 *    public void run() { player.play(); } )
-                 *
-                 * Runnable() = Interface
-                 * run() = einzige Methode des Interfaces Runnable
+                 * Runnable() ist ein Interface
+                 * run() ist die einzige Methode des Interfaces Runnable
                  *    muss überschrieben werden
                 **/
+                /* player.setOnEndOfMedia(new Runnable() {
+                    @Override
+                    public void run() {
+                        this.play(index + 1);
+                    }
+                });
+                */
                 player.setOnEndOfMedia( () -> play(index + 1 ) );
+
+
+
             }
             else{
                 //avoid NullPointerException in case user presses play before player has been initialized
