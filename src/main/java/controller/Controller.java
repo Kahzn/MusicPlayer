@@ -108,11 +108,19 @@ public class Controller implements ButtonController {
 
                 if(player == null || !so.getPath().equals(path)){
                     path = so.getPath();
-                    //der MediaPlayer arbeitet mit Media Objekten
-                    //Klasse Media nimmt sich ein File Objekt
-                    //toURI() konvertiert den Pfad ins richtige Format
-                    //toString() konvertiert das Ergebnis von toURI() in einen String
+                    /**der MediaPlayer arbeitet mit Media Objekten
+                    Klasse Media nimmt sich ein File Objekt
+                    toURI() konvertiert den Pfad ins richtige Format
+                    toString() konvertiert das Ergebnis von toURI() in einen String**/
                     player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //player wird auf die ID des ausgewählten Liedes initialisiert
+                    if (player.getStatus().equals(MediaPlayer.Status.PLAYING)) {
+                        player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //Erklärung: 115
+                        player.play();
+                    }
+                    if (player.getStatus().equals(MediaPlayer.Status.PAUSED)) {
+                        player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //Erklärung: 115
+                        player.play();
+                    }
                 }
                 player.play();
 
@@ -154,7 +162,7 @@ public class Controller implements ButtonController {
             player.pause(); //pausiert ein lied
         }
         if (player != null && player.getStatus().equals(MediaPlayer.Status.PAUSED)) { //ein Lied wird gespiet
-            play(view.getPlaylist().getSelectionModel().getSelectedIndex()); //spielt den pausierten Song ab
+            play(currentIndex); //spielt den pausierten Song ab
         }
     }
 
