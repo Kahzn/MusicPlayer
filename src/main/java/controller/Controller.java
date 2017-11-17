@@ -85,8 +85,7 @@ public class Controller implements ButtonController {
 
             currentIndex = index;
 
-            /** vorherige Implementierung = redumdant
-             *      immer wieder initialisierung des Song objektes
+            /** 
              *  jetzt: tatsächlicher Index des Liedes dient als Parameter der Play-Methode
              */
             Song so; //Objekt des Liedes wird erstellt (Typ Song) = null
