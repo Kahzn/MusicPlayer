@@ -1,11 +1,13 @@
 package controller;
 
 import interfaces.ButtonController;
+import interfaces.SerializableStrategy;
 import interfaces.Song;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import model.Model;
 import view.View;
+import serializable.*;
 
 import java.io.File;
 import java.rmi.RemoteException;
@@ -206,12 +208,27 @@ public class Controller implements ButtonController {
 
     @Override
     public void load() {
-        //Noch nicht nötig für diese Übung
+        //todo
     }
 
     @Override
     public void save() {
-        //Noch nicht nötig für diese Übung
+        SerializableStrategy strat = serializationType();
+        //todo
+
+    }
+
+    private SerializableStrategy serializationType() {
+        SerializableStrategy strat = null;
+        if(view.getSerializationType().equals("Binary")){
+            strat = new BinaryStrategy();
+        }else {
+            //todo
+            /*
+            .........
+             */
+        }
+        return strat;
     }
 
 
