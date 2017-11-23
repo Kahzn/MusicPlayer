@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b068547-a6d3-4ac9-9565-e4ff7772fec1" name="Default" comment="bug-fixing - play()&#10;    bei erneutem Drücken des play Buttons&#10;    (während ein Song gespielt wird)&#10;    wird der ausgewählte Song gespielt">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/u1.iml" afterPath="$PROJECT_DIR$/u2.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/G00-u2-abgabe.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/G00-u2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/view/View.java" afterPath="$PROJECT_DIR$/src/main/java/view/View.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -130,32 +134,58 @@
       <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="132" column="5" lean-forward="false" selection-start-line="132" selection-start-column="5" selection-end-line="132" selection-end-column="5" />
+            <state relative-caret-position="235">
+              <caret line="133" column="0" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#View#0;class#View#0" expanded="false" />
+                <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
+                <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
+                <element signature="method#createPlaylistPanel#0;class#View#0" expanded="false" />
+                <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
+                <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
+                <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
+                <element signature="method#bindData#0;class#View#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state relative-caret-position="330">
+              <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#link#0;class#Controller#0" expanded="false" />
+                <element signature="method#addAll#0;class#Controller#0" expanded="false" />
+                <element signature="method#addToPlaylist#0;class#Controller#0" expanded="false" />
+                <element signature="method#removeFromPlaylist#0;class#Controller#0" expanded="false" />
+                <element signature="method#play#0;class#Controller#0" expanded="false" />
+                <element signature="method#pause#0;class#Controller#0" expanded="false" />
+                <element signature="method#skip#0;class#Controller#0" expanded="false" />
+                <element signature="method#edit#0;class#Controller#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
               <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SerializableStrategy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/interfaces/SerializableStrategy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-635">
+              <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -186,9 +216,9 @@
         <option value="$PROJECT_DIR$/src/main/java/model/Playlist.java" />
         <option value="$PROJECT_DIR$/src/main/java/interfaces/Song.java" />
         <option value="$PROJECT_DIR$/src/main/java/interfaces/ButtonController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/view/View.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/view/View.java" />
       </list>
     </option>
   </component>
@@ -207,7 +237,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="42" />
+    <option name="x" value="149" />
     <option name="y" value="23" />
     <option name="width" value="1047" />
     <option name="height" value="696" />
@@ -336,6 +366,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="interfaces" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -751,7 +785,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="42" y="23" width="1047" height="696" extended-state="0" />
+    <frame x="149" y="23" width="1047" height="696" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -762,7 +796,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15231788" sideWeight="0.5800995" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32935324" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935324" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15231788" sideWeight="0.4199005" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -800,7 +834,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="bug-fixing - play()&#10;    bei erneutem Drücken des play Buttons&#10;    (während ein Song gespielt wird)&#10;    wird der ausgewählte Song gespielt" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -808,22 +844,20 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1887">
           <caret line="124" column="15" lean-forward="true" selection-start-line="124" selection-start-column="15" selection-end-line="124" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#View#0;class#View#0" expanded="false" />
+            <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createPlaylistPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
+            <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
+            <element signature="method#bindData#0;class#View#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -925,6 +959,14 @@
           <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#link#0;class#Controller#0" expanded="false" />
+            <element signature="method#addAll#0;class#Controller#0" expanded="false" />
+            <element signature="method#addToPlaylist#0;class#Controller#0" expanded="false" />
+            <element signature="method#removeFromPlaylist#0;class#Controller#0" expanded="false" />
+            <element signature="method#play#0;class#Controller#0" expanded="false" />
+            <element signature="method#pause#0;class#Controller#0" expanded="false" />
+            <element signature="method#skip#0;class#Controller#0" expanded="false" />
+            <element signature="method#edit#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -935,6 +977,14 @@
           <caret line="124" column="13" lean-forward="false" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#View#0;class#View#0" expanded="false" />
+            <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createPlaylistPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
+            <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
+            <element signature="method#bindData#0;class#View#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1036,6 +1086,14 @@
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#link#0;class#Controller#0" expanded="false" />
+            <element signature="method#addAll#0;class#Controller#0" expanded="false" />
+            <element signature="method#addToPlaylist#0;class#Controller#0" expanded="false" />
+            <element signature="method#removeFromPlaylist#0;class#Controller#0" expanded="false" />
+            <element signature="method#play#0;class#Controller#0" expanded="false" />
+            <element signature="method#pause#0;class#Controller#0" expanded="false" />
+            <element signature="method#skip#0;class#Controller#0" expanded="false" />
+            <element signature="method#edit#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1046,6 +1104,14 @@
           <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#View#0;class#View#0" expanded="false" />
+            <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createPlaylistPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
+            <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
+            <element signature="method#bindData#0;class#View#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1148,6 +1214,14 @@
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#View#0;class#View#0" expanded="false" />
+            <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createPlaylistPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
+            <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
+            <element signature="method#bindData#0;class#View#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1158,6 +1232,14 @@
           <caret line="0" column="19" lean-forward="true" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#link#0;class#Controller#0" expanded="false" />
+            <element signature="method#addAll#0;class#Controller#0" expanded="false" />
+            <element signature="method#addToPlaylist#0;class#Controller#0" expanded="false" />
+            <element signature="method#removeFromPlaylist#0;class#Controller#0" expanded="false" />
+            <element signature="method#play#0;class#Controller#0" expanded="false" />
+            <element signature="method#pause#0;class#Controller#0" expanded="false" />
+            <element signature="method#skip#0;class#Controller#0" expanded="false" />
+            <element signature="method#edit#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1260,6 +1342,14 @@
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#View#0;class#View#0" expanded="false" />
+            <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createPlaylistPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
+            <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
+            <element signature="method#bindData#0;class#View#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1270,6 +1360,14 @@
           <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#link#0;class#Controller#0" expanded="false" />
+            <element signature="method#addAll#0;class#Controller#0" expanded="false" />
+            <element signature="method#addToPlaylist#0;class#Controller#0" expanded="false" />
+            <element signature="method#removeFromPlaylist#0;class#Controller#0" expanded="false" />
+            <element signature="method#play#0;class#Controller#0" expanded="false" />
+            <element signature="method#pause#0;class#Controller#0" expanded="false" />
+            <element signature="method#skip#0;class#Controller#0" expanded="false" />
+            <element signature="method#edit#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1380,31 +1478,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/interfaces/SerializableStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-635">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="132" column="5" lean-forward="false" selection-start-line="132" selection-start-column="5" selection-end-line="132" selection-end-column="5" />
+        <state relative-caret-position="235">
+          <caret line="133" column="0" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#View#0;class#View#0" expanded="false" />
+            <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createPlaylistPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
+            <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
+            <element signature="method#bindData#0;class#View#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="330">
+          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#link#0;class#Controller#0" expanded="false" />
+            <element signature="method#addAll#0;class#Controller#0" expanded="false" />
+            <element signature="method#addToPlaylist#0;class#Controller#0" expanded="false" />
+            <element signature="method#removeFromPlaylist#0;class#Controller#0" expanded="false" />
+            <element signature="method#play#0;class#Controller#0" expanded="false" />
+            <element signature="method#pause#0;class#Controller#0" expanded="false" />
+            <element signature="method#skip#0;class#Controller#0" expanded="false" />
+            <element signature="method#edit#0;class#Controller#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>

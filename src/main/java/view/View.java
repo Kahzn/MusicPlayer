@@ -41,7 +41,7 @@ public class View extends BorderPane {
     private Button addAll   = new Button ("Add All Songs");
     private Button delete = new Button("Delete Song ");
 
-    private ButtonController controller;
+    private ButtonController controller;   //Für EventHandling
 
 
 
@@ -68,6 +68,7 @@ public class View extends BorderPane {
         hboxTop.getChildren().addAll(dropDownMenu, time, load, save);
         setTop(hboxTop);
     }
+
     private void createLibraryPanel() {
         setCellFactory(library);
         setLeft(library);
@@ -79,6 +80,7 @@ public class View extends BorderPane {
         setCenter(playlist);
 
     }
+
     private void createRightPanel() {
         vbox.setSpacing(2);
         hboxRight.setSpacing(5);
@@ -93,7 +95,6 @@ public class View extends BorderPane {
         setBottom(hboxBottom);
     }
 
-
     public void setCellFactory(ListView<Song> list){
         //setCelfactory ersetzt die Speicherreferenz des Objekts mit dem Titel, dem Albumnamen und Künstlernamen.
         list.setCellFactory(e -> {
@@ -101,21 +102,16 @@ public class View extends BorderPane {
                 @Override
                 protected void updateItem(Song myObject, boolean b) {
                     super.updateItem(myObject, myObject == null || b);
-
                     if(myObject != null) {
                         setText(myObject.getTitle() + " - " + myObject.getInterpret() + " - " + myObject.getAlbum());
-
                     } else {
                         setText(" ");
                     }
                 }
             };
-
             return cell;
         });
     }
-
-
 
     public void bindData(Model model){
         //Sets items in listview objects so that they are filled with objects in the model,
@@ -142,5 +138,10 @@ public class View extends BorderPane {
 
     public String getAlbum() {
         return album.getText();
+    }
+
+    public String getSerializationType(){
+       // todo
+        return new String ();
     }
 }

@@ -17,8 +17,6 @@ public class Controller implements ButtonController {
     private MediaPlayer player;
     private String path;
 
-
-
     public void link(Model model, View view){
         this.model = model;
         this.view = view;
@@ -34,7 +32,6 @@ public class Controller implements ButtonController {
 
 
     @Override
-    //fügt alle Songs aus der library der playlist hinzu
     public void addAll() {
         for(Song song : model.getLibrary()) {
             try {
@@ -48,7 +45,6 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    //fügt einen Song aus der library der playlist hinzu
     public void addToPlaylist(Song s) {
         try {
             if (s !=  null) {
@@ -62,7 +58,6 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    //entfernt einen Song aus der playlist
     public void removeFromPlaylist(Song s) {
         s = view.getPlaylist().getSelectionModel().getSelectedItem();
         long id = view.getPlaylist().getSelectionModel().getSelectedIndex();
@@ -75,11 +70,6 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    /*spielt einen Song ab
-    * gebraucht für andere Implementierungen:
-    *      pause()
-    *      skip()
-    */
     public void play(int index) {
         try {
 
@@ -157,9 +147,6 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    /*pausiert einen (gespielten) Song
-    * bei erneutem pausieren: Song wird abgespielt
-    */
     public void pause() {
 
         //Song lied = view.getPlaylist().getSelectionModel().getSelectedItem();
@@ -172,9 +159,6 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    /*überspringt einen Song in der Playlist
-    * muss überarbeitet werden
-    */
     public void skip() {
 
         try {
@@ -190,12 +174,6 @@ public class Controller implements ButtonController {
     }
     }
 
-
-    /*lets the user edit a song's attributes
-    *
-    *
-    * Funktioniert jetzt - die View muss entsprechend geupdated werden.
-    */
     @Override
     public void edit() {
         Song s = view.getPlaylist().getSelectionModel().getSelectedItem();
