@@ -74,7 +74,7 @@ public class BinaryStrategy implements SerializableStrategy {
     }
 
     @Override
-    public void closeWritableLibrary() throws IOException {
+    public void closeWritableLibrary() {
             try{
                 fos.close();
             }catch(IOException e){

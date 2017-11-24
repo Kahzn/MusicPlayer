@@ -228,6 +228,14 @@ public class Controller implements ButtonController {
             .........
              */
         }
+        if(view.getSerializationType().equals("XML")){
+            strat = new XMLStrategy();
+        }else {
+            //todo
+            /*
+            .........
+             */
+        }
         return strat;
     }
 
