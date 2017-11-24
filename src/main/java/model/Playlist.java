@@ -9,7 +9,9 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 
+
 public class Playlist extends ModifiableObservableListBase<interfaces.Song> implements interfaces.Playlist {
+
     private ArrayList<Song> songs = new ArrayList<Song>();
 
     @Override

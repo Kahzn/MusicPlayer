@@ -222,14 +222,14 @@ public class Controller implements ButtonController {
     private SerializableStrategy serializationType() {
         SerializableStrategy strat = null;
 
-//        if(view.getSerializationType().equals("Binary")){
-//            strat = new BinaryStrategy();
-//        }else {
-//            //todo
-//            /*
-//            .........
-//             */
-//        }
+        if(view.getSerializationType().equals("Binary")){
+            strat = new BinaryStrategy();
+        }
+        if(view.getSerializationType().equals("XML")){
+            strat = new XMLStrategy();
+        }
+
+
         return strat;
     }
 

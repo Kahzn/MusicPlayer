@@ -1,4 +1,8 @@
-# MusicPlayer
-FPT-AB 1 2017/18
+﻿# MusicPlayer
+FPT-AB 2 2017/18
 Todo:
-  - Edit Button Funktionalität (Ansatz vorhanden, aber funktioniert noch nicht)
+  - Serializale Strategies müssen implementiert werden:
+	- Binary : Kathi
+	- XML: Riccardo
+	- JDBC
+	- OpenJPA
