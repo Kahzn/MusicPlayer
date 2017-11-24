@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b068547-a6d3-4ac9-9565-e4ff7772fec1" name="Default" comment="bug-fixing - play()&#10;    bei erneutem Drücken des play Buttons&#10;    (während ein Song gespielt wird)&#10;    wird der ausgewählte Song gespielt">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/controller/XMLStrategy.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/view/View.java" afterPath="$PROJECT_DIR$/src/main/java/view/View.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -95,12 +94,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="View.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+            <state relative-caret-position="220">
+              <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#View#0;class#View#0" expanded="false" />
                 <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
                 <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
@@ -108,25 +108,13 @@
                 <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
                 <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
                 <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
-                <element signature="e#3726#4197#0" expanded="false" />
-                <element signature="e#4196#4197#0" expanded="false" />
                 <element signature="method#bindData#0;class#View#0" expanded="false" />
-                <element signature="e#4625#4626#0" expanded="false" />
-                <element signature="e#4669#4670#0" expanded="false" />
-                <element signature="e#4775#4776#0" expanded="false" />
-                <element signature="e#4813#4814#0" expanded="false" />
-                <element signature="e#4849#4850#0" expanded="false" />
-                <element signature="e#4891#4892#0" expanded="false" />
-                <element signature="e#4923#4924#0" expanded="false" />
-                <element signature="e#4961#4962#0" expanded="false" />
-                <element signature="e#5004#5005#0" expanded="false" />
-                <element signature="e#5087#5088#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="235">
@@ -210,13 +198,13 @@
         <option value="$PROJECT_DIR$/src/main/java/interfaces/Song.java" />
         <option value="$PROJECT_DIR$/src/main/java/interfaces/ButtonController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/view/View.java" />
         <option value="$PROJECT_DIR$/src/main/java/serializable/OpenJPAStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/serializable/JDBCStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/serializable/BinaryStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/serializable/XMLStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Playlist.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/view/View.java" />
       </list>
     </option>
   </component>
@@ -987,6 +975,7 @@
         <state relative-caret-position="1887">
           <caret line="124" column="13" lean-forward="false" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#View#0;class#View#0" expanded="false" />
             <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
             <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
@@ -994,19 +983,7 @@
             <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
             <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
             <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
-            <element signature="e#3726#4197#0" expanded="false" />
-            <element signature="e#4196#4197#0" expanded="false" />
             <element signature="method#bindData#0;class#View#0" expanded="false" />
-            <element signature="e#4625#4626#0" expanded="false" />
-            <element signature="e#4669#4670#0" expanded="false" />
-            <element signature="e#4775#4776#0" expanded="false" />
-            <element signature="e#4813#4814#0" expanded="false" />
-            <element signature="e#4849#4850#0" expanded="false" />
-            <element signature="e#4891#4892#0" expanded="false" />
-            <element signature="e#4923#4924#0" expanded="false" />
-            <element signature="e#4961#4962#0" expanded="false" />
-            <element signature="e#5004#5005#0" expanded="false" />
-            <element signature="e#5087#5088#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1120,6 +1097,7 @@
         <state relative-caret-position="1241">
           <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#View#0;class#View#0" expanded="false" />
             <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
             <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
@@ -1127,19 +1105,7 @@
             <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
             <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
             <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
-            <element signature="e#3726#4197#0" expanded="false" />
-            <element signature="e#4196#4197#0" expanded="false" />
             <element signature="method#bindData#0;class#View#0" expanded="false" />
-            <element signature="e#4625#4626#0" expanded="false" />
-            <element signature="e#4669#4670#0" expanded="false" />
-            <element signature="e#4775#4776#0" expanded="false" />
-            <element signature="e#4813#4814#0" expanded="false" />
-            <element signature="e#4849#4850#0" expanded="false" />
-            <element signature="e#4891#4892#0" expanded="false" />
-            <element signature="e#4923#4924#0" expanded="false" />
-            <element signature="e#4961#4962#0" expanded="false" />
-            <element signature="e#5004#5005#0" expanded="false" />
-            <element signature="e#5087#5088#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1236,6 +1202,7 @@
         <state relative-caret-position="60">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#View#0;class#View#0" expanded="false" />
             <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
             <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
@@ -1243,19 +1210,7 @@
             <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
             <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
             <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
-            <element signature="e#3726#4197#0" expanded="false" />
-            <element signature="e#4196#4197#0" expanded="false" />
             <element signature="method#bindData#0;class#View#0" expanded="false" />
-            <element signature="e#4625#4626#0" expanded="false" />
-            <element signature="e#4669#4670#0" expanded="false" />
-            <element signature="e#4775#4776#0" expanded="false" />
-            <element signature="e#4813#4814#0" expanded="false" />
-            <element signature="e#4849#4850#0" expanded="false" />
-            <element signature="e#4891#4892#0" expanded="false" />
-            <element signature="e#4923#4924#0" expanded="false" />
-            <element signature="e#4961#4962#0" expanded="false" />
-            <element signature="e#5004#5005#0" expanded="false" />
-            <element signature="e#5087#5088#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1370,6 +1325,7 @@
         <state relative-caret-position="60">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#View#0;class#View#0" expanded="false" />
             <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
             <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
@@ -1377,19 +1333,7 @@
             <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
             <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
             <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
-            <element signature="e#3726#4197#0" expanded="false" />
-            <element signature="e#4196#4197#0" expanded="false" />
             <element signature="method#bindData#0;class#View#0" expanded="false" />
-            <element signature="e#4625#4626#0" expanded="false" />
-            <element signature="e#4669#4670#0" expanded="false" />
-            <element signature="e#4775#4776#0" expanded="false" />
-            <element signature="e#4813#4814#0" expanded="false" />
-            <element signature="e#4849#4850#0" expanded="false" />
-            <element signature="e#4891#4892#0" expanded="false" />
-            <element signature="e#4923#4924#0" expanded="false" />
-            <element signature="e#4961#4962#0" expanded="false" />
-            <element signature="e#5004#5005#0" expanded="false" />
-            <element signature="e#5087#5088#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1464,35 +1408,6 @@
         <state relative-caret-position="45">
           <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-          <folding>
-            <element signature="method#View#0;class#View#0" expanded="false" />
-            <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
-            <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
-            <element signature="method#createPlaylistPanel#0;class#View#0" expanded="false" />
-            <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
-            <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
-            <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
-            <element signature="e#3726#4197#0" expanded="false" />
-            <element signature="e#4196#4197#0" expanded="false" />
-            <element signature="method#bindData#0;class#View#0" expanded="false" />
-            <element signature="e#4625#4626#0" expanded="false" />
-            <element signature="e#4669#4670#0" expanded="false" />
-            <element signature="e#4775#4776#0" expanded="false" />
-            <element signature="e#4813#4814#0" expanded="false" />
-            <element signature="e#4849#4850#0" expanded="false" />
-            <element signature="e#4891#4892#0" expanded="false" />
-            <element signature="e#4923#4924#0" expanded="false" />
-            <element signature="e#4961#4962#0" expanded="false" />
-            <element signature="e#5004#5005#0" expanded="false" />
-            <element signature="e#5087#5088#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1622,6 +1537,24 @@
             <element signature="method#pause#0;class#Controller#0" expanded="false" />
             <element signature="method#skip#0;class#Controller#0" expanded="false" />
             <element signature="method#edit#0;class#Controller#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#View#0;class#View#0" expanded="false" />
+            <element signature="method#createTopPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createLibraryPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createPlaylistPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createRightPanel#0;class#View#0" expanded="false" />
+            <element signature="method#createBottomPanel#0;class#View#0" expanded="false" />
+            <element signature="method#setCellFactory#0;class#View#0" expanded="false" />
+            <element signature="method#bindData#0;class#View#0" expanded="false" />
           </folding>
         </state>
       </provider>

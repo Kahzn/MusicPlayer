@@ -14,8 +14,6 @@ import model.Model;
 public class View extends BorderPane {
 
     private HBox hboxTop = new HBox();
-//    private ChoiceBox dropDownMenu = new ChoiceBox(
-//            FXCollections.observableArrayList("Binary", "XML", "JDBC", "OpenJPA"));
     private ChoiceBox dropDownMenu = new ChoiceBox();
     private Label time = new Label("00:00");
     private Button load = new Button("load");
