@@ -4,11 +4,12 @@ import interfaces.*;
 import interfaces.Song;
 import javafx.collections.ModifiableObservableListBase;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 
-public class Playlist extends ModifiableObservableListBase<interfaces.Song> implements interfaces.Playlist  {
+public class Playlist extends ModifiableObservableListBase<interfaces.Song> implements interfaces.Playlist, Serializable {
     private ArrayList<Song> songs = new ArrayList<Song>();
 
     @Override

@@ -3,8 +3,10 @@ package model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 
+import java.io.Serializable;
 
-public class Song implements interfaces.Song {
+
+public class Song implements interfaces.Song, Serializable {
 
 
     private SimpleStringProperty path = new SimpleStringProperty();
