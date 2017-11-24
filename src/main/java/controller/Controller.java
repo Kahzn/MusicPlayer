@@ -226,7 +226,7 @@ public class Controller implements ButtonController {
             strat = new BinaryStrategy();
         }
         if(view.getSerializationType().equals("XML")){
-            strat = new XMLStrategy();
+            strat = new XMLStrategy(); //from package serializable!!!
         }
 
 
