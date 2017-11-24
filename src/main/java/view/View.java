@@ -14,8 +14,9 @@ import model.Model;
 public class View extends BorderPane {
 
     private HBox hboxTop = new HBox();
-    private ChoiceBox dropDownMenu = new ChoiceBox(
-            FXCollections.observableArrayList("Binary", "XML", "JDBC", "OpenJPA"));
+//    private ChoiceBox dropDownMenu = new ChoiceBox(
+//            FXCollections.observableArrayList("Binary", "XML", "JDBC", "OpenJPA"));
+    private ChoiceBox dropDownMenu = new ChoiceBox();
     private Label time = new Label("00:00");
     private Button load = new Button("load");
     private Button save = new Button("save");
@@ -59,13 +60,17 @@ public class View extends BorderPane {
         addAll.setOnAction(e -> controller.addAll());
         skip.setOnAction(e -> controller.skip());
         pause.setOnAction(e -> controller.pause());
-
+        save.setOnAction(e -> controller.save());
+        load.setOnAction(e -> controller.load());
+//test
 
     }
 
     private void createTopPanel() {
         hboxTop.setSpacing(10);
         hboxTop.getChildren().addAll(dropDownMenu, time, load, save);
+        dropDownMenu.getItems().addAll("Binary", "XML", "JDBC", "OpenJPA");
+        dropDownMenu.getSelectionModel().selectFirst();
         setTop(hboxTop);
     }
 
@@ -141,7 +146,6 @@ public class View extends BorderPane {
     }
 
     public String getSerializationType(){
-       // todo
-        return new String ();
+       return dropDownMenu.getSelectionModel().getSelectedItem().toString();
     }
 }

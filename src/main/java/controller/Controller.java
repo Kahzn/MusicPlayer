@@ -214,20 +214,22 @@ public class Controller implements ButtonController {
     @Override
     public void save() {
         SerializableStrategy strat = serializationType();
+        System.out.println(view.getSerializationType());
         //todo
 
     }
 
     private SerializableStrategy serializationType() {
         SerializableStrategy strat = null;
-        if(view.getSerializationType().equals("Binary")){
-            strat = new BinaryStrategy();
-        }else {
-            //todo
-            /*
-            .........
-             */
-        }
+
+//        if(view.getSerializationType().equals("Binary")){
+//            strat = new BinaryStrategy();
+//        }else {
+//            //todo
+//            /*
+//            .........
+//             */
+//        }
         return strat;
     }
 
