@@ -1,4 +1,5 @@
 package model;
+import model.IDGenerator;
 
 
 import org.apache.openjpa.lib.util.UUIDGenerator;
@@ -16,15 +17,15 @@ public class Model {
         //essentially a load data method
         File f= new File(System.getProperty("user.dir") + "/Songs");
         File[] paths= f.listFiles();
+        idGenerator = new IDGenerator();
 
 
         if (paths != null) {
             try {
                 for (File path : paths) {
-                    //Version before creating ID Generator
                     if (path.toString().endsWith(".mp3")) {
 
-                        library.addSong(new Song( path.toString(), path.getName(), "", "", 0));
+                        library.addSong(new Song( path.toString(), path.getName(), "", "", idGenerator.getNextID()  ));
 
                     }
                 }
