@@ -10,6 +10,7 @@ import view.View;
 import serializable.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 public class Controller implements ButtonController {
@@ -208,14 +209,25 @@ public class Controller implements ButtonController {
 
     @Override
     public void load() {
-        //todo
+        //load (deserialize) library and playlist using strategy strat
+
     }
 
     @Override
     public void save() {
         SerializableStrategy strat = serializationType();
-        System.out.println(view.getSerializationType());
-        //todo
+
+        //save (serialize) library and playlist using strategy strat
+//        try {
+//            strat.openWritablePlaylist();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        try {
+//            strat.openReadablePlaylist();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
     }
 

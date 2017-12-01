@@ -13,41 +13,48 @@ import java.io.*;
  */
 public class BinaryStrategy implements SerializableStrategy {
 
+    //For Serialization
     FileOutputStream fos = null;
     ObjectOutputStream oos = null;
 
+    //For Deserialization
     FileInputStream fis = null;
     ObjectInputStream ois = null;
 
+    //Serialize library
     @Override
     public void openWritableLibrary() throws IOException {
 
            fos = new FileOutputStream("binLibrary.ser");
     }
 
+    //Deserialize Library
     @Override
     public void openReadableLibrary() throws IOException {
 
             fis = new FileInputStream("binLibrary.ser");
     }
 
+    //Serialize Playlist
     @Override
     public void openWritablePlaylist() throws IOException {
              oos = new ObjectOutputStream(fos);
     }
 
+    //Deserialize Playlist
     @Override
     public void openReadablePlaylist() throws IOException {
             ois = new ObjectInputStream(fis);
     }
 
+    //Serialize song
     @Override
     public void writeSong(Song s) throws IOException {
 
             oos.writeObject(s);
-
     }
 
+    //Deserialize song
     @Override
     public Song readSong() throws IOException, ClassNotFoundException {
             return (Song) ois.readObject();

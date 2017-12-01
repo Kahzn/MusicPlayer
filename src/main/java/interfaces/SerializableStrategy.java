@@ -27,7 +27,7 @@ public interface SerializableStrategy {
      */
     void openReadablePlaylist() throws IOException;
 
-
+/******************
 
     /*
      Write a Song to the recently opened Medium
@@ -39,6 +39,9 @@ public interface SerializableStrategy {
      */
     Song readSong() throws IOException, ClassNotFoundException;
 
+
+
+    /***************/
     /*
      Write songs from the library by calling writeSong for each Song in library
     */
