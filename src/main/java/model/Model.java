@@ -1,6 +1,8 @@
 package model;
 
 
+import org.apache.openjpa.lib.util.UUIDGenerator;
+
 import java.io.File;
 import java.rmi.RemoteException;
 
@@ -8,6 +10,7 @@ public class Model {
 
     private Playlist library = new Playlist();
     private Playlist playlist= new Playlist();
+    private IDGenerator idGenerator;
 
     public Model() {
         //essentially a load data method

@@ -228,6 +228,12 @@ public class Controller implements ButtonController {
         if(view.getSerializationType().equals("XML")){
             strat = new XMLStrategy(); //from package serializable!!!
         }
+        if(view.getSerializationType().equals("JDBC")) {
+            strat = new JDBCStrategy();
+        }
+        if(view.getSerializationType().equals("OpenJPA")) {
+            strat = new OpenJPAStrategy();
+        }
 
 
         return strat;
