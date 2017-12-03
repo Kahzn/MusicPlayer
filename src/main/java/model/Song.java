@@ -3,10 +3,10 @@ package model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 
-import java.io.Serializable;
+import java.io.*;
 
 
-public class Song implements interfaces.Song, Serializable {
+public class Song implements interfaces.Song, Serializable, Externalizable {
 
 
     private SimpleStringProperty path = new SimpleStringProperty();
@@ -15,10 +15,7 @@ public class Song implements interfaces.Song, Serializable {
     private SimpleStringProperty interpret = new SimpleStringProperty();
     private long id ;
 
-    /**
-    public Song(){
-
-    }**/
+    public Song() {}
 
     public Song(String path, String title, String album, String interpret, long id){
         this.path.set(path);
@@ -33,7 +30,7 @@ public class Song implements interfaces.Song, Serializable {
 
     @Override
     public String getAlbum() {
-        return album.getValue();
+        return album.get();
     }
 
     @Override
@@ -43,7 +40,7 @@ public class Song implements interfaces.Song, Serializable {
 
     @Override
     public String getInterpret() {
-        return interpret.getValue();
+        return interpret.get();
     }
 
     @Override
@@ -53,7 +50,7 @@ public class Song implements interfaces.Song, Serializable {
 
     @Override
     public String getPath() {
-        return path.getValue();
+        return path.get();
     }
 
     @Override
@@ -101,4 +98,13 @@ public class Song implements interfaces.Song, Serializable {
         return title;
     }
 
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        //out.writeObject();
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        //todo
+    }
 }
