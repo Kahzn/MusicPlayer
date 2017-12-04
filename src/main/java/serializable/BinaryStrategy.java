@@ -1,9 +1,11 @@
 package serializable;
 
 
+import controller.Controller;
 import interfaces.Playlist;
 import interfaces.SerializableStrategy;
 import interfaces.Song;
+import model.Model;
 
 import java.io.*;
 
@@ -21,11 +23,19 @@ public class BinaryStrategy implements SerializableStrategy {
     FileInputStream fis = null;
     ObjectInputStream ois = null;
 
+    private Controller controller;
+
+    public BinaryStrategy(Controller controller){
+        this.controller = controller;
+    }
+
     //Serialize library
     @Override
     public void openWritableLibrary() throws IOException {
 
            fos = new FileOutputStream("binLibrary.ser");
+           oos = new ObjectOutputStream(fos);
+
     }
 
     //Deserialize Library
@@ -33,86 +43,149 @@ public class BinaryStrategy implements SerializableStrategy {
     public void openReadableLibrary() throws IOException {
 
             fis = new FileInputStream("binLibrary.ser");
+            ois = new ObjectInputStream(fis);
     }
 
     //Serialize Playlist
     @Override
     public void openWritablePlaylist() throws IOException {
-             oos = new ObjectOutputStream(fos);
+            fos = new FileOutputStream("binPlaylist.ser");
+            oos = new ObjectOutputStream(fos);
     }
 
     //Deserialize Playlist
     @Override
     public void openReadablePlaylist() throws IOException {
+            fis = new FileInputStream("binPlaylist.ser");
             ois = new ObjectInputStream(fis);
     }
 
-    //Serialize song
+    //Serialize song (Write to binary code)
     @Override
     public void writeSong(Song s) throws IOException {
-
             oos.writeObject(s);
     }
 
-    //Deserialize song
+    //Deserialize song (Read from binary Byte Code)
     @Override
     public Song readSong() throws IOException, ClassNotFoundException {
             return (Song) ois.readObject();
     }
 
+    //new!
+    /*
+    Write songs from the library by calling writeSong for each Song in library
+    */
     @Override
     public void writeLibrary(Playlist p) throws IOException {
-            oos.writeObject(p);
+        //Model model = controller.getModel();
+        for(Song s : p)
+            writeSong(s);
     }
 
+    /*
+     Read songs into the library by calling readSong until null is returned
+     */
     @Override
     public Playlist readLibrary() throws IOException, ClassNotFoundException {
-        return (Playlist) ois.readObject();
+        //todo
+        return new model.Model().getLibrary();
     }
 
+    /*
+    Write songs from the Playlist by calling writeSong for each Song in Playlist
+    */
     @Override
     public void writePlaylist(Playlist p) throws IOException {
-            oos.writeObject(p);
+        //Model model = controller.getModel();
+        for(Song s : p)
+            writeSong(s);
     }
 
+    /*
+     Read songs into the Playlist by calling readSong until null is returned
+     */
     @Override
     public Playlist readPlaylist() throws IOException, ClassNotFoundException {
-        return (Playlist) ois.readObject();
+        //todo
+       return new model.Model().getPlaylist();
     }
+    //end new
+
 
     @Override
     public void closeWritableLibrary() {
-            try{
+        if (fos != null) {
+            try {
                 fos.close();
-            }catch(IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        if (oos != null) {
+            try {
+                oos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
     public void closeReadableLibrary() {
-        try {
-            fis.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (ois != null) {
+            try {
+                ois.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (fis != null) {
+            try {
+                fis.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @Override
     public void closeWritablePlaylist() {
-        try{
-            oos.close();
-        }catch(IOException e){
-            e.printStackTrace();
+        if (fos != null) {
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (oos != null) {
+            try {
+                oos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @Override
     public void closeReadablePlaylist() {
-        try{
-            ois.close();
-        }catch(IOException e){
-            e.printStackTrace();
+        if (ois != null) {
+            try {
+                ois.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (fis != null) {
+            try {
+                fis.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
+
+
+
+
 }

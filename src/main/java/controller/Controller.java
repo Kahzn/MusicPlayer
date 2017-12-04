@@ -27,10 +27,8 @@ public class Controller implements ButtonController {
         //Bind data to view. D.h.: den ListView elements werden Elemente aus dem Model mit Methode setItems hinzugefügt
         this.view.bindData(this.model);
 
-
         //Wichtig: eine Instanz der View Klasse braucht einen ButtonController Feld um das EventHandling auszuführen
         view.setController(this);
-
     }
 
 
@@ -163,13 +161,11 @@ public class Controller implements ButtonController {
 
     @Override
     public void skip() {
-
         try {
             //die selectNext()-Methode wählt das Lied mit dem nächsthöheren Index in der ListView aus.
             //Wenn aktuell kein Lied gewählt ist, wählt diese Methode das erste Lied aus.
             //view.getPlaylist().getSelectionModel().selectNext();
             //Song naechstesLied = view.getPlaylist().getSelectionModel().getSelectedItem();
-
             play(currentIndex+1);
         }
         catch(NullPointerException | IndexOutOfBoundsException e){
@@ -210,83 +206,49 @@ public class Controller implements ButtonController {
     @Override
     public void load() {
         //load (deserialize) library and playlist using strategy strat
+        SerializableStrategy strat = serializationType();
 
-        /*SerializableStrategy strat = serializationType();
-
-        //öffne Streams - library
-        try {
-            strat.openReadableLibrary();
-        } catch (IOException e) { e.printStackTrace(); }
-
-        //schreibe Objekte - library
-        try {
-            strat.readLibrary();
-        } catch (IOException | ClassNotFoundException e) { e.printStackTrace(); }
-
-        //schließe Streams wieder - library
-        strat.closeReadableLibrary();
-
-        //öffne Streams - playlist
-        try {
-            strat.openWritablePlaylist();
-        } catch (IOException e) { e.printStackTrace(); }
-
-        //schreibe Objekte - playlist
-        try {
-            strat.readPlaylist();
-        } catch (IOException | ClassNotFoundException e) { e.printStackTrace(); }
-
-        //schließe Streams wieder - playlist
-        strat.closeReadablePlaylist();
-        */
 
     }
 
     @Override
     public void save() {
         SerializableStrategy strat = serializationType();
-
         /*save (serialize) library and playlist using strategy strat */
-
-        //öffne Streams - library
+        //Serialize library
         try {
             strat.openWritableLibrary();
-        } catch (IOException e) { e.printStackTrace(); }
-
-        //schreibe Objekte - library
-        try {
             strat.writeLibrary(model.getLibrary());
-        } catch (IOException e) { e.printStackTrace(); }
+        } catch (IOException e) {
+            System.out.println("Beim Speichern der Library ist ein Fehler aufgetreten.");
+        }finally {
+            strat.closeWritableLibrary();
+        }
+        //Serialize Playlist
 
-        //schließe Streams wieder - library
-        strat.closeWritableLibrary();
-
-        //öffne Streams - playlist
         try {
             strat.openWritablePlaylist();
-        } catch (IOException e) { e.printStackTrace(); }
-
-        //schreibe Objekte - playlist
-        try {
-            strat.writePlaylist(model.getPlaylist());
-        } catch (IOException e) { e.printStackTrace(); }
-
-        //schließe Streams wieder - playlist
-        strat.closeWritablePlaylist();
-
-
+        } catch (IOException e) {
+            System.out.println("Beim Speichern der Playlist ist ein Fehler aufgetreten.");
+        }finally{
+            strat.closeWritablePlaylist();
+        }
 
     }
 
     private SerializableStrategy serializationType() {
         SerializableStrategy strat = null;
 
-        if(view.getSerializationType().equals("Binary")) strat = new BinaryStrategy();
+        if(view.getSerializationType().equals("Binary")) strat = new BinaryStrategy(this);
         if(view.getSerializationType().equals("XML")) strat = new XMLStrategy(); //from package serializable!!!
         if(view.getSerializationType().equals("JDBC")) strat = new JDBCStrategy();
         if(view.getSerializationType().equals("OpenJPA")) strat = new OpenJPAStrategy();
 
         return strat;
+    }
+
+    public Model getModel(){
+        return model;
     }
 
 
