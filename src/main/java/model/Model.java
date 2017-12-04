@@ -44,6 +44,10 @@ public class Model {
         return playlist;
     }
 
+    public void setLibrary(interfaces.Playlist library){ this.library = (Playlist) library; }
+
+    public void setPlaylist(interfaces.Playlist playlist){ this.playlist = (Playlist) playlist; }
+
 
 }
 

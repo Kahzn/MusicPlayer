@@ -41,7 +41,6 @@ public class BinaryStrategy implements SerializableStrategy {
     //Deserialize Library
     @Override
     public void openReadableLibrary() throws IOException {
-
             fis = new FileInputStream("binLibrary.ser");
             ois = new ObjectInputStream(fis);
     }
@@ -69,7 +68,8 @@ public class BinaryStrategy implements SerializableStrategy {
     //Deserialize song (Read from binary Byte Code)
     @Override
     public Song readSong() throws IOException, ClassNotFoundException {
-            return (Song) ois.readObject();
+            Song song = (Song) ois.readObject();
+            return song;
     }
 
     //new!
@@ -89,7 +89,15 @@ public class BinaryStrategy implements SerializableStrategy {
     @Override
     public Playlist readLibrary() throws IOException, ClassNotFoundException {
         //todo
-        return new model.Model().getLibrary();
+        Playlist list = new model.Playlist();
+        Song s = readSong();
+
+        while(s != null){
+            list.addSong(s);
+            //Read next song
+            s = readSong();
+        }
+        return list;
     }
 
     /*

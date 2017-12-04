@@ -207,6 +207,36 @@ public class Controller implements ButtonController {
     public void load() {
         //load (deserialize) library and playlist using strategy strat
         SerializableStrategy strat = serializationType();
+        if(strat != null){
+            //Deserialize library
+            try {
+                strat.openReadableLibrary();
+                //model.setLibrary(strat.readLibrary());
+            } catch (IOException e) {
+                System.out.println("Beim Laden der Library ist ein Fehler aufgetreten.");
+            }
+//            catch (ClassNotFoundException e) {
+//                e.printStackTrace(); //Fehler bei readSong/ObjectInputStream
+//            }finally{
+//                strat.closeReadableLibrary();
+//            }
+
+            //Deserialize Playlist
+            try {
+                strat.openReadablePlaylist();
+                //model.setPlaylist(strat.readPlaylist());
+            } catch (IOException e) {
+                System.out.println("Beim Laden der Playlist ist ein Fehler aufgetreten.");
+            }
+            //catch (ClassNotFoundException e) {
+//                e.printStackTrace(); //Fehler bei readsong/ObjectInputStream
+//            }finally{
+//                strat.closeReadablePlaylist();
+//            }
+        }else{
+            System.out.println("Bitte angeben, welche Datei deserialisiert werden soll.");
+        }
+
 
 
     }
