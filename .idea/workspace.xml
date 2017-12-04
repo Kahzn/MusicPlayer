@@ -2,24 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e0fbce0-35d7-4ccc-97f2-105993addc13" name="Default" comment="xml-Strategy wurde überarbeitet&#10;todo: Song.writeExternal() + Song.readExternal()">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/exception/IDOverFlowException.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/interfaces/ButtonController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/interfaces/Playlist.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/interfaces/SerializableStrategy.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/interfaces/Song.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/model/IDGenerator.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/model/Model.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/model/Song.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/serializable/JDBCStrategy.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/serializable/OpenJPAStrategy.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/serializable/XMLStrategy.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/binLibrary.ser" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/binPlaylist.ser" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/G00-u2-abgabe.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/G00-u2.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controller/Controller.class" afterPath="$PROJECT_DIR$/target/classes/controller/Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/serializable/BinaryStrategy.class" afterPath="$PROJECT_DIR$/target/classes/serializable/BinaryStrategy.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/Model.java" afterPath="$PROJECT_DIR$/src/main/java/model/Model.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/serializable/BinaryStrategy.java" afterPath="$PROJECT_DIR$/src/main/java/serializable/BinaryStrategy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/pom.xml" afterPath="$PROJECT_DIR$/target/pom.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,23 +55,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="230" column="14" lean-forward="false" selection-start-line="230" selection-start-column="14" selection-end-line="230" selection-end-column="14" />
+            <state relative-caret-position="275">
+              <caret line="237" column="74" lean-forward="false" selection-start-line="237" selection-start-column="74" selection-end-line="237" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#addAll#0;class#Controller#0" expanded="false" />
-                <element signature="method#addToPlaylist#0;class#Controller#0" expanded="false" />
                 <element signature="method#removeFromPlaylist#0;class#Controller#0" expanded="false" />
                 <element signature="method#play#0;class#Controller#0" expanded="false" />
                 <element signature="method#pause#0;class#Controller#0" expanded="false" />
                 <element signature="method#skip#0;class#Controller#0" expanded="false" />
                 <element signature="method#edit#0;class#Controller#0" expanded="false" />
-                <element signature="e#10224#10225#0" expanded="true" />
-                <element signature="e#10252#10253#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Playlist.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Playlist.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,12 +86,29 @@
       <file leaf-file-name="BinaryStrategy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/serializable/BinaryStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="42" column="58" lean-forward="false" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
-              <folding>
-                <element signature="e#618#619#0" expanded="true" />
-                <element signature="e#662#663#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="392">
+              <caret line="95" column="6" lean-forward="true" selection-start-line="95" selection-start-column="6" selection-end-line="95" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="binPlaylist.ser" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/binPlaylist.ser">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="binLibrary.ser" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/binLibrary.ser">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,7 +127,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/interfaces/SerializableStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="298">
-              <caret line="50" column="7" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="50" selection-end-column="7" />
+              <caret line="50" column="7" lean-forward="false" selection-start-line="48" selection-start-column="4" selection-end-line="50" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -119,7 +136,7 @@
       <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
+            <state relative-caret-position="277">
               <caret line="46" column="83" lean-forward="false" selection-start-line="46" selection-start-column="83" selection-end-line="46" selection-end-column="83" />
               <folding />
             </state>
@@ -142,15 +159,30 @@
         <option value="$PROJECT_DIR$/src/main/java/model/Song.java" />
         <option value="$PROJECT_DIR$/src/main/java/serializable/XMLStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Model.java" />
+        <option value="$PROJECT_DIR$/binPlaylist.ser" />
         <option value="$PROJECT_DIR$/src/main/java/serializable/BinaryStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
       </list>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="u2" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="149" />
-    <option name="y" value="23" />
-    <option name="width" value="775" />
+    <option name="x" value="-58" />
+    <option name="y" value="27" />
+    <option name="width" value="814" />
     <option name="height" value="697" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -552,6 +584,28 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -611,7 +665,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="149" y="23" width="775" height="697" extended-state="0" />
+    <frame x="-58" y="27" width="814" height="697" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -622,14 +676,14 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289256" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10909091" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18963166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31088084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -714,14 +768,11 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#addAll#0;class#Controller#0" expanded="false" />
-            <element signature="method#addToPlaylist#0;class#Controller#0" expanded="false" />
             <element signature="method#removeFromPlaylist#0;class#Controller#0" expanded="false" />
             <element signature="method#play#0;class#Controller#0" expanded="false" />
             <element signature="method#pause#0;class#Controller#0" expanded="false" />
             <element signature="method#skip#0;class#Controller#0" expanded="false" />
             <element signature="method#edit#0;class#Controller#0" expanded="false" />
-            <element signature="e#10224#10225#0" expanded="true" />
-            <element signature="e#10252#10253#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -798,14 +849,38 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/interfaces/SerializableStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
-          <caret line="50" column="7" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="50" selection-end-column="7" />
+          <caret line="50" column="7" lean-forward="false" selection-start-line="48" selection-start-column="4" selection-end-line="50" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Playlist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="237" column="74" lean-forward="false" selection-start-line="237" selection-start-column="74" selection-end-line="237" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addAll#0;class#Controller#0" expanded="false" />
+            <element signature="method#removeFromPlaylist#0;class#Controller#0" expanded="false" />
+            <element signature="method#play#0;class#Controller#0" expanded="false" />
+            <element signature="method#pause#0;class#Controller#0" expanded="false" />
+            <element signature="method#skip#0;class#Controller#0" expanded="false" />
+            <element signature="method#edit#0;class#Controller#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
+        <state relative-caret-position="277">
           <caret line="46" column="83" lean-forward="false" selection-start-line="46" selection-start-column="83" selection-end-line="46" selection-end-column="83" />
           <folding />
         </state>
@@ -813,31 +888,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/serializable/BinaryStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="42" column="58" lean-forward="false" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
-          <folding>
-            <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="392">
+          <caret line="95" column="6" lean-forward="true" selection-start-line="95" selection-start-column="6" selection-end-line="95" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
+    <entry file="file://$PROJECT_DIR$/binLibrary.ser">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="230" column="14" lean-forward="false" selection-start-line="230" selection-start-column="14" selection-end-line="230" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addAll#0;class#Controller#0" expanded="false" />
-            <element signature="method#addToPlaylist#0;class#Controller#0" expanded="false" />
-            <element signature="method#removeFromPlaylist#0;class#Controller#0" expanded="false" />
-            <element signature="method#play#0;class#Controller#0" expanded="false" />
-            <element signature="method#pause#0;class#Controller#0" expanded="false" />
-            <element signature="method#skip#0;class#Controller#0" expanded="false" />
-            <element signature="method#edit#0;class#Controller#0" expanded="false" />
-            <element signature="e#10224#10225#0" expanded="true" />
-            <element signature="e#10252#10253#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/binPlaylist.ser">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -857,5 +926,9 @@
         </settings>
       </state>
     </states>
+  </component>
+  <component name="mavenExecuteGoalHistory">
+    <option value="$PROJECT_DIR$" />
+    <option value="clean assembly:assembly" />
   </component>
 </project>

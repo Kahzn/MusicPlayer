@@ -23,12 +23,6 @@ public class BinaryStrategy implements SerializableStrategy {
     FileInputStream fis = null;
     ObjectInputStream ois = null;
 
-    private Controller controller;
-
-    public BinaryStrategy(Controller controller){
-        this.controller = controller;
-    }
-
     //Serialize library
     @Override
     public void openWritableLibrary() throws IOException {
@@ -78,7 +72,6 @@ public class BinaryStrategy implements SerializableStrategy {
     */
     @Override
     public void writeLibrary(Playlist p) throws IOException {
-        //Model model = controller.getModel();
         for(Song s : p)
             writeSong(s);
     }
@@ -88,7 +81,7 @@ public class BinaryStrategy implements SerializableStrategy {
      */
     @Override
     public Playlist readLibrary() throws IOException, ClassNotFoundException {
-        //todo
+
         Playlist list = new model.Playlist();
         Song s = readSong();
 
@@ -105,7 +98,6 @@ public class BinaryStrategy implements SerializableStrategy {
     */
     @Override
     public void writePlaylist(Playlist p) throws IOException {
-        //Model model = controller.getModel();
         for(Song s : p)
             writeSong(s);
     }
@@ -115,8 +107,15 @@ public class BinaryStrategy implements SerializableStrategy {
      */
     @Override
     public Playlist readPlaylist() throws IOException, ClassNotFoundException {
-        //todo
-       return new model.Model().getPlaylist();
+        Playlist list = new model.Playlist();
+        Song s = readSong();
+
+        while(s != null){
+            list.addSong(s);
+            //Read next song
+            s = readSong();
+        }
+        return list;
     }
     //end new
 

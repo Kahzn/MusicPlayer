@@ -205,34 +205,45 @@ public class Controller implements ButtonController {
 
     @Override
     public void load() {
+        //delete current library and playlist
+
+        try {
+            model.getLibrary().clearPlaylist();
+            model.getPlaylist().clearPlaylist();
+        } catch (RemoteException e) {
+            System.out.println("Problem beim Löschen der Library oder Playlist.");
+        }
+
+
+
         //load (deserialize) library and playlist using strategy strat
         SerializableStrategy strat = serializationType();
         if(strat != null){
             //Deserialize library
             try {
                 strat.openReadableLibrary();
-                //model.setLibrary(strat.readLibrary());
+                model.getLibrary().setList(strat.readLibrary().getList());
             } catch (IOException e) {
                 System.out.println("Beim Laden der Library ist ein Fehler aufgetreten.");
             }
-//            catch (ClassNotFoundException e) {
-//                e.printStackTrace(); //Fehler bei readSong/ObjectInputStream
-//            }finally{
-//                strat.closeReadableLibrary();
-//            }
+            catch (ClassNotFoundException e) {
+                e.printStackTrace(); //Fehler bei readSong/ObjectInputStream
+            }finally{
+                strat.closeReadableLibrary();
+            }
 
             //Deserialize Playlist
             try {
                 strat.openReadablePlaylist();
-                //model.setPlaylist(strat.readPlaylist());
+                model.getPlaylist().setList(strat.readPlaylist().getList());
             } catch (IOException e) {
                 System.out.println("Beim Laden der Playlist ist ein Fehler aufgetreten.");
             }
-            //catch (ClassNotFoundException e) {
-//                e.printStackTrace(); //Fehler bei readsong/ObjectInputStream
-//            }finally{
-//                strat.closeReadablePlaylist();
-//            }
+            catch (ClassNotFoundException e) {
+                e.printStackTrace(); //Fehler bei readsong/ObjectInputStream
+            }finally{
+                strat.closeReadablePlaylist();
+            }
         }else{
             System.out.println("Bitte angeben, welche Datei deserialisiert werden soll.");
         }
@@ -269,7 +280,7 @@ public class Controller implements ButtonController {
     private SerializableStrategy serializationType() {
         SerializableStrategy strat = null;
 
-        if(view.getSerializationType().equals("Binary")) strat = new BinaryStrategy(this);
+        if(view.getSerializationType().equals("Binary")) strat = new BinaryStrategy();
         if(view.getSerializationType().equals("XML")) strat = new XMLStrategy(); //from package serializable!!!
         if(view.getSerializationType().equals("JDBC")) strat = new JDBCStrategy();
         if(view.getSerializationType().equals("OpenJPA")) strat = new OpenJPAStrategy();
@@ -277,9 +288,6 @@ public class Controller implements ButtonController {
         return strat;
     }
 
-    public Model getModel(){
-        return model;
-    }
 
 
 }
