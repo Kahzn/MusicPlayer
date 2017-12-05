@@ -1,4 +1,5 @@
 package model;
+import exception.IDOverFlowException;
 import model.IDGenerator;
 
 
@@ -33,6 +34,8 @@ public class Model {
 
             } catch (RemoteException e) {
                 System.out.println("Entfernter Rechner nicht zu erreichen");
+            } catch (IDOverFlowException e){
+                System.out.println("Keine ID's mehr vorhanden.");
             }
         }
     }

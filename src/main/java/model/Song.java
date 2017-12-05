@@ -8,6 +8,7 @@ import java.io.*;
 
 public class Song implements interfaces.Song, Externalizable {
 
+    private static final long serialVersionUID = 700L;
 
     private SimpleStringProperty path = new SimpleStringProperty();
     private SimpleStringProperty title = new SimpleStringProperty();

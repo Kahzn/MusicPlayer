@@ -12,6 +12,7 @@ interfaces/Playlist.class
 interfaces/ButtonController.class
 model/IDGenerator.class
 view/View$1.class
+serializable/JDBCStrategy$TableName.class
 serializable/OpenJPAStrategy.class
 controller/Controller.class
 serializable/BinaryStrategy.class

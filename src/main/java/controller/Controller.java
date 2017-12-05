@@ -206,7 +206,6 @@ public class Controller implements ButtonController {
     @Override
     public void load() {
         //delete current library and playlist
-
         try {
             model.getLibrary().clearPlaylist();
             model.getPlaylist().clearPlaylist();
@@ -214,15 +213,15 @@ public class Controller implements ButtonController {
             System.out.println("Problem beim Löschen der Library oder Playlist.");
         }
 
-
-
         //load (deserialize) library and playlist using strategy strat
         SerializableStrategy strat = serializationType();
         if(strat != null){
             //Deserialize library
             try {
                 strat.openReadableLibrary();
-                model.getLibrary().setList(strat.readLibrary().getList());
+                for(Song s : strat.readLibrary()){
+                    model.getLibrary().addSong(s);
+                }
             } catch (IOException e) {
                 System.out.println("Beim Laden der Library ist ein Fehler aufgetreten.");
             }
@@ -235,7 +234,12 @@ public class Controller implements ButtonController {
             //Deserialize Playlist
             try {
                 strat.openReadablePlaylist();
-                model.getPlaylist().setList(strat.readPlaylist().getList());
+                for(Song s : strat.readPlaylist()){
+                    if(model.getLibrary().findSongByID(s.getId())!=null) {
+                        s = model.getLibrary().findSongByID(s.getId());
+                        model.getPlaylist().addSong(s);
+                    }
+                }
             } catch (IOException e) {
                 System.out.println("Beim Laden der Playlist ist ein Fehler aufgetreten.");
             }
@@ -269,7 +273,7 @@ public class Controller implements ButtonController {
 
         try {
             strat.openWritablePlaylist();
-            strat.writeLibrary(model.getPlaylist());
+            strat.writePlaylist(model.getPlaylist());
         } catch (IOException e) {
             System.out.println("Beim Speichern der Playlist ist ein Fehler aufgetreten.");
         }finally{
