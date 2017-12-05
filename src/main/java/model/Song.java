@@ -101,11 +101,20 @@ public class Song implements interfaces.Song, Externalizable {
 
     @Override
     public void writeExternal(ObjectOutput out) throws IOException {
-        //out.writeObject();
+        out.writeUTF(getPath());
+        out.writeUTF(getTitle());
+        out.writeUTF(getAlbum());
+        out.writeUTF(getInterpret());
+        out.writeLong(getId());
+
     }
 
     @Override
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
-        //todo
+        this.path.set(in.readUTF());
+        this.title.set(in.readUTF());
+        this.album.set(in.readUTF());
+        this.interpret.set(in.readUTF());
+        this.id = in.readLong();
     }
 }

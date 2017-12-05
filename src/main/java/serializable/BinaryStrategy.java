@@ -57,13 +57,19 @@ public class BinaryStrategy implements SerializableStrategy {
     @Override
     public void writeSong(Song s) throws IOException {
             oos.writeObject(s);
+            System.out.println("writing song: "+ s.getTitle());
     }
 
     //Deserialize song (Read from binary Byte Code)
     @Override
     public Song readSong() throws IOException, ClassNotFoundException {
+        try{
             Song song = (Song) ois.readObject();
             return song;
+        }catch(EOFException e){
+            return null;
+        }
+
     }
 
     //new!

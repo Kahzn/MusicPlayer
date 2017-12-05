@@ -6,6 +6,7 @@ import interfaces.Song;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import model.Model;
+import model.Playlist;
 import view.View;
 import serializable.*;
 
@@ -219,15 +220,17 @@ public class Controller implements ButtonController {
             //Deserialize library
             try {
                 strat.openReadableLibrary();
-                for(Song s : strat.readLibrary()){
+                for(Song s : strat.readLibrary()) {
                     model.getLibrary().addSong(s);
+                    System.out.println("Load song: " + s.getTitle());
                 }
+            } catch (RemoteException e) {
+                System.out.println("Fehler in readlibrary");
             } catch (IOException e) {
                 System.out.println("Beim Laden der Library ist ein Fehler aufgetreten.");
-            }
-            catch (ClassNotFoundException e) {
-                e.printStackTrace(); //Fehler bei readSong/ObjectInputStream
-            }finally{
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } finally{
                 strat.closeReadableLibrary();
             }
 
@@ -237,13 +240,13 @@ public class Controller implements ButtonController {
                 for(Song s : strat.readPlaylist()){
                     if(model.getLibrary().findSongByID(s.getId())!=null) {
                         s = model.getLibrary().findSongByID(s.getId());
-                        model.getPlaylist().addSong(s);
+
                     }
+                    model.getPlaylist().addSong(s);
                 }
-            } catch (IOException e) {
+            }catch (IOException e) {
                 System.out.println("Beim Laden der Playlist ist ein Fehler aufgetreten.");
-            }
-            catch (ClassNotFoundException e) {
+            }catch (ClassNotFoundException e) {
                 e.printStackTrace(); //Fehler bei readsong/ObjectInputStream
             }finally{
                 strat.closeReadablePlaylist();
