@@ -6,7 +6,7 @@ import javafx.beans.value.ObservableValue;
 import java.io.*;
 
 
-public class Song implements interfaces.Song, Serializable, Externalizable {
+public class Song implements interfaces.Song, Externalizable {
 
 
     private SimpleStringProperty path = new SimpleStringProperty();

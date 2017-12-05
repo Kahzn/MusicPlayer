@@ -123,6 +123,12 @@ public class View extends BorderPane {
         playlist.setItems(model.getPlaylist());
     }
 
+    //lade List-Views neu
+    public void refresh() {
+        library.refresh();
+        playlist.refresh();
+    }
+
     public void setController(ButtonController controller) {
         this.controller = controller;
     }

@@ -12,18 +12,17 @@ import java.io.*;
 
 public class XMLStrategy implements SerializableStrategy {
 
-    FileOutputStream fos = null;
-    XMLEncoder encoder = null; // = oos
+    private FileOutputStream fos = null;
+    private XMLEncoder encoder = null; // = oos
 
-    FileInputStream fis = null;
-    XMLDecoder decoder = null; // = ois
+    private FileInputStream fis = null;
+    private XMLDecoder decoder = null; // = ois
 
-    //Model model;
-    //Playlist playlist = model.getPlaylist();
-    //Playlist library = model.getLibrary();
+    private Playlist library;
+    //private Playlist playlist;
 
     @Override
-    /** serialisiere library **/
+    //öffne Streams zur Serialisierung der library
     public void openWritableLibrary() throws IOException {
         fos = new FileOutputStream("xmlLibraray.xml");
         encoder = new XMLEncoder(fos);
@@ -31,7 +30,7 @@ public class XMLStrategy implements SerializableStrategy {
     }
 
     @Override
-    /** deserialisiere library **/
+    //öffne Streams zur Deserialisierung der library
     public void openReadableLibrary() throws IOException {
         fis = new FileInputStream("xmlLibraray.xml");
         decoder = new XMLDecoder(fis);
@@ -39,7 +38,7 @@ public class XMLStrategy implements SerializableStrategy {
     }
 
     @Override
-    /** serialisiere playlist **/
+    //öffne Streams zur Serialisierung der playlist
     public void openWritablePlaylist() throws IOException {
         fos = new FileOutputStream("xmlPlaylist.xml");
         encoder = new XMLEncoder(fos);
@@ -47,7 +46,7 @@ public class XMLStrategy implements SerializableStrategy {
     }
 
     @Override
-    /** deserialisiere playlist **/
+    //öffne Streams zur Deserialisierung der playlist
     public void openReadablePlaylist() throws IOException {
         fis = new FileInputStream("xmlPlaylist.xml");
         decoder = new XMLDecoder(fis);
@@ -57,53 +56,53 @@ public class XMLStrategy implements SerializableStrategy {
     /** ******************************************************************************************************* **/
 
     @Override
-    /** schreibe Song(Objekt) **/
-    // serialisiere ein Object
+    // serialisiere ein Object (Song)
     public void writeSong(Song s) throws IOException {
         //model.getPlaylist().add(s);
         encoder.writeObject(s);
-        System.out.println("Songs geschrieben");
+        System.out.println("Song geschrieben");
     }
 
     @Override
-    /** lese Song(Objekt) **/
-    // deserialisiere ein Object
+    // deserialisiere ein Object (Song)
     public Song readSong() throws IOException, ClassNotFoundException {
-        System.out.println("Objekt geschrieben");
-        return (Song) decoder.readObject();
+        System.out.println("Song geschrieben");
+        Song s; //= (Song) decoder.readObject();
+        s = (Song) decoder.readObject();
+        if (s != null) { return s; }
+        else { return null; }
 
     }
 
     @Override
-    /** schreibe Song(Objekt) (writeSong() ) in library **/
+    // serialisierte library (ArrayList<Song>)
+    // iteriere dazu über die library (ArrayList<Song>)
     public void writeLibrary(Playlist p) throws IOException {
         for (Song s : p) {
-            //encoder.writeObject(s);
             writeSong(s);
         }
         System.out.println("library geschrieben");
     }
 
     @Override
-    /** lese Song(Objekt) (readSong() ) aus library **/
+    // deserialisierte library (ArrayList<Song>)
+    // iteriere dazu über die library (ArrayList<Song>)
     // gibt ganze playlist zurück
-    /*
-        - erstelle neue Playlist
+    /*  - erstelle neue Playlist
         - lese Song     (exception möglich)
         - füge gelesenen Song der Playlist hinzu
-        - wenn keine Songs mehr gelesen werden können gebe Playlist zurück
-     */
+        - wenn keine Songs mehr gelesen werden können gebe Playlist zurück */
     public Playlist readLibrary() throws IOException, ClassNotFoundException {
-        //return (Playlist) decoder.readObject();
         model.Playlist p = new model.Playlist();
-        while (fis.available()!= -1) {
+        Song so = readSong(); // erstelle Objekt (einzelner ausgelesener Song)
+        while (so != null) {  // alternative Abfrage: fis.available()!= 0 (?)
             try {
-                Song s = (model.Song) decoder.readObject();
-                p.add(s);
-            } catch (Exception e) { e.printStackTrace(); }
-
+                p.add(so); //füge ausgelenes Objekt (Song) der library hinzu
+                so = readSong(); //setzte so auf das nächste auszulesene Objekt (Song) -> setzt Schleife fort
+            } catch (IOException | ArrayIndexOutOfBoundsException e) { /* e.printStackTrace(); */ break; }
         }
         System.out.println("library ausgelesen");
+        library = p;
         return p;
     }
 
@@ -117,14 +116,23 @@ public class XMLStrategy implements SerializableStrategy {
     }
 
     @Override
-    /** lese Song(Objekt) (readSong() ) aus playlist **/
+    //
+    //analog
     public Playlist readPlaylist() throws IOException, ClassNotFoundException {
         model.Playlist p = new model.Playlist();
-        while (fis.available()!= -1) {
+        Song so = readSong(); // erstelle Objekt (einzelner ausgelesener Song)
+        while (so != null) {  // alternative Abfrage: fis.available()!= 0 (?)
             try {
-                Song s = (model.Song) decoder.readObject();
-                p.add(s);
-            } catch (Exception e) { e.printStackTrace(); }
+                so.getId();
+                /*finde Song aus library mit dem gleichen Index wie aus ausgelesene Objekt (Song)
+                  wenn Index gleich: füge Song der Playlist p hinzu
+                     -> SELBE Songs werden in library + playlist bearbeitet ( controller.edit() ) */
+                for (Song s : library) {
+                    if(s.getId() == so.getId()) p.add(s);
+                }
+                so = readSong(); //setzte so auf das nächste auszulesene Objekt (Song) -> setzt Schleife fort
+            } catch (IOException | ArrayIndexOutOfBoundsException e) { /* e.printStackTrace(); */ break; }
+
         }
         System.out.println("playlist ausgelesen");
         return p;

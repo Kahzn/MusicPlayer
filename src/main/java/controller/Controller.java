@@ -203,7 +203,8 @@ public class Controller implements ButtonController {
             System.out.println(("Entfernter Rechner nicht zu erreichen:"));
             e.printStackTrace();
         }
-        view.createPlaylistPanel();
+        view.refresh();
+        //view.createPlaylistPanel();
 
     }
 
@@ -211,7 +212,15 @@ public class Controller implements ButtonController {
     public void load() {
         //load (deserialize) library and playlist using strategy strat
 
-        /*SerializableStrategy strat = serializationType();
+        SerializableStrategy strat = serializationType();
+
+        /*zuerst: lösche Elemente aus library + playlist
+             - wenn ignoriert: ausgelesene Elemente werden der library / playlist hinzugefügt
+                               bereits existente Elemente bleiben bestehen
+                                 -> Elemente werden doppelt aufgeführt
+        */
+        model.getLibrary().clear();   //library wird resetet (bereit zum Überschreiben)
+        model.getPlaylist().clear();  //playlist wird resetet (bereit zum Überschreiben)
 
         //öffne Streams - library
         try {
@@ -220,25 +229,28 @@ public class Controller implements ButtonController {
 
         //schreibe Objekte - library
         try {
-            strat.readLibrary();
+            //strat.readLibrary();
+            model.setNewLibrary((model.Playlist) strat.readLibrary());
         } catch (IOException | ClassNotFoundException e) { e.printStackTrace(); }
 
         //schließe Streams wieder - library
         strat.closeReadableLibrary();
+        //view.bindData(this.model);
 
         //öffne Streams - playlist
         try {
-            strat.openWritablePlaylist();
+            strat.openReadablePlaylist();
         } catch (IOException e) { e.printStackTrace(); }
 
         //schreibe Objekte - playlist
         try {
-            strat.readPlaylist();
+            model.setNewPlaylist((model.Playlist) strat.readPlaylist());
         } catch (IOException | ClassNotFoundException e) { e.printStackTrace(); }
 
         //schließe Streams wieder - playlist
         strat.closeReadablePlaylist();
-        */
+        view.bindData(this.model); //aktualisiere View
+
 
     }
 

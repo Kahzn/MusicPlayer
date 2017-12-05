@@ -44,6 +44,10 @@ public class Model {
         return playlist;
     }
 
+    public void setNewPlaylist(Playlist p) { this.playlist = p;}
+
+    public void setNewLibrary(Playlist l) {this.library = l; }
+
 
 }
 
