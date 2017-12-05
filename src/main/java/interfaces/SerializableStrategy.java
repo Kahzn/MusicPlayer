@@ -27,7 +27,6 @@ public interface SerializableStrategy {
      */
     void openReadablePlaylist() throws IOException;
 
-/******************
 
     /*
      Write a Song to the recently opened Medium
