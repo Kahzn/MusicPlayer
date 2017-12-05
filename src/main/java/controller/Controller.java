@@ -269,6 +269,7 @@ public class Controller implements ButtonController {
 
         try {
             strat.openWritablePlaylist();
+            strat.writeLibrary(model.getPlaylist());
         } catch (IOException e) {
             System.out.println("Beim Speichern der Playlist ist ein Fehler aufgetreten.");
         }finally{

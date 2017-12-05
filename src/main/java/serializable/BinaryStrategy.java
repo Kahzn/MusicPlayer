@@ -72,6 +72,7 @@ public class BinaryStrategy implements SerializableStrategy {
     */
     @Override
     public void writeLibrary(Playlist p) throws IOException {
+        //Problem ... Playlist p oben ist von interfaces!??
         for(Song s : p)
             writeSong(s);
     }
@@ -98,9 +99,11 @@ public class BinaryStrategy implements SerializableStrategy {
     */
     @Override
     public void writePlaylist(Playlist p) throws IOException {
-        for(Song s : p)
+        //Problem ... Playlist p oben ist von interfaces!??
+        for (Song s : p)
             writeSong(s);
     }
+
 
     /*
      Read songs into the Playlist by calling readSong until null is returned
