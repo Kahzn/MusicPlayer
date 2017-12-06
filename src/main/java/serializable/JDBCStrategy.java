@@ -33,10 +33,10 @@ public class JDBCStrategy implements SerializableStrategy {
         try {
             switch (table) {
                 case LIBRARY:
-                    pstmt = con.prepareStatement("DELETE FROM library");
+                    pstmt = con.prepareStatement("DELETE FROM Library");
                     break;
                 case PLAYLIST:
-                    pstmt = con.prepareStatement("DELETE FROM playlist");
+                    pstmt = con.prepareStatement("DELETE FROM Playlist");
                     break;
             }
             pstmt.execute();
@@ -52,12 +52,12 @@ public class JDBCStrategy implements SerializableStrategy {
     public void openWritableLibrary() throws IOException {
         registerDriver();
         delete(TableName.LIBRARY);
-        insert= "INSERT INTO library (ID, Title, Artist, Album, Path) VALUES (?,?,?,?, ?);";
+        insert= "INSERT INTO Library (ID, Title, Artist, Album, Path) VALUES (?,?,?,?, ?);";
     }
 
     private void registerDriver() {
         try {
-            con = DriverManager.getConnection("jdbc:sqlite:MusicPlayer.db");
+            con = DriverManager.getConnection("jdbc:sqlite:/Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayerDB1.db");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -176,38 +176,54 @@ public class JDBCStrategy implements SerializableStrategy {
 
     @Override
     public void closeWritableLibrary() {
-        if(con != null){
+
             try{
-                con.close();
-                pstmt.close();
+                if(con != null) {
+                    con.close();
+                }
+                if(pstmt != null) {
+                    pstmt.close();
+                }
+
+
+
             }catch (SQLException E){
                 System.out.println("Datenbank konnte nicht geschlossen werden.");
             }
-        }
+
     }
 
     @Override
     public void closeReadableLibrary() {
-        if(con != null){
-            try{
+        try{
+            if(con != null) {
                 con.close();
-                pstmt.close();
-                rs.close();
-            }catch (SQLException E){
-                System.out.println("Datenbank konnte nicht geschlossen werden.");
             }
+            if(pstmt != null) {
+                pstmt.close();
+            }
+
+
+
+        }catch (SQLException E){
+            System.out.println("Datenbank konnte nicht geschlossen werden.");
         }
     }
 
     @Override
     public void closeWritablePlaylist() {
-        if(con != null){
-            try{
+        try{
+            if(con != null) {
                 con.close();
-                pstmt.close();
-            }catch (SQLException E){
-                System.out.println("Datenbank konnte nicht geschlossen werden.");
             }
+            if(pstmt != null) {
+                pstmt.close();
+            }
+
+
+
+        }catch (SQLException E){
+            System.out.println("Datenbank konnte nicht geschlossen werden.");
         }
 
     }
