@@ -92,6 +92,7 @@ public class BinaryStrategy implements SerializableStrategy {
         Playlist list = new model.Playlist();
         Song s = readSong();
 
+        //s ==null wann keine Byte code mehr zu lesen ist
         while(s != null){
             list.addSong(s);
             //Read next song
