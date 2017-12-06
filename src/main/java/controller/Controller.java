@@ -261,8 +261,10 @@ public class Controller implements ButtonController {
 
     @Override
     public void save() {
-        SerializableStrategy strat = serializationType();
+
         /*save (serialize) library and playlist using strategy strat */
+        SerializableStrategy strat = serializationType();
+
         //Serialize library
         try {
             strat.openWritableLibrary();
@@ -272,8 +274,8 @@ public class Controller implements ButtonController {
         }finally {
             strat.closeWritableLibrary();
         }
-        //Serialize Playlist
 
+        //Serialize Playlist
         try {
             strat.openWritablePlaylist();
             strat.writePlaylist(model.getPlaylist());

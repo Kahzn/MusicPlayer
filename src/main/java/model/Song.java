@@ -28,7 +28,7 @@ public class Song implements interfaces.Song, Externalizable {
     }
 
 
-
+    
     @Override
     public String getAlbum() {
         return album.get();
