@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e0fbce0-35d7-4ccc-97f2-105993addc13" name="Default" comment="xml-Strategy wurde überarbeitet&#10;todo: Song.writeExternal() + Song.readExternal()">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/serializable/JDBCStrategy$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MusicPlayerDB1.db" afterPath="$PROJECT_DIR$/MusicPlayerDB1.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/serializable/JDBCStrategy.java" afterPath="$PROJECT_DIR$/src/main/java/serializable/JDBCStrategy.java" />
     </list>
@@ -52,8 +53,8 @@
       <file leaf-file-name="JDBCStrategy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/serializable/JDBCStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-469">
-              <caret line="69" column="21" lean-forward="false" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+            <state relative-caret-position="369">
+              <caret line="167" column="38" lean-forward="false" selection-start-line="167" selection-start-column="38" selection-end-line="167" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -1218,26 +1219,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1512641682000" expanded="true" signature="67958:67975" ph="..." />
-            <marker date="1512641682000" expanded="true" signature="67958:67993" ph="..." />
-            <marker date="1512641682000" expanded="true" signature="67958:68006" ph="..." />
-            <marker date="1512641682000" expanded="true" signature="67958:68021" ph="..." />
-            <marker date="1512641682000" expanded="true" signature="68056:68443" ph="..." />
-            <marker date="1512641682000" expanded="true" signature="68069:68428" ph="..." />
-            <marker date="1512641682000" expanded="true" signature="68104:68414" ph="..." />
-            <marker date="1512641682000" expanded="true" signature="68123:68399" ph="..." />
-            <marker date="1512641682000" expanded="true" signature="68201:68379" ph="..." />
-            <marker date="1512641682000" expanded="true" signature="68241:68345" ph="..." />
-            <marker date="1512641682000" expanded="true" signature="68262:68323" ph="..." />
-            <marker date="1512641682000" expanded="true" signature="68488:68587" ph="..." />
+            <marker date="1512642180000" expanded="true" signature="68082:68099" ph="..." />
+            <marker date="1512642180000" expanded="true" signature="68082:68117" ph="..." />
+            <marker date="1512642180000" expanded="true" signature="68082:68130" ph="..." />
+            <marker date="1512642180000" expanded="true" signature="68082:68145" ph="..." />
+            <marker date="1512642180000" expanded="true" signature="68180:68567" ph="..." />
+            <marker date="1512642180000" expanded="true" signature="68193:68552" ph="..." />
+            <marker date="1512642180000" expanded="true" signature="68228:68538" ph="..." />
+            <marker date="1512642180000" expanded="true" signature="68247:68523" ph="..." />
+            <marker date="1512642180000" expanded="true" signature="68325:68503" ph="..." />
+            <marker date="1512642180000" expanded="true" signature="68365:68469" ph="..." />
+            <marker date="1512642180000" expanded="true" signature="68386:68447" ph="..." />
+            <marker date="1512642180000" expanded="true" signature="68612:68711" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/serializable/JDBCStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-469">
-          <caret line="69" column="21" lean-forward="false" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+        <state relative-caret-position="369">
+          <caret line="167" column="38" lean-forward="false" selection-start-line="167" selection-start-column="38" selection-end-line="167" selection-end-column="38" />
           <folding />
         </state>
       </provider>

@@ -146,7 +146,7 @@ public class JDBCStrategy implements SerializableStrategy {
     public void writeSong(Song s) throws IOException {
         try {
             pstmt = con.prepareStatement(insert);
-            pstmt.setInt(1, (int) s.getId());
+            pstmt.setLong(1,  s.getId());
             pstmt.setString(2, s.getTitle());
             pstmt.setString(3, s.getInterpret());
             pstmt.setString(4, s.getAlbum());
@@ -154,6 +154,9 @@ public class JDBCStrategy implements SerializableStrategy {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        System.out.println("Check what is in table.");
+        testTable();
     }
 
    //Read a song from Database
@@ -162,7 +165,7 @@ public class JDBCStrategy implements SerializableStrategy {
         Song song = new model.Song();
         try {
             while(rs.next()){
-                song.setId(rs.getInt("ID"));
+                song.setId(rs.getLong("ID"));
                 song.setTitle(rs.getString("Title"));
                 song.setInterpret(rs.getString("Artist"));
                 song.setAlbum(rs.getString("Album"));
