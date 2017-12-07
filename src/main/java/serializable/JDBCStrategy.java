@@ -29,39 +29,43 @@ public class JDBCStrategy implements SerializableStrategy {
         }
     }
 
-    public static void delete(TableName table) {
+    public static void deleteLibrary(TableName table) {
         try {
-            switch (table) {
-                case LIBRARY:
+
                     pstmt = con.prepareStatement("DELETE FROM Library");
-                    break;
-                case PLAYLIST:
-                    pstmt = con.prepareStatement("DELETE FROM Playlist");
-                    break;
-            }
+
+
             pstmt.execute();
+        } catch (SQLException e) {
+            System.out.println("Konnte Library aus Datenbank nicht löschen.");
+        }
+    }
+
+    public static void deletePlaylist(TableName table){
+        try {
+            pstmt = con.prepareStatement("DELETE FROM Playlist");
+        } catch (SQLException e) {
+            System.out.println("Konnte Playlist aus Datenbank nicht löschen.");
+        }
+    }
+
+    private void registerDriver() {
+        try {
+            con = DriverManager.getConnection("jdbc:sqlite:MusicPlayerDB1.db");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 
     //Opens the database connection for our library and deletes previous table
     //Save libary
     @Override
     public void openWritableLibrary() throws IOException {
         registerDriver();
-        delete(TableName.LIBRARY);
+        deleteLibrary(TableName.LIBRARY);
         insert= "INSERT INTO Library (ID, Title, Artist, Album, Path) VALUES (?,?,?,?, ?);";
     }
 
-    private void registerDriver() {
-        try {
-            con = DriverManager.getConnection("jdbc:sqlite:/Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayerDB1.db");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     //Load library
     @Override
@@ -79,7 +83,7 @@ public class JDBCStrategy implements SerializableStrategy {
     @Override
     public void openWritablePlaylist() throws IOException {
         registerDriver();
-        delete(TableName.PLAYLIST);
+        deletePlaylist(TableName.PLAYLIST);
         insert= "INSERT INTO Playlist (ID, Title, Artist, Album, Path) VALUES (?,?,?,?, ?);";
     }
 
@@ -177,19 +181,22 @@ public class JDBCStrategy implements SerializableStrategy {
     @Override
     public void closeWritableLibrary() {
 
-            try{
-                if(con != null) {
-                    con.close();
-                }
-                if(pstmt != null) {
-                    pstmt.close();
-                }
-
-
-
-            }catch (SQLException E){
-                System.out.println("Datenbank konnte nicht geschlossen werden.");
+        try{
+            if(con != null) {
+                con.close();
             }
+
+        }catch (SQLException E){
+            System.out.println("Connection konnte nicht geschlossen werden.");
+        }
+
+        if(pstmt != null) {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                System.out.println("Prepared Statement konnte nicht geschlossen werden (nach Library Speicherung).");
+            }
+        }
 
     }
 
@@ -216,14 +223,18 @@ public class JDBCStrategy implements SerializableStrategy {
             if(con != null) {
                 con.close();
             }
-            if(pstmt != null) {
-                pstmt.close();
-            }
-
 
 
         }catch (SQLException E){
-            System.out.println("Datenbank konnte nicht geschlossen werden.");
+            System.out.println("Connection konnte nicht geschlossen werden.");
+        }
+
+        if(pstmt != null) {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                System.out.println("Prepared Statement konnte nicht geschlossen werden (nach PLaylist Speicherung)");
+            }
         }
 
     }
