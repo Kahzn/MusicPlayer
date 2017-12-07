@@ -10,7 +10,7 @@ import java.sql.*;
 public class JDBCStrategy implements SerializableStrategy {
     //static: A single copy to be shared by all instances of the class.
     private static Connection con = null;
-    private ResultSet rs = null;
+    private static ResultSet rs = null;
     private static PreparedStatement pstmt = null;
     String insert ="";
     private TableName name = null;
@@ -29,25 +29,35 @@ public class JDBCStrategy implements SerializableStrategy {
         }
     }
 
-    public static void deleteLibrary(TableName table) {
+    public static void delete(TableName table) {
         try {
-
+            switch (table) {
+                case LIBRARY:
                     pstmt = con.prepareStatement("DELETE FROM Library");
-
-
+                    break;
+                case PLAYLIST:
+                    pstmt = con.prepareStatement("DELETE FROM Playlist");
+                    break;
+            }
             pstmt.execute();
         } catch (SQLException e) {
-            System.out.println("Konnte Library aus Datenbank nicht löschen.");
+            e.printStackTrace();
         }
+
+        //Check whether deleted
+        System.out.println("Check whether DB deleted.");
+        try {
+            pstmt = con.prepareStatement("SELECT * from Library");
+            rs =pstmt.executeQuery();
+            while(rs!=null && rs.next()){
+                System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"  "+rs.getString(4)+"  "+rs.getString(5));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
-    public static void deletePlaylist(TableName table){
-        try {
-            pstmt = con.prepareStatement("DELETE FROM Playlist");
-        } catch (SQLException e) {
-            System.out.println("Konnte Playlist aus Datenbank nicht löschen.");
-        }
-    }
 
     private void registerDriver() {
         try {
@@ -57,13 +67,43 @@ public class JDBCStrategy implements SerializableStrategy {
         }
     }
 
+    private void testTable(){
+        Statement stmt= null;
+        try {
+            stmt = con.createStatement();
+        } catch (SQLException e) {
+            System.out.println("Bad connection.");
+        }
+        ResultSet rs= null;
+        try {
+            rs = stmt.executeQuery("select * from library");
+        } catch (SQLException e) {
+            System.out.println("Problem with execute");
+        }
+        try {
+            if(rs == null) System.out.println("No result set.");
+            else{
+                while(rs.next())
+                    System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"  "+rs.getString(4)+"  "+rs.getString(5));
+            }
+        } catch (SQLException e) {
+            System.out.println("Problem reading data");
+        }
+//        try {
+//            con.close();
+//        } catch (SQLException e) {
+//            System.out.println("Problem closing connection");
+//        }
+    }
+
     //Opens the database connection for our library and deletes previous table
     //Save libary
     @Override
     public void openWritableLibrary() throws IOException {
         registerDriver();
-        deleteLibrary(TableName.LIBRARY);
-        insert= "INSERT INTO Library (ID, Title, Artist, Album, Path) VALUES (?,?,?,?, ?);";
+        testTable();
+        delete(TableName.LIBRARY);
+        insert= "INSERT INTO Library (ID, Title, Artist, Album, Path) VALUES (?,?,?,?,?);";
     }
 
 
@@ -72,6 +112,7 @@ public class JDBCStrategy implements SerializableStrategy {
     public void openReadableLibrary() throws IOException {
         registerDriver();
         try {
+            //Create PreparedStatement
             pstmt = con.prepareStatement("SELECT * FROM Library");
             rs = pstmt.executeQuery();
         } catch (SQLException e) {
@@ -83,7 +124,7 @@ public class JDBCStrategy implements SerializableStrategy {
     @Override
     public void openWritablePlaylist() throws IOException {
         registerDriver();
-        deletePlaylist(TableName.PLAYLIST);
+        delete(TableName.PLAYLIST);
         insert= "INSERT INTO Playlist (ID, Title, Artist, Album, Path) VALUES (?,?,?,?, ?);";
     }
 
@@ -92,6 +133,7 @@ public class JDBCStrategy implements SerializableStrategy {
     public void openReadablePlaylist() throws IOException {
         registerDriver();
         try {
+            //Create PreparedStatement
             pstmt = con.prepareStatement("SELECT * FROM Playlist");
             rs = pstmt.executeQuery();
         } catch (SQLException e) {
@@ -190,13 +232,13 @@ public class JDBCStrategy implements SerializableStrategy {
             System.out.println("Connection konnte nicht geschlossen werden.");
         }
 
-        if(pstmt != null) {
-            try {
-                pstmt.close();
-            } catch (SQLException e) {
-                System.out.println("Prepared Statement konnte nicht geschlossen werden (nach Library Speicherung).");
-            }
-        }
+//        if(pstmt != null) {
+//            try {
+//                pstmt.close();
+//            } catch (SQLException e) {
+//                System.out.println("Prepared Statement konnte nicht geschlossen werden (nach Library Speicherung).");
+//            }
+//        }
 
     }
 
@@ -229,13 +271,13 @@ public class JDBCStrategy implements SerializableStrategy {
             System.out.println("Connection konnte nicht geschlossen werden.");
         }
 
-        if(pstmt != null) {
-            try {
-                pstmt.close();
-            } catch (SQLException e) {
-                System.out.println("Prepared Statement konnte nicht geschlossen werden (nach PLaylist Speicherung)");
-            }
-        }
+//        if(pstmt != null) {
+//            try {
+//                pstmt.close();
+//            } catch (SQLException e) {
+//                System.out.println("Prepared Statement konnte nicht geschlossen werden (nach PLaylist Speicherung)");
+//            }
+//        }
 
     }
 
