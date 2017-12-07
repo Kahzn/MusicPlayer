@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e0fbce0-35d7-4ccc-97f2-105993addc13" name="Default" comment="xml-Strategy wurde überarbeitet&#10;todo: Song.writeExternal() + Song.readExternal()">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MusicPlayerDB1.db" afterPath="$PROJECT_DIR$/MusicPlayerDB1.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/serializable/JDBCStrategy.java" afterPath="$PROJECT_DIR$/src/main/java/serializable/JDBCStrategy.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,8 +52,8 @@
       <file leaf-file-name="JDBCStrategy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/serializable/JDBCStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="163" column="41" lean-forward="false" selection-start-line="163" selection-start-column="41" selection-end-line="163" selection-end-column="41" />
+            <state relative-caret-position="515">
+              <caret line="178" column="20" lean-forward="true" selection-start-line="178" selection-start-column="20" selection-end-line="178" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -717,7 +718,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="173" y="23" width="955" height="697" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -728,7 +728,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2644628" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2644628" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1217,26 +1217,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1512642213000" expanded="true" signature="68082:68099" ph="..." />
-            <marker date="1512642213000" expanded="true" signature="68082:68117" ph="..." />
-            <marker date="1512642213000" expanded="true" signature="68082:68130" ph="..." />
-            <marker date="1512642213000" expanded="true" signature="68082:68145" ph="..." />
-            <marker date="1512642213000" expanded="true" signature="68180:68567" ph="..." />
-            <marker date="1512642213000" expanded="true" signature="68193:68552" ph="..." />
-            <marker date="1512642213000" expanded="true" signature="68228:68538" ph="..." />
-            <marker date="1512642213000" expanded="true" signature="68247:68523" ph="..." />
-            <marker date="1512642213000" expanded="true" signature="68325:68503" ph="..." />
-            <marker date="1512642213000" expanded="true" signature="68365:68469" ph="..." />
-            <marker date="1512642213000" expanded="true" signature="68386:68447" ph="..." />
-            <marker date="1512642213000" expanded="true" signature="68612:68711" ph="..." />
+            <marker date="1512646581000" expanded="true" signature="67933:67950" ph="..." />
+            <marker date="1512646581000" expanded="true" signature="67933:67968" ph="..." />
+            <marker date="1512646581000" expanded="true" signature="67933:67981" ph="..." />
+            <marker date="1512646581000" expanded="true" signature="67933:67996" ph="..." />
+            <marker date="1512646581000" expanded="true" signature="68031:68418" ph="..." />
+            <marker date="1512646581000" expanded="true" signature="68044:68403" ph="..." />
+            <marker date="1512646581000" expanded="true" signature="68079:68389" ph="..." />
+            <marker date="1512646581000" expanded="true" signature="68098:68374" ph="..." />
+            <marker date="1512646581000" expanded="true" signature="68176:68354" ph="..." />
+            <marker date="1512646581000" expanded="true" signature="68216:68320" ph="..." />
+            <marker date="1512646581000" expanded="true" signature="68237:68298" ph="..." />
+            <marker date="1512646581000" expanded="true" signature="68463:68562" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/serializable/JDBCStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="163" column="41" lean-forward="false" selection-start-line="163" selection-start-column="41" selection-end-line="163" selection-end-column="41" />
+        <state relative-caret-position="515">
+          <caret line="178" column="20" lean-forward="true" selection-start-line="178" selection-start-column="20" selection-end-line="178" selection-end-column="20" />
           <folding />
         </state>
       </provider>

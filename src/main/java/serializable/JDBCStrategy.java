@@ -144,6 +144,7 @@ public class JDBCStrategy implements SerializableStrategy {
     //Insert songs into DB (Save songs from playlist)
     @Override
     public void writeSong(Song s) throws IOException {
+        //System.out.println("Song Title: "+ s.getTitle());
         try {
             pstmt = con.prepareStatement(insert);
             pstmt.setLong(1,  s.getId());
@@ -151,6 +152,7 @@ public class JDBCStrategy implements SerializableStrategy {
             pstmt.setString(3, s.getInterpret());
             pstmt.setString(4, s.getAlbum());
             pstmt.setString(5, s.getPath());
+            pstmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
