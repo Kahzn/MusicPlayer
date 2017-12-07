@@ -238,6 +238,7 @@ public class Controller implements ButtonController {
             try {
                 strat.openReadablePlaylist();
                 for(Song s : strat.readPlaylist()){
+                    System.out.println("Song in playlist is: "+ s.getTitle());
                     if(model.getLibrary().findSongByID(s.getId())!=null) {
                         s = model.getLibrary().findSongByID(s.getId());
 

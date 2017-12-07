@@ -47,31 +47,31 @@ public class JDBCStrategy implements SerializableStrategy {
             e.printStackTrace();
         }
 
-        //Check whether Library was deleted
-        System.out.println("Check whether DB deleted.");
-        try {
-            pstmt = con.prepareStatement("SELECT * from Library");
-            rs =pstmt.executeQuery();
-            while(rs!=null && rs.next()){
-                System.out.println("Library contains" + rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"  "+rs.getString(4)+"  "+rs.getString(5));
-
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        //Check whether Playlist was deleted
-        System.out.println("Check whether DB deleted.");
-        try {
-            pstmt = con.prepareStatement("SELECT * from Playlist");
-            rs =pstmt.executeQuery();
-            while(rs!=null && rs.next()){
-                System.out.println("Playlist contains" + rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"  "+rs.getString(4)+"  "+rs.getString(5));
-
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        //Check whether Library was deleted
+//        System.out.println("Check whether DB deleted.");
+//        try {
+//            pstmt = con.prepareStatement("SELECT * from Library");
+//            rs =pstmt.executeQuery();
+//            while(rs!=null && rs.next()){
+//                System.out.println("Library contains" + rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"  "+rs.getString(4)+"  "+rs.getString(5));
+//
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        //Check whether Playlist was deleted
+//        System.out.println("Check whether DB deleted.");
+//        try {
+//            pstmt = con.prepareStatement("SELECT * from Playlist");
+//            rs =pstmt.executeQuery();
+//            while(rs!=null && rs.next()){
+//                System.out.println("Playlist contains" + rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"  "+rs.getString(4)+"  "+rs.getString(5));
+//
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
@@ -93,7 +93,7 @@ public class JDBCStrategy implements SerializableStrategy {
         }
         ResultSet rs= null;
         try {
-            rs = stmt.executeQuery("select * from library");
+            rs = stmt.executeQuery("select * from Playlist");
         } catch (SQLException e) {
             System.out.println("Problem with execute");
         }
@@ -114,7 +114,7 @@ public class JDBCStrategy implements SerializableStrategy {
     @Override
     public void openWritableLibrary() throws IOException {
         registerDriver();
-        testTable();
+        //testTable();
         delete(TableName.LIBRARY);
         insert= "INSERT INTO Library (ID, Title, Artist, Album, Path) VALUES (?,?,?,?,?);";
     }
@@ -143,8 +143,8 @@ public class JDBCStrategy implements SerializableStrategy {
             e.printStackTrace();
         }
 
-        System.out.println("Check what is in table.");
-        testTable();
+//        System.out.println("Check what is in table.");
+//        testTable();
     }
 
     //Get a result set from db containing entire library
@@ -204,6 +204,8 @@ public class JDBCStrategy implements SerializableStrategy {
     public void writeLibrary(Playlist p) throws IOException {
         for(Song s : p)
             writeSong(s);
+
+        testTable();
     }
 
     /*
@@ -243,45 +245,38 @@ public class JDBCStrategy implements SerializableStrategy {
 
     @Override
     public void closeWritableLibrary() {
-
-        try{
-            if(con != null) {
-                con.close();
+        //Only necessary because of testTable method
+        //Otherwise must not close rs!
+        if(rs!= null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                System.out.println("Result set konnte nicht geschlossen werden beim schliessen von Library.");
             }
-
-        }catch (SQLException E){
-            System.out.println("Connection konnte nicht geschlossen werden.");
         }
 
         if(pstmt != null) {
             try {
-                pstmt.clearBatch();
                 pstmt.close();
             } catch (SQLException e) {
                 System.out.println("Prepared Statement konnte nicht geschlossen werden (nach Library Speicherung).");
             }
         }
+        try{
+            if(con != null) {
+                con.close();
+            }
+
+        }catch (SQLException E){
+            System.out.println("Connection konnte nicht geschlossen werden.");
+        }
+
+
 
     }
 
     @Override
     public void closeReadableLibrary() {
-        try{
-            if(con != null) {
-                con.close();
-            }
-        }catch (SQLException E){
-            System.out.println("Connection konnte nicht geschlossen werden.");
-        }
-
-//        if(pstmt != null) {
-//            try {
-//                pstmt.close();
-//            } catch (SQLException e) {
-//                System.out.println("PreparedStatement konnte nicht geschlossen werden beim" +
-//                        "schliessen von Library");
-//            }
-//        }
 
         if(rs!= null) {
             try {
@@ -290,50 +285,63 @@ public class JDBCStrategy implements SerializableStrategy {
                 System.out.println("Result set konnte nicht geschlossen werden beim schliessen von Library.");
             }
         }
+
+        if(pstmt != null) {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                System.out.println("PreparedStatement konnte nicht geschlossen werden beim" +
+                        "schliessen von Library");
+            }
+        }
+
+        try{
+            if(con != null) {
+                con.close();
+            }
+        }catch (SQLException E){
+            System.out.println("Connection konnte nicht geschlossen werden.");
+        }
+
     }
 
 
     @Override
     public void closeWritablePlaylist() {
-        try{
-            if(con != null) {
-                con.close();
+
+        //Only necessary because of testTable method
+        //Otherwise must not close rs!
+        if(rs!= null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                System.out.println("Result set konnte nicht geschlossen werden beim schliessen von Library.");
             }
-
-
-        }catch (SQLException E){
-            System.out.println("Connection konnte nicht geschlossen werden.");
         }
 
         if(pstmt != null) {
             try {
-                pstmt.clearBatch();
                 pstmt.close();
             } catch (SQLException e) {
                 System.out.println("Prepared Statement konnte nicht geschlossen werden (nach PLaylist Speicherung)");
             }
         }
 
-    }
-
-    @Override
-    public void closeReadablePlaylist() {
         try{
             if(con != null) {
                 con.close();
             }
+
         }catch (SQLException E){
             System.out.println("Connection konnte nicht geschlossen werden.");
         }
 
-//        if(pstmt != null) {
-//            try {
-//                pstmt.close();
-//            } catch (SQLException e) {
-//                System.out.println("PreparedStatement konnte nicht geschlossen werden beim" +
-//                        "schliessen von Playlist");
-//            }
-//        }
+
+
+    }
+
+    @Override
+    public void closeReadablePlaylist() {
 
         if(rs!= null) {
             try {
@@ -342,6 +350,22 @@ public class JDBCStrategy implements SerializableStrategy {
                 System.out.println("Result set konnte nicht geschlossen werden beim schliessen von PLaylist.");
             }
         }
+        if(pstmt != null) {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                System.out.println("PreparedStatement konnte nicht geschlossen werden beim" +
+                        "schliessen von Library");
+            }
+        }
+        try{
+            if(con != null) {
+                con.close();
+            }
+        }catch (SQLException E){
+            System.out.println("Connection konnte nicht geschlossen werden.");
+        }
+
     }
 
 }
