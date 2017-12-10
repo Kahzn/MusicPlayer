@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistance xmlns="http://java.sun.com/xml/ns/persistance"
+             xmlns="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:scchemaLocation="http://java.sun,com/xml/ns/persistance http://java.sun.com/xml/ns/persistance/persistance_1_0.xsd"
+             version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    <persistance-unit name="openjpa">
+        <class>model.Song</class>
+        <properties>
+            <property name="openjpa.ConnectionURL" value="jdbc:sqlite:/Users/Ricardo/MusicPlayer/MusicPlayerDB1.db"/>
+            <property name="openjpa.ConnectionDriverName" value="jdbc:sqlite:JDBC"/>
+            <property name="openjpa.jdbc.SynchronizeMappings" value="false"/>
+            <property name="openjpa.RuntimeUnenhancedClasses" value="suppoerted"/>
+        </properties>
+    </persistance-unit>
+    <persistance-unit name="openjpaSONGLIST">
+</persistance>

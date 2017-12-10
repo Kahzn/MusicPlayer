@@ -51,6 +51,7 @@ public class XMLStrategy implements SerializableStrategy {
     // serialisiere ein Object (Song)
     public void writeSong(Song s) throws IOException {
         encoder.writeObject(s);
+        System.out.println("writing Song: " + s.getTitle());
     }
 
     @Override

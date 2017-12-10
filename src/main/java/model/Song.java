@@ -2,18 +2,38 @@ package model;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
+import org.apache.openjpa.persistence.Persistent;
+import org.apache.openjpa.persistence.jdbc.Strategy;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.*;
 
-
+@Entity()
+@Table(name="LIBRARY")
 public class Song implements interfaces.Song, Externalizable {
 
     private static final long serialVersionUID = 700L;
 
+    @Persistent
+    @Strategy("StringPropertyValueHandler")
     private SimpleStringProperty path = new SimpleStringProperty();
+
+    @Persistent
+    @Strategy("StringPropertyValueHandler")
     private SimpleStringProperty title = new SimpleStringProperty();
+
+    @Persistent
+    @Strategy("StringPropertyValueHandler")
     private SimpleStringProperty album = new SimpleStringProperty();
+
+    @Persistent
+    @Strategy("StringPropertyValueHandler")
     private SimpleStringProperty interpret = new SimpleStringProperty();
+
+    @Id
     private long id ;
 
     public Song() {}
