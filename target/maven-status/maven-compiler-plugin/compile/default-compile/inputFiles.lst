@@ -1,4 +1,7 @@
 /Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/model/Playlist.java
+/Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/helper/StringPropertyValueHandler.java
+/Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/model/StringPropertyValueHandler.java
+/Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/model/AbstractPropertyValueHandler.java
 /Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/serializable/XMLStrategy.java
 /Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/main/Main.java
 /Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/exception/IDOverFlowException.java
@@ -9,6 +12,7 @@
 /Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/model/Model.java
 /Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/view/View.java
 /Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/controller/Controller.java
+/Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/helper/AbstractPropertyValueHandler.java
 /Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/serializable/OpenJPAStrategy.java
 /Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/interfaces/ButtonController.java
 /Users/rebeccamarsh/Documents/FPTGitHubWiSo1718/MusicPlayer/src/main/java/interfaces/Playlist.java

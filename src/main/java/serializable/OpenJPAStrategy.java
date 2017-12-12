@@ -18,11 +18,10 @@ public class OpenJPAStrategy implements SerializableStrategy {
     private EntityManager manager = null;
     private EntityTransaction trans = null;
 
-    //private model.Playlist newLib = new model.Playlist();
     private model.Song s;
     private List<Song> resultList;
 
-    private boolean useConfigFile = false; //wird eine Konfig.-Datei genutzt?
+    private boolean useConfigFile = true; //true falls eine Konfig.-Datei genutzt wird
 
     //arbeite ohne eine Konfig.-Datei
     public static EntityManagerFactory getWithoutConfig() {
@@ -56,8 +55,8 @@ public class OpenJPAStrategy implements SerializableStrategy {
     //öffne die Datenbankverbindung (OpenJPA)
     public void openWritableLibrary() throws IOException {
         if(useConfigFile){ //Fall: Wir nutzen Konfigurationsdatei
-            //if (factory == null) factory = Persistence.createEntityManagerFactory("persistence.xml");
-            factory = Persistence.createEntityManagerFactory("openjpa", System.getProperties());
+            factory = Persistence.createEntityManagerFactory("openjpa");
+            //factory = Persistence.createEntityManagerFactory("openjpa", System.getProperties());
             manager = factory.createEntityManager(); //erstelle EntityManager
             trans = manager.getTransaction(); //erhalte EntityTransaction
         }else{ //Fall: Wir nutzen keine Konfigurationsdatei
