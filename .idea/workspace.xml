@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e0fbce0-35d7-4ccc-97f2-105993addc13" name="Default" comment="xml-Strategy wurde überarbeitet&#10;todo: Song.writeExternal() + Song.readExternal()">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
-    </list>
+    <list default="true" id="7e0fbce0-35d7-4ccc-97f2-105993addc13" name="Default" comment="xml-Strategy wurde überarbeitet&#10;todo: Song.writeExternal() + Song.readExternal()" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,18 +36,18 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1513087548000" expanded="true" signature="59759:59801" ph="..." />
-                <marker date="1513087548000" expanded="true" signature="59759:59819" ph="..." />
-                <marker date="1513087548000" expanded="true" signature="59759:59832" ph="..." />
-                <marker date="1513087548000" expanded="true" signature="59759:59847" ph="..." />
-                <marker date="1513087548000" expanded="true" signature="59882:60269" ph="..." />
-                <marker date="1513087548000" expanded="true" signature="59895:60254" ph="..." />
-                <marker date="1513087548000" expanded="true" signature="59930:60240" ph="..." />
-                <marker date="1513087548000" expanded="true" signature="59949:60225" ph="..." />
-                <marker date="1513087548000" expanded="true" signature="60027:60205" ph="..." />
-                <marker date="1513087548000" expanded="true" signature="60067:60171" ph="..." />
-                <marker date="1513087548000" expanded="true" signature="60088:60149" ph="..." />
-                <marker date="1513087548000" expanded="true" signature="60314:60413" ph="..." />
+                <marker date="1513087561000" expanded="true" signature="59759:59801" ph="..." />
+                <marker date="1513087561000" expanded="true" signature="59759:59819" ph="..." />
+                <marker date="1513087561000" expanded="true" signature="59759:59832" ph="..." />
+                <marker date="1513087561000" expanded="true" signature="59759:59847" ph="..." />
+                <marker date="1513087561000" expanded="true" signature="59882:60269" ph="..." />
+                <marker date="1513087561000" expanded="true" signature="59895:60254" ph="..." />
+                <marker date="1513087561000" expanded="true" signature="59930:60240" ph="..." />
+                <marker date="1513087561000" expanded="true" signature="59949:60225" ph="..." />
+                <marker date="1513087561000" expanded="true" signature="60027:60205" ph="..." />
+                <marker date="1513087561000" expanded="true" signature="60067:60171" ph="..." />
+                <marker date="1513087561000" expanded="true" signature="60088:60149" ph="..." />
+                <marker date="1513087561000" expanded="true" signature="60314:60413" ph="..." />
               </folding>
             </state>
           </provider>
@@ -98,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+              <caret line="20" column="17" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -1021,18 +1018,18 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1513087548000" expanded="true" signature="59759:59801" ph="..." />
-            <marker date="1513087548000" expanded="true" signature="59759:59819" ph="..." />
-            <marker date="1513087548000" expanded="true" signature="59759:59832" ph="..." />
-            <marker date="1513087548000" expanded="true" signature="59759:59847" ph="..." />
-            <marker date="1513087548000" expanded="true" signature="59882:60269" ph="..." />
-            <marker date="1513087548000" expanded="true" signature="59895:60254" ph="..." />
-            <marker date="1513087548000" expanded="true" signature="59930:60240" ph="..." />
-            <marker date="1513087548000" expanded="true" signature="59949:60225" ph="..." />
-            <marker date="1513087548000" expanded="true" signature="60027:60205" ph="..." />
-            <marker date="1513087548000" expanded="true" signature="60067:60171" ph="..." />
-            <marker date="1513087548000" expanded="true" signature="60088:60149" ph="..." />
-            <marker date="1513087548000" expanded="true" signature="60314:60413" ph="..." />
+            <marker date="1513087561000" expanded="true" signature="59759:59801" ph="..." />
+            <marker date="1513087561000" expanded="true" signature="59759:59819" ph="..." />
+            <marker date="1513087561000" expanded="true" signature="59759:59832" ph="..." />
+            <marker date="1513087561000" expanded="true" signature="59759:59847" ph="..." />
+            <marker date="1513087561000" expanded="true" signature="59882:60269" ph="..." />
+            <marker date="1513087561000" expanded="true" signature="59895:60254" ph="..." />
+            <marker date="1513087561000" expanded="true" signature="59930:60240" ph="..." />
+            <marker date="1513087561000" expanded="true" signature="59949:60225" ph="..." />
+            <marker date="1513087561000" expanded="true" signature="60027:60205" ph="..." />
+            <marker date="1513087561000" expanded="true" signature="60067:60171" ph="..." />
+            <marker date="1513087561000" expanded="true" signature="60088:60149" ph="..." />
+            <marker date="1513087561000" expanded="true" signature="60314:60413" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1071,7 +1068,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <caret line="20" column="17" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="80" />
           <folding />
         </state>
       </provider>
