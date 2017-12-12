@@ -17,5 +17,6 @@
             <property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>
         </properties>
 
-    </persistence-unit> name = "openjpaPLAYLIST"
+    </persistence-unit>
+    <persistence-unit name = "openjpaPLAYLIST"></persistence-unit>
 </persistence>
