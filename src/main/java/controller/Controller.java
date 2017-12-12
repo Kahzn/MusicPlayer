@@ -210,6 +210,7 @@ public class Controller implements ButtonController {
         try {
             model.getLibrary().clearPlaylist();
             model.getPlaylist().clearPlaylist();
+            //OpenJPA kompatibel? (nur library wird (de)serialsiert)
         } catch (RemoteException e) {
             System.out.println("Problem beim Löschen der Library oder Playlist.");
         }
