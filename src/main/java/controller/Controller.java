@@ -236,22 +236,24 @@ public class Controller implements ButtonController {
             }
 
             //Deserialize Playlist
-            try {
-                strat.openReadablePlaylist();
-                for(Song s : strat.readPlaylist()){
-                    //System.out.println("Song in playlist is: "+ s.getTitle());
-                    if(model.getLibrary().findSongByID(s.getId())!=null) {
-                        s = model.getLibrary().findSongByID(s.getId());
+            if(!(strat instanceof OpenJPAStrategy)) {
+                try {
+                    strat.openReadablePlaylist();
+                    for (Song s : strat.readPlaylist()) {
+                        //System.out.println("Song in playlist is: "+ s.getTitle());
+                        if (model.getLibrary().findSongByID(s.getId()) != null) {
+                            s = model.getLibrary().findSongByID(s.getId());
 
+                        }
+                        model.getPlaylist().addSong(s);
                     }
-                    model.getPlaylist().addSong(s);
+                } catch (IOException e) {
+                    System.out.println("Beim Laden der Playlist ist ein Fehler aufgetreten.");
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace(); //Fehler bei readsong/ObjectInputStream
+                } finally {
+                    strat.closeReadablePlaylist();
                 }
-            }catch (IOException e) {
-                System.out.println("Beim Laden der Playlist ist ein Fehler aufgetreten.");
-            }catch (ClassNotFoundException e) {
-                e.printStackTrace(); //Fehler bei readsong/ObjectInputStream
-            }finally{
-                strat.closeReadablePlaylist();
             }
         }else{
             System.out.println("Bitte angeben, welche Datei deserialisiert werden soll.");

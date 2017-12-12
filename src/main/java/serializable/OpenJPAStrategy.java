@@ -9,6 +9,7 @@ import org.apache.openjpa.persistence.OpenJPAPersistence;
 import javax.persistence.*;
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,9 +23,9 @@ public class OpenJPAStrategy implements SerializableStrategy {
 
     //private model.Playlist newLib = new model.Playlist();
     private model.Song s;
-    private ResultList resultList;
+    private List<Song> resultList;
 
-    private boolean konficIsUsed = false; //wird eine Konfig.-Datei genutzt?
+    private boolean konficIsUsed = true; //wird eine Konfig.-Datei genutzt?
 
     //arbeite ohne eine Konfig.-Datei
     public static EntityManagerFactory getWithoutConfig() {
@@ -90,7 +91,18 @@ public class OpenJPAStrategy implements SerializableStrategy {
 
     @Override
     public void openReadableLibrary() throws IOException {
-        openWritableLibrary();
+        if (konficIsUsed == false) {
+            if (factory == null) factory = getWithoutConfig(); //ohne Konfig.-Datei
+            if (manager == null) manager = factory.createEntityManager(); //erstelle EntityManager
+            if (trans == null) trans = manager.getTransaction(); //erhalte EntityTransaction
+        }  else {
+            if (factory == null) factory = Persistence.createEntityManagerFactory("persistence.xml");
+            if (manager == null) manager = factory.createEntityManager(); //erstelle EntityManager
+            if (trans == null) trans = manager.getTransaction(); //erhalte EntityTransaction
+        }
+
+        resultList =  manager.createQuery("SELECT x FROM Song x").getResultList();
+
     }
 
     @Override
@@ -105,14 +117,14 @@ public class OpenJPAStrategy implements SerializableStrategy {
     //nutzte hierzu die Methode readSong()
     //erstelle so eine (neue) libraray (model.Playlist) -> siehe oben (23)
     public Playlist readLibrary() throws IOException, ClassNotFoundException {
+        Playlist list = new model.Playlist();
         //liest library aus
         //ohne den Aufruf von readSong()
-        for (Object o : manager.createQuery("SELECT * FROM Library").getResultList()) {
+        for (Object o : resultList) {
             s = (model.Song) o;
-            resultList.add(s);
-
+            list.addSong(s);
         }
-        return (Playlist) resultList;
+        return list;
     }
 
     @Override
