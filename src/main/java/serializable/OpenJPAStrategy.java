@@ -6,10 +6,7 @@ import interfaces.Song;
 import org.apache.openjpa.lib.rop.ResultList;
 import org.apache.openjpa.persistence.OpenJPAPersistence;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -74,18 +71,21 @@ public class OpenJPAStrategy implements SerializableStrategy {
     @Override
     //schreibe ein Objekt (Song) in die Datenbak
     public void writeSong(Song s) throws IOException {
+        trans.begin();
         manager.persist(s);
-        System.out.println("writing Song: " + s.getTitle());
+        trans.commit();
+        System.out.println("JPA save song" + s.getTitle());
     }
 
     @Override
     //schreibe die Playlist library in die Datenbank
     public void writeLibrary(Playlist p) throws IOException {
-        trans.begin();
-        for (Song s : p) {
-            writeSong(s);
-        }
-        trans.commit();
+
+            for (Song s : p) {
+                writeSong(s);
+            }
+
+
     }
 
     @Override
@@ -107,10 +107,10 @@ public class OpenJPAStrategy implements SerializableStrategy {
     public Playlist readLibrary() throws IOException, ClassNotFoundException {
         //liest library aus
         //ohne den Aufruf von readSong()
-        for (Object o : manager.createQuery("SELECT x FROM Library x").getResultList()) {
+        for (Object o : manager.createQuery("SELECT * FROM Library").getResultList()) {
             s = (model.Song) o;
             resultList.add(s);
-            //System.out.println(z.getId()+") "+z.getName() + ", Small: " +z.getSmall()+", Big: "+z.getBig());
+
         }
         return (Playlist) resultList;
     }

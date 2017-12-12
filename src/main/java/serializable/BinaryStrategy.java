@@ -60,17 +60,7 @@ public class BinaryStrategy implements SerializableStrategy {
             System.out.println("writing song: "+ s.getTitle());
     }
 
-    //Deserialize song (Read from binary Byte Code)
-    @Override
-    public Song readSong() throws IOException, ClassNotFoundException {
-        try{
-            Song song = (Song) ois.readObject();
-            return song;
-        }catch(EOFException e){
-            return null;
-        }
 
-    }
 
     //new!
     /*
@@ -83,6 +73,17 @@ public class BinaryStrategy implements SerializableStrategy {
             writeSong(s);
     }
 
+    //Deserialize song (Read from binary Byte Code)
+    @Override
+    public Song readSong() throws IOException, ClassNotFoundException {
+        try{
+            Song song = (Song) ois.readObject();
+            return song;
+        }catch(EOFException e){
+            return null;
+        }
+
+    }
     /*
      Read songs into the library by calling readSong until null is returned
      */

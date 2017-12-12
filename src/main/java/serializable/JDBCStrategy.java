@@ -47,31 +47,6 @@ public class JDBCStrategy implements SerializableStrategy {
             e.printStackTrace();
         }
 
-//        //Check whether Library was deleted
-//        System.out.println("Check whether DB deleted.");
-//        try {
-//            pstmt = con.prepareStatement("SELECT * from Library");
-//            rs =pstmt.executeQuery();
-//            while(rs!=null && rs.next()){
-//                System.out.println("Library contains" + rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"  "+rs.getString(4)+"  "+rs.getString(5));
-//
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//        //Check whether Playlist was deleted
-//        System.out.println("Check whether DB deleted.");
-//        try {
-//            pstmt = con.prepareStatement("SELECT * from Playlist");
-//            rs =pstmt.executeQuery();
-//            while(rs!=null && rs.next()){
-//                System.out.println("Playlist contains" + rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3)+"  "+rs.getString(4)+"  "+rs.getString(5));
-//
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
 
     }
 
@@ -116,7 +91,7 @@ public class JDBCStrategy implements SerializableStrategy {
         registerDriver();
         //testTable();
         delete(TableName.LIBRARY);
-        insert= "INSERT INTO Library (ID, Title, Artist, Album, Path) VALUES (?,?,?,?,?);";
+        insert= "INSERT INTO Library (id, title, interpret, album, path) VALUES (?,?,?,?,?);";
     }
 
     //Save playlist
@@ -124,7 +99,7 @@ public class JDBCStrategy implements SerializableStrategy {
     public void openWritablePlaylist() throws IOException {
         registerDriver();
         delete(TableName.PLAYLIST);
-        insert= "INSERT INTO Playlist (ID, Title, Artist, Album, Path) VALUES (?,?,?,?, ?);";
+        insert= "INSERT INTO Playlist (id, title, interpret, album, path) VALUES (?,?,?,?, ?);";
     }
 
     //Insert songs into DB (Save songs from playlist)
@@ -176,25 +151,6 @@ public class JDBCStrategy implements SerializableStrategy {
     }
 
 
-   //Read a song from Database
-    @Override
-    public Song readSong() throws IOException, ClassNotFoundException {
-        Song song = null;
-        try {
-            while(rs.next()){
-                song = new model.Song(); //use empty constructor
-                song.setId(rs.getLong("ID"));
-                song.setTitle(rs.getString("Title"));
-                song.setInterpret(rs.getString("Artist"));
-                song.setAlbum(rs.getString("Album"));
-                song.setPath(rs.getString("Path"));
-                return song;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return song;
-    }
 
     /*
    Write songs from the library by calling writeSong for each Song in library
@@ -207,6 +163,26 @@ public class JDBCStrategy implements SerializableStrategy {
         testTable();
     }
 
+
+    //Read a song from Database
+    @Override
+    public Song readSong() throws IOException, ClassNotFoundException {
+        Song song = null;
+        try {
+            while(rs.next()){
+                song = new model.Song(); //use empty constructor
+                song.setId(rs.getLong("id"));
+                song.setTitle(rs.getString("title"));
+                song.setInterpret(rs.getString("interpret"));
+                song.setAlbum(rs.getString("album"));
+                song.setPath(rs.getString("path"));
+                return song;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return song;
+    }
     /*
      Read songs into the library by calling readSong until null is returned
      */
