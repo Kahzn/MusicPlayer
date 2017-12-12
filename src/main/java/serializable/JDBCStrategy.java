@@ -116,7 +116,7 @@ public class JDBCStrategy implements SerializableStrategy {
         registerDriver();
         //testTable();
         delete(TableName.LIBRARY);
-        insert= "INSERT INTO Library (ID, Title, Artist, Album, Path) VALUES (?,?,?,?,?);";
+        insert= "INSERT INTO Library (id, title, interpret, album, path) VALUES (?,?,?,?,?);";
     }
 
     //Save playlist

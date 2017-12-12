@@ -57,7 +57,7 @@ public class BinaryStrategy implements SerializableStrategy {
     @Override
     public void writeSong(Song s) throws IOException {
             oos.writeObject(s);
-            System.out.println("writing song: "+ s.getTitle());
+            //System.out.println("writing song: "+ s.getTitle());
     }
 
     //Deserialize song (Read from binary Byte Code)

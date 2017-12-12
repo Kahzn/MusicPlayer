@@ -1,3 +1,4 @@
+helper/AbstractPropertyValueHandler.class
 interfaces/SerializableStrategy.class
 model/Song.class
 view/View.class
@@ -6,6 +7,8 @@ interfaces/Song.class
 model/Playlist.class
 model/Model.class
 exception/IDOverFlowException.class
+helper/StringPropertyValueHandler.class
+serializable/JDBCStrategy$1.class
 main/Main.class
 serializable/XMLStrategy.class
 interfaces/Playlist.class

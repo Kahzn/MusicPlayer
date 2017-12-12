@@ -4,7 +4,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import org.apache.openjpa.persistence.jdbc.Strategy;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.*;
 
@@ -15,10 +17,23 @@ public class Song implements interfaces.Song, Externalizable {
     private static final long serialVersionUID = 700L;
 
     @Strategy("helper.StringPropertyValueHandler")
+    @Column(name = "path")
     private SimpleStringProperty path = new SimpleStringProperty();
+
+    @Strategy("helper.StringPropertyValueHandler")
+    @Column(name = "title")
     private SimpleStringProperty title = new SimpleStringProperty();
+
+    @Strategy("helper.StringPropertyValueHandler")
+    @Column(name = "album")
     private SimpleStringProperty album = new SimpleStringProperty();
+
+    @Strategy("helper.StringPropertyValueHandler")
+    @Column(name = "interpret")
     private SimpleStringProperty interpret = new SimpleStringProperty();
+
+    @Id
+    @Column(name = "id")
     private long id ;
 
     public Song() {}
@@ -32,9 +47,8 @@ public class Song implements interfaces.Song, Externalizable {
         System.out.println("Added Song: " + getTitle());
     }
 
-
-    
-    @Override
+//    @Override
+//    //@Column(name="Album")
     public String getAlbum() {
         return album.get();
     }
@@ -44,7 +58,9 @@ public class Song implements interfaces.Song, Externalizable {
         this.album.setValue(album);
     }
 
-    @Override
+
+//    @Override
+//    @Column(name="Artist")
     public String getInterpret() {
         return interpret.get();
     }
@@ -54,7 +70,9 @@ public class Song implements interfaces.Song, Externalizable {
         this.interpret.setValue(interpret);
     }
 
-    @Override
+//
+//    @Override
+//    @Column(name="Path")
     public String getPath() {
         return path.get();
     }
@@ -64,7 +82,8 @@ public class Song implements interfaces.Song, Externalizable {
         this.path.setValue(path);
     }
 
-    @Override
+//    @Override
+//    @Column(name="Title")
     public String getTitle() {
         return title.get();
     }
@@ -75,6 +94,8 @@ public class Song implements interfaces.Song, Externalizable {
     }
 
     @Override
+//    @Id
+//    @Column(name="ID")
     public long getId() {
         return id;
     }
