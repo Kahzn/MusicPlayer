@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import java.io.*;
 
 @Entity()
-@Table(name="LIBRARY")
+@Table(name = "Library")
 public class Song implements interfaces.Song, Externalizable {
 
     private static final long serialVersionUID = 700L;
@@ -50,6 +50,7 @@ public class Song implements interfaces.Song, Externalizable {
 
     
     @Override
+    @Column(name="Album")
     public String getAlbum() {
         return album.get();
     }
@@ -60,6 +61,7 @@ public class Song implements interfaces.Song, Externalizable {
     }
 
     @Override
+    @Column(name="Interpret")
     public String getInterpret() {
         return interpret.get();
     }
@@ -70,6 +72,7 @@ public class Song implements interfaces.Song, Externalizable {
     }
 
     @Override
+    @Column(name="Path")
     public String getPath() {
         return path.get();
     }
@@ -80,6 +83,7 @@ public class Song implements interfaces.Song, Externalizable {
     }
 
     @Override
+    @Column(name="Title")
     public String getTitle() {
         return title.get();
     }
@@ -90,6 +94,7 @@ public class Song implements interfaces.Song, Externalizable {
     }
 
     @Override
+    @Column(name="ID")
     public long getId() {
         return id;
     }

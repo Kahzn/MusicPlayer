@@ -180,7 +180,6 @@ public class JDBCStrategy implements SerializableStrategy {
     @Override
     public Song readSong() throws IOException, ClassNotFoundException {
         Song song = null;
-        //if(name.equals(TableName.LIBRARY))     else todo
         try {
             while(rs.next()){
                 song = new model.Song(); //use empty constructor
@@ -282,7 +281,7 @@ public class JDBCStrategy implements SerializableStrategy {
             try {
                 rs.close();
             } catch (SQLException e) {
-                System.out.println("Result set konnte nicht geschlossen werden beim schliessen von Library.");
+                System.err.println("Result set konnte nicht geschlossen werden beim schliessen von Library.");
             }
         }
 
@@ -290,7 +289,7 @@ public class JDBCStrategy implements SerializableStrategy {
             try {
                 pstmt.close();
             } catch (SQLException e) {
-                System.out.println("PreparedStatement konnte nicht geschlossen werden beim" +
+                System.err.println("PreparedStatement konnte nicht geschlossen werden beim" +
                         "schliessen von Library");
             }
         }
@@ -300,7 +299,7 @@ public class JDBCStrategy implements SerializableStrategy {
                 con.close();
             }
         }catch (SQLException E){
-            System.out.println("Connection konnte nicht geschlossen werden.");
+            System.err.println("Connection konnte nicht geschlossen werden.");
         }
 
     }

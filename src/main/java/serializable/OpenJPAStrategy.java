@@ -31,7 +31,7 @@ public class OpenJPAStrategy implements SerializableStrategy {
 
     //arbeite ohne eine Konfig.-Datei
     public static EntityManagerFactory getWithoutConfig() {
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>();
 
         map.put("openjpa.ConnectionURL","jdbc:sqlite:MusicPlayerDB1.db");
         map.put("openjpa.ConnectionDriverName", "org.sqlite.JDBC");
@@ -65,7 +65,7 @@ public class OpenJPAStrategy implements SerializableStrategy {
             if (manager == null) manager = factory.createEntityManager(); //erstelle EntityManager
             if (trans == null) trans = manager.getTransaction(); //erhalte EntityTransaction
         }  else {
-            if (factory == null) factory = Persistence.createEntityManagerFactory("persistance.xml");
+            if (factory == null) factory = Persistence.createEntityManagerFactory("persistence.xml");
             if (manager == null) manager = factory.createEntityManager(); //erstelle EntityManager
             if (trans == null) trans = manager.getTransaction(); //erhalte EntityTransaction
         }
@@ -90,32 +90,24 @@ public class OpenJPAStrategy implements SerializableStrategy {
 
     @Override
     public void openReadableLibrary() throws IOException {
-        if (konficIsUsed == false) {
-            if (factory == null) factory = getWithoutConfig(); //ohne Konfig.-Datei
-            if (manager == null) manager = factory.createEntityManager(); //erstelle EntityManager
-            if (trans == null) trans = manager.getTransaction(); //erhalte EntityTransaction
-        }  else {
-            if (factory == null) factory = Persistence.createEntityManagerFactory("persistance.xml");
-            if (manager == null) manager = factory.createEntityManager(); //erstelle EntityManager
-            if (trans == null) trans = manager.getTransaction(); //erhalte EntityTransaction
-        }
+        openWritableLibrary();
     }
 
     @Override
-    //lese aus der Datenank
+    //lese aus der Datenbank
     //lese ein einzelnes Objekt (model.Song) aus der Datenbank aus
     public Song readSong() throws IOException, ClassNotFoundException {
         return null;
     }
 
     @Override
-    //lese aus der Datenank
+    //lese aus der Datenbank
     //nutzte hierzu die Methode readSong()
     //erstelle so eine (neue) libraray (model.Playlist) -> siehe oben (23)
     public Playlist readLibrary() throws IOException, ClassNotFoundException {
         //liest library aus
         //ohne den Aufruf von readSong()
-        for (Object o : manager.createQuery("SELECT x FROM LIBRARY x").getResultList()) {
+        for (Object o : manager.createQuery("SELECT x FROM Library x").getResultList()) {
             s = (model.Song) o;
             resultList.add(s);
             //System.out.println(z.getId()+") "+z.getName() + ", Small: " +z.getSmall()+", Big: "+z.getBig());
