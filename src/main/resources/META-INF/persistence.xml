@@ -11,7 +11,7 @@
         <class>model.Song</class>
 
         <properties>
-            <property name="openjpa.ConnectionURL" value="jdbc:MusicPlayerDB1.db"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:sqlite:MusicPlayerDB1.db"/>
             <property name="openjpa.ConnectionDriverName" value="org.sqlite.JDBC"/>
             <property name="openjpa.jdbc.SynchronizeMappings" value="false"/>
             <property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>

@@ -3,13 +3,10 @@ package serializable;
 import interfaces.Playlist;
 import interfaces.SerializableStrategy;
 import interfaces.Song;
-import org.apache.openjpa.lib.rop.ResultList;
 import org.apache.openjpa.persistence.OpenJPAPersistence;
 
 import javax.persistence.*;
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +22,7 @@ public class OpenJPAStrategy implements SerializableStrategy {
     private model.Song s;
     private List<Song> resultList;
 
-    private boolean konficIsUsed = true; //wird eine Konfig.-Datei genutzt?
+    private boolean useConfigFile = false; //wird eine Konfig.-Datei genutzt?
 
     //arbeite ohne eine Konfig.-Datei
     public static EntityManagerFactory getWithoutConfig() {
@@ -58,15 +55,17 @@ public class OpenJPAStrategy implements SerializableStrategy {
     @Override
     //öffne die Datenbankverbindung (OpenJPA)
     public void openWritableLibrary() throws IOException {
-        if (konficIsUsed == false) {
-            if (factory == null) factory = getWithoutConfig(); //ohne Konfig.-Datei
-            if (manager == null) manager = factory.createEntityManager(); //erstelle EntityManager
-            if (trans == null) trans = manager.getTransaction(); //erhalte EntityTransaction
-        }  else {
-            if (factory == null) factory = Persistence.createEntityManagerFactory("persistence.xml");
-            if (manager == null) manager = factory.createEntityManager(); //erstelle EntityManager
-            if (trans == null) trans = manager.getTransaction(); //erhalte EntityTransaction
+        if(useConfigFile){ //Fall: Wir nutzen Konfigurationsdatei
+            //if (factory == null) factory = Persistence.createEntityManagerFactory("persistence.xml");
+            factory = Persistence.createEntityManagerFactory("openjpa", System.getProperties());
+            manager = factory.createEntityManager(); //erstelle EntityManager
+            trans = manager.getTransaction(); //erhalte EntityTransaction
+        }else{ //Fall: Wir nutzen keine Konfigurationsdatei
+            factory = getWithoutConfig(); //ohne Konfig.-Datei
+            manager = factory.createEntityManager(); //erstelle EntityManager
+            trans = manager.getTransaction(); //erhalte EntityTransaction
         }
+
     }
 
     @Override
@@ -91,14 +90,14 @@ public class OpenJPAStrategy implements SerializableStrategy {
 
     @Override
     public void openReadableLibrary() throws IOException {
-        if (konficIsUsed == false) {
-            if (factory == null) factory = getWithoutConfig(); //ohne Konfig.-Datei
-            if (manager == null) manager = factory.createEntityManager(); //erstelle EntityManager
-            if (trans == null) trans = manager.getTransaction(); //erhalte EntityTransaction
+        if (useConfigFile == false) {
+            factory = getWithoutConfig(); //ohne Konfig.-Datei
+            manager = factory.createEntityManager(); //erstelle EntityManager
+            trans = manager.getTransaction(); //erhalte EntityTransaction
         }  else {
-            if (factory == null) factory = Persistence.createEntityManagerFactory("persistence.xml");
-            if (manager == null) manager = factory.createEntityManager(); //erstelle EntityManager
-            if (trans == null) trans = manager.getTransaction(); //erhalte EntityTransaction
+            factory = Persistence.createEntityManagerFactory("persistence.xml");
+            manager = factory.createEntityManager(); //erstelle EntityManager
+            trans = manager.getTransaction(); //erhalte EntityTransaction
         }
 
         resultList =  manager.createQuery("SELECT x FROM Song x").getResultList();
@@ -140,7 +139,8 @@ public class OpenJPAStrategy implements SerializableStrategy {
         if (factory != null) factory.close();
     }
 
-    /** ***************************************************************************************************** **/
+    //Folgende Funktionen werden nicht benutzt
+    /******************************************************************************************************** **/
 
     @Override
     public void writePlaylist(Playlist p) throws IOException {

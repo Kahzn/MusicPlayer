@@ -21,23 +21,23 @@ public class Model {
         idGenerator = new IDGenerator();
 
 
-//        if (paths != null) {
-//            try {
-//                for (File path : paths) {
-//                    if (path.toString().endsWith(".mp3")) {
-//
-//                        library.addSong(new Song( path.toString(), path.getName(), "", "", idGenerator.getNextID()  ));
-//
-//                    }
-//                }
-//
-//
-//            } catch (RemoteException e) {
-//                System.out.println("Entfernter Rechner nicht zu erreichen");
-//            } catch (IDOverFlowException e){
-//                System.out.println("Keine ID's mehr vorhanden.");
-//            }
-//        }
+        if (paths != null) {
+            try {
+                for (File path : paths) {
+                    if (path.toString().endsWith(".mp3")) {
+
+                        library.addSong(new Song( path.toString(), path.getName(), "", "", idGenerator.getNextID()  ));
+
+                    }
+                }
+
+
+            } catch (RemoteException e) {
+                System.out.println("Entfernter Rechner nicht zu erreichen");
+            } catch (IDOverFlowException e){
+                System.out.println("Keine ID's mehr vorhanden.");
+            }
+        }
     }
 
 
