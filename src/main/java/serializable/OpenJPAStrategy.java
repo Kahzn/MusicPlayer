@@ -69,8 +69,8 @@ public class OpenJPAStrategy implements SerializableStrategy {
     public void openWritableLibrary() throws IOException {
         setUpConfiguration();
         //todo delete Library from DB before saving
+//        Query q = manager.createQuery("DELETE FROM Song");
 //        trans.begin();
-//        Query q = manager.createQuery("DELETE FROM Library");
 //        q.executeUpdate();
 //        trans.commit();
 
@@ -130,18 +130,19 @@ public class OpenJPAStrategy implements SerializableStrategy {
     @Override
     //schließe Datenbankverbindung
     public void closeWritableLibrary() {
-//        if (manager != null) manager.close();
-//        if (factory != null) factory.close();
-        manager.close();
-        factory.close();
+
+        if (manager != null) manager.close();
+        if (factory != null) factory.close();
+//        manager.close();
+//        factory.close();
     }
 
     @Override
     public void closeReadableLibrary() {
-//        if (manager != null) manager.close();
-//        if (factory != null) factory.close();
-        manager.close();
-        factory.close();
+        if (manager != null) manager.close();
+        if (factory != null) factory.close();
+//        manager.close();
+//        factory.close();
     }
 
     //Folgende Funktionen werden nicht benutzt
