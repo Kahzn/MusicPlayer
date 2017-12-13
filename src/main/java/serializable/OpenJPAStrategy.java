@@ -21,7 +21,7 @@ public class OpenJPAStrategy implements SerializableStrategy {
     private model.Song s;
     private List<Song> resultList;
 
-    private boolean useConfigFile = true; //true falls eine Konfig.-Datei genutzt wird
+    private boolean useConfigFile = false; //true falls eine Konfig.-Datei genutzt wird
 
     //arbeite ohne eine Konfig.-Datei
     public static EntityManagerFactory getWithoutConfig() {
@@ -51,9 +51,7 @@ public class OpenJPAStrategy implements SerializableStrategy {
 
     }
 
-    @Override
-    //öffne die Datenbankverbindung (OpenJPA)
-    public void openWritableLibrary() throws IOException {
+    private void setUpConfiguration() {
         if(useConfigFile){ //Fall: Wir nutzen Konfigurationsdatei
             factory = Persistence.createEntityManagerFactory("openjpa");
             //factory = Persistence.createEntityManagerFactory("openjpa", System.getProperties());
@@ -64,8 +62,21 @@ public class OpenJPAStrategy implements SerializableStrategy {
             manager = factory.createEntityManager(); //erstelle EntityManager
             trans = manager.getTransaction(); //erhalte EntityTransaction
         }
+    }
+
+    @Override
+    //öffne die Datenbankverbindung (OpenJPA)
+    public void openWritableLibrary() throws IOException {
+        setUpConfiguration();
+        //todo delete Library from DB before saving
+//        trans.begin();
+//        Query q = manager.createQuery("DELETE FROM Library");
+//        q.executeUpdate();
+//        trans.commit();
 
     }
+
+
 
     @Override
     //schreibe ein Objekt (Song) in die Datenbak
@@ -89,17 +100,8 @@ public class OpenJPAStrategy implements SerializableStrategy {
 
     @Override
     public void openReadableLibrary() throws IOException {
-        if (useConfigFile == false) {
-            factory = getWithoutConfig(); //ohne Konfig.-Datei
-            manager = factory.createEntityManager(); //erstelle EntityManager
-            trans = manager.getTransaction(); //erhalte EntityTransaction
-        }  else {
-            factory = Persistence.createEntityManagerFactory("persistence.xml");
-            manager = factory.createEntityManager(); //erstelle EntityManager
-            trans = manager.getTransaction(); //erhalte EntityTransaction
-        }
-
-        resultList =  manager.createQuery("SELECT x FROM Song x").getResultList();
+       setUpConfiguration();
+       resultList =  manager.createQuery("SELECT x FROM Song x").getResultList();
 
     }
 
@@ -128,14 +130,18 @@ public class OpenJPAStrategy implements SerializableStrategy {
     @Override
     //schließe Datenbankverbindung
     public void closeWritableLibrary() {
-        if (manager != null) manager.close();
-        if (factory != null) factory.close();
+//        if (manager != null) manager.close();
+//        if (factory != null) factory.close();
+        manager.close();
+        factory.close();
     }
 
     @Override
     public void closeReadableLibrary() {
-        if (manager != null) manager.close();
-        if (factory != null) factory.close();
+//        if (manager != null) manager.close();
+//        if (factory != null) factory.close();
+        manager.close();
+        factory.close();
     }
 
     //Folgende Funktionen werden nicht benutzt
