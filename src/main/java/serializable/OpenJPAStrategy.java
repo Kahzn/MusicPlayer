@@ -23,7 +23,6 @@ public class OpenJPAStrategy implements SerializableStrategy {
 
     private boolean useConfigFile = false; //true falls eine Konfig.-Datei genutzt wird
 
-    //arbeite ohne eine Konfig.-Datei
     public static EntityManagerFactory getWithoutConfig() {
         Map<String, String> map = new HashMap<>();
 
@@ -54,7 +53,6 @@ public class OpenJPAStrategy implements SerializableStrategy {
     private void setUpConfiguration() {
         if(useConfigFile){ //Fall: Wir nutzen Konfigurationsdatei
             factory = Persistence.createEntityManagerFactory("openjpa");
-            //factory = Persistence.createEntityManagerFactory("openjpa", System.getProperties());
             manager = factory.createEntityManager(); //erstelle EntityManager
             trans = manager.getTransaction(); //erhalte EntityTransaction
         }else{ //Fall: Wir nutzen keine Konfigurationsdatei
@@ -68,7 +66,7 @@ public class OpenJPAStrategy implements SerializableStrategy {
     //öffne die Datenbankverbindung (OpenJPA)
     public void openWritableLibrary() throws IOException {
         setUpConfiguration();
-        //todo delete Library from DB before saving
+        //delete Library from DB before saving
         trans.begin();
         Query q = manager.createNativeQuery("DELETE FROM Library");
         q.executeUpdate();
@@ -130,17 +128,12 @@ public class OpenJPAStrategy implements SerializableStrategy {
     @Override
     //schließe Datenbankverbindung
     public void closeWritableLibrary() {
-
-//        if (manager != null) manager.close();
-//        if (factory != null) factory.close();
         manager.close();
         factory.close();
     }
 
     @Override
     public void closeReadableLibrary() {
-//        if (manager != null) manager.close();
-//        if (factory != null) factory.close();
         manager.close();
         factory.close();
     }

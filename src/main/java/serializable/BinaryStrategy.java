@@ -9,10 +9,7 @@ import model.Model;
 
 import java.io.*;
 
-/**
- * Created by rebeccamarsh on 11/23/17.
- * implemented by Katharina Ziolkowski on 11/24/17
- */
+
 public class BinaryStrategy implements SerializableStrategy {
 
     //For Serialization
@@ -26,7 +23,6 @@ public class BinaryStrategy implements SerializableStrategy {
     //Serialize library
     @Override
     public void openWritableLibrary() throws IOException {
-
            fos = new FileOutputStream("binLibrary.ser");
            oos = new ObjectOutputStream(fos);
 
@@ -60,15 +56,11 @@ public class BinaryStrategy implements SerializableStrategy {
             System.out.println("writing song: "+ s.getTitle());
     }
 
-
-
-    //new!
     /*
     Write songs from the library by calling writeSong for each Song in library
     */
     @Override
     public void writeLibrary(Playlist p) throws IOException {
-        //Problem ... Playlist p oben ist von interfaces!??
         for(Song s : p)
             writeSong(s);
     }
@@ -107,7 +99,6 @@ public class BinaryStrategy implements SerializableStrategy {
     */
     @Override
     public void writePlaylist(Playlist p) throws IOException {
-        //Problem ... Playlist p oben ist von interfaces!??
         for (Song s : p)
             writeSong(s);
     }
@@ -128,8 +119,6 @@ public class BinaryStrategy implements SerializableStrategy {
         }
         return list;
     }
-    //end new
-
 
     @Override
     public void closeWritableLibrary() {

@@ -8,14 +8,12 @@ import java.io.IOException;
 import java.sql.*;
 
 public class JDBCStrategy implements SerializableStrategy {
-    //static: A single copy to be shared by all instances of the class.
     private static Connection con = null;
     private static ResultSet rs = null;
     private static PreparedStatement pstmt = null;
     String insert ="";
     private TableName name = null;
 
-    //Basically enums are like string constants..
     public enum TableName {
         LIBRARY, PLAYLIST,
     }
@@ -59,6 +57,7 @@ public class JDBCStrategy implements SerializableStrategy {
         }
     }
 
+    //Nonnecessary test method
     private void testTable(){
         Statement stmt= null;
         try {
@@ -105,7 +104,6 @@ public class JDBCStrategy implements SerializableStrategy {
     //Insert songs into DB (Save songs from playlist)
     @Override
     public void writeSong(Song s) throws IOException {
-        //System.out.println("Song Title: "+ s.getTitle());
         try {
             pstmt = con.prepareStatement(insert);
             pstmt.setLong(1,  s.getId());
@@ -117,9 +115,6 @@ public class JDBCStrategy implements SerializableStrategy {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-//        System.out.println("Check what is in table.");
-//        testTable();
     }
 
     //Get a result set from db containing entire library
@@ -159,8 +154,8 @@ public class JDBCStrategy implements SerializableStrategy {
     public void writeLibrary(Playlist p) throws IOException {
         for(Song s : p)
             writeSong(s);
-
-        testTable();
+        //System.out.println("Test what is in the Database:");
+        //testTable();
     }
 
 
@@ -220,8 +215,6 @@ public class JDBCStrategy implements SerializableStrategy {
 
     @Override
     public void closeWritableLibrary() {
-        //Only necessary because of testTable method
-        //Otherwise must not close rs!
         if(rs!= null) {
             try {
                 rs.close();
@@ -284,8 +277,6 @@ public class JDBCStrategy implements SerializableStrategy {
     @Override
     public void closeWritablePlaylist() {
 
-        //Only necessary because of testTable method
-        //Otherwise must not close rs!
         if(rs!= null) {
             try {
                 rs.close();
