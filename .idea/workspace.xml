@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0f0a877-3eec-4cb8-8018-39138170b590" name="Default" comment="persistence.xml neu gemacht und gesetzt (WIP).">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/network/UDPClient.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/network/UDPServer.java" />
+    <list default="true" id="e0f0a877-3eec-4cb8-8018-39138170b590" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/network/UDPClient.java" afterPath="$PROJECT_DIR$/src/main/java/network/UDPClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/network/UDPServer.java" afterPath="$PROJECT_DIR$/src/main/java/network/UDPServer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,16 +29,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Playlist.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/Playlist.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1258">
-              <caret line="80" column="13" lean-forward="false" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="OpenJPAStrategy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/serializable/OpenJPAStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -54,16 +43,6 @@
                 <marker date="1513938483108" expanded="true" signature="4967:5015" ph="{}" />
                 <marker date="1513938483108" expanded="true" signature="5071:5119" ph="{}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -90,32 +69,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Song.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/Song.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="92" column="20" lean-forward="false" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1513938483092" expanded="false" signature="2160:2171" ph=" { " />
-                <marker date="1513938483092" expanded="false" signature="2181:2187" ph=" }" />
-                <marker date="1513938483092" expanded="false" signature="2233:2244" ph=" { " />
-                <marker date="1513938483092" expanded="false" signature="2257:2263" ph=" }" />
-                <marker date="1513938483092" expanded="false" signature="2328:2339" ph=" { " />
-                <marker date="1513938483092" expanded="false" signature="2351:2357" ph=" }" />
-                <marker date="1513938483092" expanded="false" signature="2423:2434" ph=" { " />
-                <marker date="1513938483092" expanded="false" signature="2447:2453" ph=" }" />
-                <marker date="1513938483092" expanded="false" signature="2523:2534" ph=" { " />
-                <marker date="1513938483092" expanded="false" signature="2551:2557" ph=" }" />
-                <marker date="1513938483092" expanded="false" signature="2623:2634" ph=" { " />
-                <marker date="1513938483092" expanded="false" signature="2647:2653" ph=" }" />
-                <marker date="1513938483092" expanded="true" signature="2736:2915" ph="{...}" />
-                <marker date="1513938483092" expanded="true" signature="3019:3214" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="IDGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/IDGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -136,22 +89,58 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UDPServer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UDPServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/network/UDPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+            <state relative-caret-position="-476">
+              <caret line="14" column="61" lean-forward="false" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatagramClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Netzwerkprogrammierung - Beispiele/DatagramClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="54" column="5" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="54" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UDPClient.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DatagramServer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Netzwerkprogrammierung - Beispiele/DatagramServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="68" column="10" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="68" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatagramServerThreads.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Netzwerkprogrammierung - Beispiele/DatagramServerThreads.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UDPClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/network/UDPClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="739">
+              <caret line="54" column="5" lean-forward="false" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -198,6 +187,9 @@
         <option value="$PROJECT_DIR$/src/main/java/serializable/BinaryStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/serializable/JDBCStrategy.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../../Netzwerkprogrammierung - Beispiele/DatagramServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/network/UDPServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/network/UDPClient.java" />
       </list>
     </option>
   </component>
@@ -621,11 +613,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513077542766</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="leere klassen für UDP Client und Server eingefügt">
+      <created>1513939360768</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1513939360768</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6749000" />
+    <option name="totallyTimeSpent" value="7800000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -639,7 +638,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -754,7 +753,8 @@
     <MESSAGE value="Arbeit an OpenJPA: (de)serialisieren der library (fehlerhaft)&#10;persistance.xml hinzugefügt&#10;package helper verschoben nach model" />
     <MESSAGE value="Fixed JDBC-Srategy. Datenbank-Anpassung (1 Spalte eingefügt mit Auto-Increment-ID als primary key)." />
     <MESSAGE value="persistence.xml neu gemacht und gesetzt (WIP)." />
-    <option name="LAST_COMMIT_MESSAGE" value="persistence.xml neu gemacht und gesetzt (WIP)." />
+    <MESSAGE value="leere klassen für UDP Client und Server eingefügt" />
+    <option name="LAST_COMMIT_MESSAGE" value="leere klassen für UDP Client und Server eingefügt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -765,48 +765,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/serializable/JDBCStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2074">
-          <caret line="127" column="93" lean-forward="false" selection-start-line="127" selection-start-column="93" selection-end-line="127" selection-end-column="93" />
-          <folding>
-            <marker date="1513938483092" expanded="true" signature="7658:8380" ph="{...}" />
-            <marker date="1513938483092" expanded="true" signature="8436:9183" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-jpa_2.0_spec/1.1/geronimo-jpa_2.0_spec-1.1.jar!/javax/persistence/EntityManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Song.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="91" column="13" lean-forward="false" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1513938483092" expanded="false" signature="2160:2171" ph=" { " />
-            <marker date="1513938483092" expanded="false" signature="2181:2187" ph=" }" />
-            <marker date="1513938483092" expanded="false" signature="2233:2244" ph=" { " />
-            <marker date="1513938483092" expanded="false" signature="2257:2263" ph=" }" />
-            <marker date="1513938483092" expanded="false" signature="2328:2339" ph=" { " />
-            <marker date="1513938483092" expanded="false" signature="2351:2357" ph=" }" />
-            <marker date="1513938483092" expanded="false" signature="2423:2434" ph=" { " />
-            <marker date="1513938483092" expanded="false" signature="2447:2453" ph=" }" />
-            <marker date="1513938483092" expanded="false" signature="2523:2534" ph=" { " />
-            <marker date="1513938483092" expanded="false" signature="2551:2557" ph=" }" />
-            <marker date="1513938483092" expanded="false" signature="2623:2634" ph=" { " />
-            <marker date="1513938483092" expanded="false" signature="2647:2653" ph=" }" />
-            <marker date="1513938483092" expanded="true" signature="2736:2915" ph="{...}" />
-            <marker date="1513938483092" expanded="true" signature="3019:3214" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/serializable/OpenJPAStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
@@ -1042,7 +1000,7 @@
         <state relative-caret-position="544">
           <caret line="33" column="3" lean-forward="false" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1052,7 +1010,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1209,19 +1167,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/network/UDPClient.java">
+    <entry file="file://$PROJECT_DIR$/../../Netzwerkprogrammierung - Beispiele/DatagramServerThreads.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Netzwerkprogrammierung - Beispiele/DatagramServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="68" column="10" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="68" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/network/UDPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="24" lean-forward="true" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        <state relative-caret-position="-476">
+          <caret line="14" column="61" lean-forward="false" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Netzwerkprogrammierung - Beispiele/DatagramClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="54" column="5" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="54" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/network/UDPClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="739">
+          <caret line="54" column="5" lean-forward="false" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
