@@ -1,5 +1,6 @@
 package main;
 
+import TCP.TCPServer;
 import controller.Controller;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -18,6 +19,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Model model = new Model();
         View view = new View();
+        //start TCPServer (Thread) to manage requests from Clients to access remote object
+        new TCPServer().start();
+
+
         Controller controller = new Controller();
         controller.link(model, view);
 
