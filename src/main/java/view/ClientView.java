@@ -2,7 +2,6 @@ package view;
 
 import interfaces.ButtonController;
 import interfaces.Song;
-import javafx.collections.FXCollections;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -10,8 +9,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import model.Model;
 
-
-public class View extends BorderPane {
+/**
+ * Created by rebeccamarsh on 1/9/18.
+ */
+public class ClientView extends BorderPane {
 
     private HBox hboxTop = new HBox();
     private ChoiceBox dropDownMenu = new ChoiceBox();
@@ -40,17 +41,18 @@ public class View extends BorderPane {
     private Button addAll   = new Button ("Add All Songs");
     private Button delete = new Button("Delete Song ");
 
+    //Muss über RMI (nicht lokal) ausgeführt werden
     private ButtonController controller;   //Für EventHandling
 
 
 
-    public View(){
+    public ClientView(){
 
         createTopPanel();
         createLibraryPanel();
         createPlaylistPanel();
-        //createRightPanel(); //do not add because the server's view has no functionality
-        //createBottomPanel();//do not add becasue the server's view has no functionality
+        createRightPanel();
+        createBottomPanel();
         play.setOnAction(e -> controller.play(playlist.getSelectionModel().getSelectedIndex()));
         addToPlaylist.setOnAction(e -> controller.addToPlaylist(library.getSelectionModel().getSelectedItem()));
         delete.setOnAction(e -> controller.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem()));
@@ -60,7 +62,7 @@ public class View extends BorderPane {
         pause.setOnAction(e -> controller.pause());
         save.setOnAction(e -> controller.save());
         load.setOnAction(e -> controller.load());
-//test
+
 
     }
 
@@ -144,6 +146,6 @@ public class View extends BorderPane {
     }
 
     public String getSerializationType(){
-       return dropDownMenu.getSelectionModel().getSelectedItem().toString();
+        return dropDownMenu.getSelectionModel().getSelectedItem().toString();
     }
 }

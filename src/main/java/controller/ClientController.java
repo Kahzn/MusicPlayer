@@ -6,22 +6,27 @@ import interfaces.Song;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import model.Model;
-import model.Playlist;
-import view.View;
-import serializable.*;
+import serializable.BinaryStrategy;
+import serializable.JDBCStrategy;
+import serializable.OpenJPAStrategy;
+import serializable.XMLStrategy;
+import view.ClientView;
 
 import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
-public class Controller implements ButtonController {
+/**
+ * Created by rebeccamarsh on 1/9/18.
+ */
+public class ClientController  implements ButtonController {
     Model model;
-    View view;
+    ClientView view;
     private int currentIndex = 0; //index des ausgewählten Liedes
     private MediaPlayer player;
     private String path;
 
-    public void link(Model model, View view){
+    public void link(Model model, ClientView view){
         this.model = model;
         this.view = view;
 
@@ -32,7 +37,7 @@ public class Controller implements ButtonController {
         view.setController(this);
     }
 
-    //Methoden haben bei der Server's Controller keine Funktionalität... löschen?
+
     @Override
     public void addAll() {
         for(Song song : model.getLibrary()) {
@@ -78,7 +83,7 @@ public class Controller implements ButtonController {
             currentIndex = index;
             System.out.println("This index is: "+ currentIndex);
 
-            /** 
+            /**
              *  jetzt: tatsächlicher Index des Liedes dient als Parameter der Play-Methode
              */
             Song so; //Objekt des Liedes wird erstellt (Typ Song) = null
@@ -101,9 +106,9 @@ public class Controller implements ButtonController {
                 if(player == null || !so.getPath().equals(path)){
                     path = so.getPath();
                     /**der MediaPlayer arbeitet mit Media Objekten
-                    Klasse Media nimmt sich ein File Objekt
-                    toURI() konvertiert den Pfad ins richtige Format
-                    toString() konvertiert das Ergebnis von toURI() in einen String**/
+                     Klasse Media nimmt sich ein File Objekt
+                     toURI() konvertiert den Pfad ins richtige Format
+                     toString() konvertiert das Ergebnis von toURI() in einen String**/
                     player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //player wird auf die ID des ausgewählten Liedes initialisiert
                     if (player.getStatus().equals(MediaPlayer.Status.PLAYING)) {
                         //player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //Erklärung: 115
@@ -123,7 +128,7 @@ public class Controller implements ButtonController {
                  * Runnable() ist ein Interface
                  * run() ist die einzige Methode des Interfaces Runnable
                  *    muss überschrieben werden
-                **/
+                 **/
                 /* player.setOnEndOfMedia(new Runnable() {
                     @Override
                     public void run() {
@@ -171,7 +176,7 @@ public class Controller implements ButtonController {
         }
         catch(NullPointerException | IndexOutOfBoundsException e){
             System.out.println("kein Lied ausgewählt!");
-    }
+        }
     }
 
     @Override
@@ -301,7 +306,5 @@ public class Controller implements ButtonController {
 
         return strat;
     }
-
-
 
 }
