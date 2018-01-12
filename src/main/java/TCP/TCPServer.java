@@ -18,6 +18,7 @@ public class TCPServer extends Thread {
                 Socket clientSocket = server.accept();
                 System.out.println("Client");
 
+                //übergebe Referenz auf clientNames
                 TCPServerThreadForClients t = new
                         TCPServerThreadForClients(clientNames, clientSocket);
                 Thread t1 = new Thread(t);
