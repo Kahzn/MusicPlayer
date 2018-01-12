@@ -19,12 +19,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Model model = new Model();
         View view = new View();
-        //start TCPServer (Thread) to manage requests from Clients to access remote object
-        new TCPServer().start();
-
-
         Controller controller = new Controller();
         controller.link(model, view);
+
+        //start TCPServer (Thread) to manage requests from Clients to access remote object
+        new TCPServer().start();
 
         //Show GUI
         primaryStage.setTitle("Music Player");

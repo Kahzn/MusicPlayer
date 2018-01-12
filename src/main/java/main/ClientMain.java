@@ -1,5 +1,6 @@
 package main;
 
+import TCP.TCPClient;
 import controller.ClientController;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -22,6 +23,11 @@ public class ClientMain extends Application {
         ClientView view = new ClientView();
         ClientController controller = new ClientController();
         controller.link(model, view);
+
+        Thread tcp = new TCPClient();
+        tcp.start();
+        tcp.join();
+
 
         //Show GUI
         primaryStage.setTitle("Music Player");

@@ -1,6 +1,6 @@
 package TCP;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -27,8 +27,9 @@ public class TCPServer extends Thread {
 
 //private class
 class TCPServerThreadForClients implements Runnable {
+    public static final String PASSWORD = "password";
     ArrayList<String> clientNames;
-    Socket socket;
+    private Socket socket;
 
     public TCPServerThreadForClients(ArrayList<String> clientNames, Socket clientSocket) {
         this.clientNames = clientNames;
@@ -37,6 +38,35 @@ class TCPServerThreadForClients implements Runnable {
 
     @Override
     public void run() {
+        //Access to clientNames from Threads is mutually exclusive to avoid inconsistent data
+        synchronized (clientNames) {
+            try (InputStream in = socket.getInputStream();
+                 OutputStream out = socket.getOutputStream();
+                ObjectOutputStream os = new ObjectOutputStream(out);
+                ObjectInputStream is = new ObjectInputStream(in)){
+                String name = is.readUTF();
+                String inputPassword = is.readUTF();
+                if(inputPassword.equals(PASSWORD)){
+                    clientNames.add(name);
+                    os.writeUTF("server");
+                }else{
+                    os.writeUTF("Wrong password");
+                }
+                out.flush();
+                os.flush();
 
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            finally {
+                try {
+                    if (socket != null) {
+                        socket.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
