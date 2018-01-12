@@ -8,15 +8,20 @@ import java.util.ArrayList;
 public class TCPServer extends Thread {
     private static ArrayList<String> clientNames;
 
-    public TCPServer(){
+
+    public void run(){
         clientNames = new ArrayList<>();
         //int connections = 0;
         try {
             ServerSocket server = new ServerSocket(5020);
             while(true){
                 Socket clientSocket = server.accept();
+                System.out.println("Client");
 
-                new TCPServerThreadForClients(clientNames, clientSocket);
+                TCPServerThreadForClients t = new
+                        TCPServerThreadForClients(clientNames, clientSocket);
+                Thread t1 = new Thread(t);
+                t1.start();
             }
         } catch (IOException e) {
             e.printStackTrace();

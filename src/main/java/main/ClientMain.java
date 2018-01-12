@@ -26,7 +26,7 @@ public class ClientMain extends Application {
 
         Thread tcp = new TCPClient();
         tcp.start();
-        tcp.join();
+        //tcp.join();
 
 
         //Show GUI
