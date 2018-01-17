@@ -12,10 +12,6 @@ public class TCPClient extends Thread {
     private static String serverName;
     private static String clientName;
 
-//    public TCPClient(){
-//        run();
-//    }
-
     public void run() {
         System.out.println("TCPClient started");
         try (Socket serverCon = new Socket("localhost", 5020);
@@ -30,6 +26,7 @@ public class TCPClient extends Thread {
             //clientName = "BLA"+ System.currentTimeMillis();
             os.writeUTF(clientName);
 
+            //unnötig....
             //System.out.println("Enter password (Hint: it's password)");
             //String password = input.next();
 
