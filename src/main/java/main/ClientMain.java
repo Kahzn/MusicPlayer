@@ -25,19 +25,18 @@ public class ClientMain extends Application {
         //ist ok??? (war vorher Thread tcp = new TCPClient();
         TCPClient tcp = new TCPClient();
         tcp.start();
-//        RemoteButtonController controller =
-//                (RemoteButtonController) Naming.lookup(tcp.getServerName());
+        RemoteButtonController remoteController =
+                (RemoteButtonController) Naming.lookup(tcp.getServerName());
 
 
         Model model = new Model();
-        ClientView view = new ClientView(tcp);
+        ClientView view = new ClientView(remoteController);
         ClientController controller = new ClientController();
-        //??
-        //controller.link(model, view);
+        //controller.link(model, view);//??
 
 
 
-        //Show GUI
+        //Show JavaFX GUI
         primaryStage.setTitle("Music Player");
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);

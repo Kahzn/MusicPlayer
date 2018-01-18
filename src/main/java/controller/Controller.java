@@ -13,10 +13,13 @@ import serializable.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-public class Controller extends UnicastRemoteObject implements RemoteButtonController {
+public class Controller extends UnicastRemoteObject implements RemoteButtonController, Serializable {
+    private static final long serialVersionUID = 1L;
+
     Model model;
     View view;
     private int currentIndex = 0; //index des ausgewählten Liedes

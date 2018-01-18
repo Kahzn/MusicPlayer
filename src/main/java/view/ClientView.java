@@ -51,22 +51,13 @@ public class ClientView extends BorderPane {
     //Muss über RMI (nicht lokal) ausgeführt werden
    RemoteButtonController controller;   //Für EventHandling
 
-    TCPClient tcp;
 
 
 
-    public ClientView(TCPClient tcp){
-        this.tcp = tcp;
 
-        try {
-            RemoteButtonController controller = (RemoteButtonController) Naming.lookup(tcp.getServerName());
-        } catch (NotBoundException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+    public ClientView(RemoteButtonController controller){
+
+        this.controller = controller;
 
         createTopPanel();
         createLibraryPanel();
@@ -81,15 +72,27 @@ public class ClientView extends BorderPane {
     }
 
     private void setEventHandling() {
-        play.setOnAction(e -> controller.play(playlist.getSelectionModel().getSelectedIndex()));
-        addToPlaylist.setOnAction(e -> controller.addToPlaylist(library.getSelectionModel().getSelectedItem()));
-        delete.setOnAction(e -> controller.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem()));
-        enter.setOnAction(e -> controller.edit());
-        addAll.setOnAction(e -> controller.addAll());
-        skip.setOnAction(e -> controller.skip());
-        pause.setOnAction(e -> controller.pause());
-        save.setOnAction(e -> controller.save());
-        load.setOnAction(e -> controller.load());
+        play.setOnAction(e -> {
+            try {
+                controller.play(playlist.getSelectionModel().getSelectedIndex());
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        addToPlaylist.setOnAction(e -> {
+            try {
+                controller.addToPlaylist(library.getSelectionModel().getSelectedItem());
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+//        delete.setOnAction(e -> controller.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem()));
+//        enter.setOnAction(e -> controller.edit());
+//        addAll.setOnAction(e -> controller.addAll());
+//        skip.setOnAction(e -> controller.skip());
+//        pause.setOnAction(e -> controller.pause());
+//        save.setOnAction(e -> controller.save());
+//        load.setOnAction(e -> controller.load());
     }
 
     private void createTopPanel() {

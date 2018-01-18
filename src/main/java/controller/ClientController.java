@@ -36,7 +36,7 @@ public class ClientController  implements ButtonController {
         this.view.bindData(this.model);
 
         //Wichtig: eine Instanz der View Klasse braucht einen ButtonController Feld um das EventHandling auszuführen
-        view.setController(this);
+        //view.setController(this);
     }
 
 
