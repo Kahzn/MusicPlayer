@@ -2,6 +2,7 @@ package main;
 
 import TCP.TCPClient;
 import controller.ClientController;
+import controller.Controller;
 import interfaces.RemoteButtonController;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -33,7 +34,6 @@ public class ClientMain extends Application {
         ClientView view = new ClientView(remoteController);
         //ClientController controller = new ClientController();
         //controller.link(model, view);//??
-
 
 
         //Show JavaFX GUI

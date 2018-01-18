@@ -22,17 +22,9 @@ public class TCPClient extends Thread {
 
 
             System.out.print("Client's name is: ");
-            //unnötig aber Optional:
-//            Scanner input = new Scanner(System.in);
-//            clientName = input.next();
             clientName = "client"+ System.currentTimeMillis();
             System.out.println(clientName);
             os.writeUTF(clientName);
-
-            //unnötig aber Optional
-            //System.out.println("Enter password (Hint: it's password)");
-            //String password = input.next();
-
             String password = "password";
             os.writeUTF(password);
 
