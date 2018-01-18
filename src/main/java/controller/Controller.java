@@ -26,7 +26,9 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     private MediaPlayer player;
     private String path;
 
-    public Controller() throws RemoteException{}
+    public Controller() throws RemoteException{
+        super();
+    }
 
     public void link(Model model, View view) throws RemoteException{
         this.model = model;

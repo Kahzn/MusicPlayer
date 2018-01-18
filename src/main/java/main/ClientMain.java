@@ -31,7 +31,7 @@ public class ClientMain extends Application {
 
         Model model = new Model();
         ClientView view = new ClientView(remoteController);
-        ClientController controller = new ClientController();
+        //ClientController controller = new ClientController();
         //controller.link(model, view);//??
 
 
