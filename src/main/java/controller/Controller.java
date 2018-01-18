@@ -1,6 +1,7 @@
 package controller;
 
-import interfaces.ButtonController;
+
+import interfaces.RemoteButtonController;
 import interfaces.SerializableStrategy;
 import interfaces.Song;
 import javafx.scene.media.Media;
@@ -13,15 +14,18 @@ import serializable.*;
 import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
-public class Controller implements ButtonController {
+public class Controller extends UnicastRemoteObject implements RemoteButtonController {
     Model model;
     View view;
     private int currentIndex = 0; //index des ausgewählten Liedes
     private MediaPlayer player;
     private String path;
 
-    public void link(Model model, View view){
+    public Controller() throws RemoteException{}
+
+    public void link(Model model, View view) throws RemoteException{
         this.model = model;
         this.view = view;
 
@@ -34,7 +38,7 @@ public class Controller implements ButtonController {
 
     //Methoden haben bei der Server's Controller keine Funktionalität... löschen?
     @Override
-    public void addAll() {
+    public void addAll() throws RemoteException{
         for(Song song : model.getLibrary()) {
             try {
                 model.getPlaylist().addSong(song);
@@ -47,7 +51,7 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    public void addToPlaylist(Song s) {
+    public void addToPlaylist(Song s) throws RemoteException {
         try {
             if (s !=  null) {
                 model.getPlaylist().addSong(s);
@@ -60,7 +64,7 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    public void removeFromPlaylist(Song s) {
+    public void removeFromPlaylist(Song s) throws RemoteException{
         s = view.getPlaylist().getSelectionModel().getSelectedItem();
         long id = view.getPlaylist().getSelectionModel().getSelectedIndex();
         try {
@@ -72,7 +76,7 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    public void play(int index) {
+    public void play(int index) throws RemoteException{
         try {
 
             currentIndex = index;
@@ -131,7 +135,13 @@ public class Controller implements ButtonController {
                     }
                 });
                 */
-                player.setOnEndOfMedia( () -> play(index + 1 ) );
+                player.setOnEndOfMedia(() -> {
+                    try {
+                        play(index + 1);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                });
 
 
 
@@ -149,7 +159,7 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    public void pause() {
+    public void pause() throws RemoteException{
 
         //Song lied = view.getPlaylist().getSelectionModel().getSelectedItem();
         if (player != null && player.getStatus().equals(MediaPlayer.Status.PLAYING)) { //ein Lied wird gespiet
@@ -161,7 +171,7 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    public void skip() {
+    public void skip()throws RemoteException {
         try {
             //die selectNext()-Methode wählt das Lied mit dem nächsthöheren Index in der ListView aus.
             //Wenn aktuell kein Lied gewählt ist, wählt diese Methode das erste Lied aus.
@@ -175,7 +185,7 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    public void edit() {
+    public void edit() throws RemoteException{
         Song s = view.getPlaylist().getSelectionModel().getSelectedItem();
         String titel = view.getTitel();
         String interpret = view.getInterpret();
@@ -205,7 +215,7 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    public void load() {
+    public void load() throws RemoteException{
         //delete current library and playlist
         try {
             model.getLibrary().clearPlaylist();
@@ -264,7 +274,7 @@ public class Controller implements ButtonController {
     }
 
     @Override
-    public void save() {
+    public void save() throws RemoteException{
 
         /*save (serialize) library and playlist using strategy strat */
         SerializableStrategy strat = serializationType();

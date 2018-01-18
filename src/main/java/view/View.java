@@ -1,6 +1,7 @@
 package view;
 
 import interfaces.ButtonController;
+import interfaces.RemoteButtonController;
 import interfaces.Song;
 import javafx.collections.FXCollections;
 import javafx.scene.control.*;
@@ -9,6 +10,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import model.Model;
+
+import java.rmi.RemoteException;
 
 
 public class View extends BorderPane {
@@ -40,7 +43,7 @@ public class View extends BorderPane {
     private Button addAll   = new Button ("Add All Songs");
     private Button delete = new Button("Delete Song ");
 
-    private ButtonController controller;   //Für EventHandling
+    private RemoteButtonController controller;   //Für EventHandling
 
 
 
@@ -51,16 +54,70 @@ public class View extends BorderPane {
         createPlaylistPanel();
         //createRightPanel(); //do not add because the server's view has no functionality
         //createBottomPanel();//do not add becasue the server's view has no functionality
-        play.setOnAction(e -> controller.play(playlist.getSelectionModel().getSelectedIndex()));
-        addToPlaylist.setOnAction(e -> controller.addToPlaylist(library.getSelectionModel().getSelectedItem()));
-        delete.setOnAction(e -> controller.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem()));
-        enter.setOnAction(e -> controller.edit());
-        addAll.setOnAction(e -> controller.addAll());
-        skip.setOnAction(e -> controller.skip());
-        pause.setOnAction(e -> controller.pause());
-        save.setOnAction(e -> controller.save());
-        load.setOnAction(e -> controller.load());
-//test
+        play.setOnAction(e -> {
+            try {
+                controller.play(playlist.getSelectionModel().getSelectedIndex());
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        addToPlaylist.setOnAction(e -> {
+            try {
+                controller.addToPlaylist(library.getSelectionModel().getSelectedItem());
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        delete.setOnAction(e -> {
+            try {
+                controller.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem());
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        enter.setOnAction(e -> {
+            try {
+                controller.edit();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        addAll.setOnAction(e -> {
+            try {
+                controller.addAll();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        skip.setOnAction(e -> {
+            try {
+                controller.skip();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        pause.setOnAction(e -> {
+            try {
+                controller.pause();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        save.setOnAction(e -> {
+            try {
+                controller.save();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        load.setOnAction(e -> {
+            try {
+                controller.load();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+
 
     }
 
@@ -123,7 +180,7 @@ public class View extends BorderPane {
         playlist.setItems(model.getPlaylist());
     }
 
-    public void setController(ButtonController controller) {
+    public void setController(RemoteButtonController controller) {
         this.controller = controller;
     }
 

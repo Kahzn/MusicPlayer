@@ -26,8 +26,6 @@ public class ClientMain extends Application {
 
         Thread tcp = new TCPClient();
         tcp.start();
-        //tcp.join();
-
 
         //Show GUI
         primaryStage.setTitle("Music Player");
