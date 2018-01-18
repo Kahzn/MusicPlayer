@@ -28,7 +28,7 @@ public class TCPClient extends Thread {
             String password = "password";
             os.writeUTF(password);
 
-            //Give client the name of the server's remote object is assigned in the server's registry
+            //Give client the name of the server's remote object as assigned in the server's registry
             serverName = is.readUTF();
             System.out.println("Server's name is " + serverName);
 

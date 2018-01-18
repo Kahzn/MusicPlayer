@@ -27,10 +27,10 @@ public class Main extends Application {
         Model model = new Model();
         View view = new View();
         Controller controller = new Controller();
-        Remote remote = controller;
+       // Remote remote = controller;
 
         controller.link(model, view);
-        Naming.rebind("//127.0.0.1:1099/server", remote);
+//        Naming.rebind("//127.0.0.1:1099/server", remote);
 
 
         //start TCPServer (Thread) to manage requests from Clients to access remote object
