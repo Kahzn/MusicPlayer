@@ -26,14 +26,11 @@ public class ClientMain extends Application {
         //ist ok??? (war vorher Thread tcp = new TCPClient();
         TCPClient tcp = new TCPClient();
         tcp.start();
-        RemoteButtonController remoteController =
-                (RemoteButtonController) Naming.lookup(tcp.getServerName());
-
 
         Model model = new Model();
-        ClientView view = new ClientView(remoteController);
-        //ClientController controller = new ClientController();
-        //controller.link(model, view);//??
+        ClientView view = new ClientView();
+        ClientController controller = new ClientController();
+        controller.link(model, view);//??
 
 
         //Show JavaFX GUI

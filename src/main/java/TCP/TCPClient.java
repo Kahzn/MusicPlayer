@@ -21,16 +21,17 @@ public class TCPClient extends Thread {
              ObjectInputStream is = new ObjectInputStream(in)) {
 
 
-            System.out.print("Client's name is: ");
-            clientName = "client"+ System.currentTimeMillis();
-            System.out.println(clientName);
-            os.writeUTF(clientName);
-            String password = "password";
-            os.writeUTF(password);
 
-            //Give client the name of the server's remote object is assigned in the server's registry
+            clientName = "client"+ System.currentTimeMillis();
+            System.out.print("Client's name is: "+ clientName);
+            os.writeUTF(clientName);
+            os.writeUTF("password");
+            System.out.println("password");
+
+
+            //Give client the name of the server's remote object  assigned in the server's registry
             serverName = is.readUTF();
-            System.out.println("Server's name is " + serverName);
+            System.out.println("Server's name is: " + serverName);
 
 
         } catch (UnknownHostException e) {

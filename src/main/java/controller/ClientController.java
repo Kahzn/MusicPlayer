@@ -20,7 +20,7 @@ import java.rmi.RemoteException;
 /**
  * Created by rebeccamarsh on 1/9/18.
  */
-public class ClientController  implements ButtonController {
+public class ClientController implements ButtonController {
     Model model;
     ClientView view;
     private int currentIndex = 0; //index des ausgewählten Liedes
@@ -36,7 +36,7 @@ public class ClientController  implements ButtonController {
         this.view.bindData(this.model);
 
         //Wichtig: eine Instanz der View Klasse braucht einen ButtonController Feld um das EventHandling auszuführen
-        //view.setController(this);
+        view.setController(this);
     }
 
 

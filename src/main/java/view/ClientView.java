@@ -49,13 +49,13 @@ public class ClientView extends BorderPane {
     private Button delete = new Button("Delete Song ");
 
     //Muss über RMI (nicht lokal) ausgeführt werden
-   RemoteButtonController controller;   //Für EventHandling
+   ButtonController controller;   //Für EventHandling
 
 
 
 
 
-    public ClientView(RemoteButtonController controller){
+    public ClientView(){
 
         this.controller = controller;
 
@@ -72,27 +72,15 @@ public class ClientView extends BorderPane {
     }
 
     private void setEventHandling() {
-        play.setOnAction(e -> {
-            try {
-                controller.play(playlist.getSelectionModel().getSelectedIndex());
-            } catch (RemoteException e1) {
-                e1.printStackTrace();
-            }
-        });
-        addToPlaylist.setOnAction(e -> {
-            try {
-                controller.addToPlaylist(library.getSelectionModel().getSelectedItem());
-            } catch (RemoteException e1) {
-                e1.printStackTrace();
-            }
-        });
-//        delete.setOnAction(e -> controller.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem()));
-//        enter.setOnAction(e -> controller.edit());
-//        addAll.setOnAction(e -> controller.addAll());
-//        skip.setOnAction(e -> controller.skip());
-//        pause.setOnAction(e -> controller.pause());
-//        save.setOnAction(e -> controller.save());
-//        load.setOnAction(e -> controller.load());
+            play.setOnAction(e -> controller.play(playlist.getSelectionModel().getSelectedIndex()));
+            addToPlaylist.setOnAction(e -> controller.addToPlaylist(library.getSelectionModel().getSelectedItem()));
+            delete.setOnAction(e -> controller.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem()));
+            enter.setOnAction(e -> controller.edit());
+            addAll.setOnAction(e -> controller.addAll());
+            skip.setOnAction(e -> controller.skip());
+            pause.setOnAction(e -> controller.pause());
+            save.setOnAction(e -> controller.save());
+            load.setOnAction(e -> controller.load());
     }
 
     private void createTopPanel() {
@@ -154,9 +142,9 @@ public class ClientView extends BorderPane {
         playlist.setItems(model.getPlaylist());
     }
 
-    //public void setController(ButtonController controller) {
-//        this.controller = controller;
-//    }
+    public void setController(ButtonController controller) {
+        this.controller = controller;
+    }
 
     public ListView<Song> getPlaylist() {
         return playlist;
