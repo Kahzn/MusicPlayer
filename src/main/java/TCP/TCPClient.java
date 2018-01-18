@@ -20,19 +20,15 @@ public class TCPClient extends Thread {
              ObjectOutputStream os = new ObjectOutputStream(out);
              ObjectInputStream is = new ObjectInputStream(in)) {
 
-            System.out.print("Enter your client's name: ");
-            Scanner input = new Scanner(System.in);
-            clientName = input.next();
-            //clientName = "BLA"+ System.currentTimeMillis();
+
+            System.out.print("Client's name is: ");
+            clientName = "client"+ System.currentTimeMillis();
+            System.out.println(clientName);
             os.writeUTF(clientName);
-
-            //unnötig....
-            //System.out.println("Enter password (Hint: it's password)");
-            //String password = input.next();
-
             String password = "password";
             os.writeUTF(password);
 
+            //Give client the name of the server's remote object is assigned in the server's registry
             serverName = is.readUTF();
             System.out.println("Server's name is " + serverName);
 
@@ -43,5 +39,9 @@ public class TCPClient extends Thread {
             System.out.println("IO Problem");
         }
 
+    }
+
+    public String getServerName(){
+        return serverName;
     }
 }

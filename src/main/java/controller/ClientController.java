@@ -1,5 +1,6 @@
 package controller;
 
+import TCP.TCPClient;
 import interfaces.ButtonController;
 import interfaces.SerializableStrategy;
 import interfaces.Song;
@@ -26,6 +27,7 @@ public class ClientController  implements ButtonController {
     private MediaPlayer player;
     private String path;
 
+
     public void link(Model model, ClientView view){
         this.model = model;
         this.view = view;
@@ -34,7 +36,7 @@ public class ClientController  implements ButtonController {
         this.view.bindData(this.model);
 
         //Wichtig: eine Instanz der View Klasse braucht einen ButtonController Feld um das EventHandling auszuführen
-        view.setController(this);
+        //view.setController(this);
     }
 
 
