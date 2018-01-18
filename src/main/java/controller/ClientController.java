@@ -1,5 +1,6 @@
 package controller;
 
+import TCP.TCPClient;
 import interfaces.ButtonController;
 import interfaces.SerializableStrategy;
 import interfaces.Song;
@@ -25,6 +26,7 @@ public class ClientController  implements ButtonController {
     private int currentIndex = 0; //index des ausgewählten Liedes
     private MediaPlayer player;
     private String path;
+
 
     public void link(Model model, ClientView view){
         this.model = model;
