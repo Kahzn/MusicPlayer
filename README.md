@@ -7,8 +7,8 @@ A1 set-up
 - RMI: Änderung der Button-Funktionalität beim Client
 
 A2 UDP
-- Klassen UDPServer und UDPClient erstellen 
-- View: Darstellung der momentanen Abspielzeit (mm:ss) einfügen
+- Klassen UDPServer und UDPClient erstellen: Check!
+- View: Darstellung der momentanen Abspielzeit (mm:ss) einfügen: Check!
 - UDPServer wartet auf Port 5000 auf eingehende JSON-Pakete mit dem Inhalt {"cmd":"time"}
 - UDPSever-Methode zur Rückgabe der Abspielzeit bei Eintreffen von Paketen implememtieren
 - UDPClient-Methode implementieren, die jeden Client jede Sekunde ein Paket an den Server senden lässt und bei Rückantwort des Servers die View neu rendert. (-->Threads nutzen!)
