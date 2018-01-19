@@ -26,12 +26,12 @@ public class TCPClient extends Thread {
 
 
             clientName = "client"+ System.currentTimeMillis();
-            os.writeUTF(clientName);
-            System.out.print("Client's name: "+ clientName);
+            os.writeObject(clientName);
+            System.out.println("Client's name: "+ clientName);
             String password = "password";
-            os.writeUTF(password);
-
-            serverName = is.readUTF();
+            os.writeObject(password);
+            System.out.println("Password "+password);
+            serverName = (String) is.readObject();
             System.out.println("Server's name is " + serverName);
 
 
@@ -39,6 +39,8 @@ public class TCPClient extends Thread {
             System.out.println("Could not connect to port 5020");
         } catch (IOException e) {
             System.out.println("IO Problem");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
 
     }
