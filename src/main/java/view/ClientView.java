@@ -59,7 +59,6 @@ public class ClientView extends BorderPane {
         bindData();
 
 
-
     }
 
     private void setEventHandling() {
