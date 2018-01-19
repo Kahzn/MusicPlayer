@@ -33,7 +33,7 @@ public class ClientController  implements ButtonController {
         this.view = view;
 
         //Bind data to view. D.h.: den ListView elements werden Elemente aus dem Model mit Methode setItems hinzugefügt
-        this.view.bindData(this.model);
+        //this.view.bindData(this.model);
 
         //Wichtig: eine Instanz der View Klasse braucht einen ButtonController Feld um das EventHandling auszuführen
         //view.setController(this);

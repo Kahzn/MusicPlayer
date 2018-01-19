@@ -41,6 +41,11 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         view.setController(this);
     }
 
+    @Override
+    public String saysomething() throws RemoteException {
+        return "what's up";
+    }
+
     //Methoden haben bei der Server's Controller keine Funktionalität... löschen?
     @Override
     public void addAll() throws RemoteException{
