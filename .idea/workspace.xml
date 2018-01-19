@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0f0a877-3eec-4cb8-8018-39138170b590" name="Default" comment="Timer-Klasse hinzugefügt (package: Controller)&#10;braucht (evtl.) Überarbeitung">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/TCP/TCPServer.java" afterPath="$PROJECT_DIR$/src/main/java/TCP/TCPServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/interfaces/RemoteButtonController.java" afterPath="$PROJECT_DIR$/src/main/java/interfaces/RemoteButtonController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/main/ClientMain.java" afterPath="$PROJECT_DIR$/src/main/java/main/ClientMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" />
-    </list>
+    <list default="true" id="e0f0a877-3eec-4cb8-8018-39138170b590" name="Default" comment="Timer-Klasse hinzugefügt (package: Controller)&#10;braucht (evtl.) Überarbeitung" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
