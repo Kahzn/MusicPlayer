@@ -30,7 +30,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         super();
     }
 
-    public void link(Model model, View view) throws RemoteException{
+    public void link(Model model, View view) {
         this.model = model;
         this.view = view;
 
@@ -306,6 +306,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
 
     }
 
+
     private SerializableStrategy serializationType() {
         SerializableStrategy strat = null;
 
@@ -317,6 +318,16 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         return strat;
     }
 
+
+    @Override
+    public Playlist getLibary() throws RemoteException {
+        return model.getLibrary();
+    }
+
+    @Override
+    public Playlist getPlaylist() throws RemoteException {
+        return model.getPlaylist();
+    }
 
 
 }

@@ -13,7 +13,7 @@ public class TCPServer extends Thread {
         clientNames = new ArrayList<>();
         //int connections = 0;
         try {
-            ServerSocket server = new ServerSocket(5020);
+            ServerSocket server = new ServerSocket(5021);
             while(true){
                 Socket clientSocket = server.accept();
                 System.out.println("Client");
@@ -49,23 +49,24 @@ class TCPServerThreadForClients implements Runnable {
              OutputStream out = socket.getOutputStream();
             ObjectOutputStream os = new ObjectOutputStream(out);
             ObjectInputStream is = new ObjectInputStream(in)){
-            String name = is.readUTF();
-            String inputPassword = is.readUTF();
+            String name = (String) is.readObject();
+            String inputPassword = (String) is.readObject();
             if(inputPassword.equals(PASSWORD)){
                 synchronized (clientNames) {
                     clientNames.add(name);
-                    os.writeUTF("server");
+                    os.writeObject("server");
                 }
             }else{
-                os.writeUTF("Wrong password");
+                os.writeObject("Wrong password");
             }
             out.flush();
             os.flush();
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally {
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
             try {
                 if (socket != null) {
                     socket.close();

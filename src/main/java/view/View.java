@@ -188,6 +188,8 @@ public class View extends BorderPane {
         return playlist;
     }
 
+//    public ListView<Song> getLibrary() { return library;}
+
     public String getTitel() {
         return titel.getText();
     }
@@ -203,4 +205,6 @@ public class View extends BorderPane {
     public String getSerializationType(){
        return dropDownMenu.getSelectionModel().getSelectedItem().toString();
     }
+
+
 }

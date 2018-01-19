@@ -51,10 +51,6 @@ public class ClientView extends BorderPane {
     //Muss über RMI (nicht lokal) ausgeführt werden
    RemoteButtonController controller;   //Für EventHandling
 
-
-
-
-
     public ClientView(RemoteButtonController controller){
 
         this.controller = controller;
@@ -150,8 +146,21 @@ public class ClientView extends BorderPane {
     public void bindData(Model model){
         //Sets items in listview objects so that they are filled with objects in the model,
         //listview will observe the models playlists, because the playlists are observable
-        library.setItems(model.getLibrary());
-        playlist.setItems(model.getPlaylist());
+//        library.setItems(model.getLibrary());
+//        playlist.setItems(model.getPlaylist());
+
+
+        try {
+            library.setItems(controller.getLibary());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        try {
+            playlist.setItems(controller.getPlaylist());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
     }
 
     //public void setController(ButtonController controller) {

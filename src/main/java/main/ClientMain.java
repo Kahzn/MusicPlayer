@@ -24,23 +24,28 @@ public class ClientMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         //ist ok??? (war vorher Thread tcp = new TCPClient();
-        Thread tcp = new TCPClient();
+        TCPClient tcp = new TCPClient();
         tcp.start();
-//        RemoteButtonController remoteController =
-//                (RemoteButtonController) Naming.lookup(tcp.getServerName());
-//
-//
-//        Model model = new Model();
-//        ClientView view = new ClientView(remoteController);
-//        //ClientController controller = new ClientController();
-//        //controller.link(model, view);//??
-//
-//
-//        //Show JavaFX GUI
-//        primaryStage.setTitle("Music Player");
-//        Scene scene = new Scene(view);
-//        primaryStage.setScene(scene);
-//        primaryStage.show();
+
+        //TCPClient braucht Zeit, den serverName über Streams zu bekommen
+        while(tcp.getServerName() == null){
+            Thread.sleep(1000);
+            System.out.println("Sleep");
+        }
+
+        RemoteButtonController remoteController =
+                (RemoteButtonController) Naming.lookup(tcp.getServerName());
+
+        ClientView view = new ClientView(remoteController);
+
+        //Model model = new Model();
+        //ClientController controller = new ClientController();
+
+        //Show JavaFX GUI
+        primaryStage.setTitle("Music Player");
+        Scene scene = new Scene(view);
+        primaryStage.setScene(scene);
+        primaryStage.show();
 
     }
 }
