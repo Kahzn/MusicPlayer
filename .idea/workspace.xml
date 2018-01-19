@@ -1,46 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0f0a877-3eec-4cb8-8018-39138170b590" name="Default" comment="Timer-Klasse hinzugefügt (package: Controller)&#10;braucht (evtl.) Überarbeitung">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/model/Song.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/serializable/JDBCStrategy$TableName.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/model/StringPropertyValueHandler.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/view/ClientView.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/controller/Timer.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/view/View.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/serializable/XMLStrategy.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/interfaces/Song.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/TCP/TCPServerThreadForClients.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/serializable/JDBCStrategy$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/model/AbstractPropertyValueHandler.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/view/ClientView$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/model/Model.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/exception/IDOverFlowException.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/TCP/TCPClient.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/controller/Controller.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/helper/StringPropertyValueHandler.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/model/Playlist.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/serializable/OpenJPAStrategy.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/interfaces/Playlist.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/interfaces/ButtonController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/main/ClientMain.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/interfaces/SerializableStrategy.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/view/View$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/TCP/TCPServer.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/model/IDGenerator.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/serializable/BinaryStrategy.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/UDP/UDPClient.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/UDP/UDPServer.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/helper/AbstractPropertyValueHandler.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/controller/ClientController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/serializable/JDBCStrategy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/TCP/TCPClient.java" afterPath="$PROJECT_DIR$/src/main/java/TCP/TCPClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/TCP/TCPServer.java" afterPath="$PROJECT_DIR$/src/main/java/TCP/TCPServer.java" />
-    </list>
+    <list default="true" id="e0f0a877-3eec-4cb8-8018-39138170b590" name="Default" comment="Timer-Klasse hinzugefügt (package: Controller)&#10;braucht (evtl.) Überarbeitung" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,17 +16,17 @@
       <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="652">
-              <caret line="51" column="14" lean-forward="false" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
+            <state relative-caret-position="682">
+              <caret line="53" column="14" lean-forward="false" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
               <folding>
-                <marker date="1516350838000" expanded="true" signature="84906:85150" ph="..." />
-                <marker date="1516350838000" expanded="true" signature="84906:85165" ph="..." />
-                <marker date="1516350838000" expanded="true" signature="84906:85179" ph="..." />
-                <marker date="1516350838000" expanded="true" signature="84906:85194" ph="..." />
-                <marker date="1516350838000" expanded="true" signature="84952:85130" ph="..." />
-                <marker date="1516350838000" expanded="true" signature="84992:85096" ph="..." />
-                <marker date="1516350838000" expanded="true" signature="85013:85074" ph="..." />
-                <marker date="1516350838000" expanded="true" signature="85239:85338" ph="..." />
+                <marker date="1516351263000" expanded="true" signature="90026:90270" ph="..." />
+                <marker date="1516351263000" expanded="true" signature="90026:90285" ph="..." />
+                <marker date="1516351263000" expanded="true" signature="90026:90299" ph="..." />
+                <marker date="1516351263000" expanded="true" signature="90026:90314" ph="..." />
+                <marker date="1516351263000" expanded="true" signature="90072:90250" ph="..." />
+                <marker date="1516351263000" expanded="true" signature="90112:90216" ph="..." />
+                <marker date="1516351263000" expanded="true" signature="90133:90194" ph="..." />
+                <marker date="1516351263000" expanded="true" signature="90359:90458" ph="..." />
               </folding>
             </state>
           </provider>
@@ -178,8 +139,8 @@
       <file leaf-file-name="TCPServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/TCP/TCPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="65" column="23" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+            <state relative-caret-position="136">
+              <caret line="35" column="37" lean-forward="false" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1175,17 +1136,17 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/network/UDPClient.java" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="652">
-          <caret line="51" column="14" lean-forward="false" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
+        <state relative-caret-position="682">
+          <caret line="53" column="14" lean-forward="false" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
           <folding>
-            <marker date="1516350838000" expanded="true" signature="84906:85150" ph="..." />
-            <marker date="1516350838000" expanded="true" signature="84906:85165" ph="..." />
-            <marker date="1516350838000" expanded="true" signature="84906:85179" ph="..." />
-            <marker date="1516350838000" expanded="true" signature="84906:85194" ph="..." />
-            <marker date="1516350838000" expanded="true" signature="84952:85130" ph="..." />
-            <marker date="1516350838000" expanded="true" signature="84992:85096" ph="..." />
-            <marker date="1516350838000" expanded="true" signature="85013:85074" ph="..." />
-            <marker date="1516350838000" expanded="true" signature="85239:85338" ph="..." />
+            <marker date="1516351263000" expanded="true" signature="90026:90270" ph="..." />
+            <marker date="1516351263000" expanded="true" signature="90026:90285" ph="..." />
+            <marker date="1516351263000" expanded="true" signature="90026:90299" ph="..." />
+            <marker date="1516351263000" expanded="true" signature="90026:90314" ph="..." />
+            <marker date="1516351263000" expanded="true" signature="90072:90250" ph="..." />
+            <marker date="1516351263000" expanded="true" signature="90112:90216" ph="..." />
+            <marker date="1516351263000" expanded="true" signature="90133:90194" ph="..." />
+            <marker date="1516351263000" expanded="true" signature="90359:90458" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1319,8 +1280,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TCP/TCPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="65" column="23" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+        <state relative-caret-position="136">
+          <caret line="35" column="37" lean-forward="false" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
