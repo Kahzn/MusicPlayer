@@ -1,5 +1,4 @@
 package view;
-
 import interfaces.ButtonController;
 import interfaces.Song;
 import javafx.collections.FXCollections;
