@@ -41,14 +41,11 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         view.setController(this);
     }
 
-    @Override
-    public String saysomething() throws RemoteException {
-        return "what's up";
-    }
+
 
     //Methoden haben bei der Server's Controller keine Funktionalität... löschen?
     @Override
-    public void addAll() throws RemoteException{
+    public synchronized void addAll() throws RemoteException{
         for(Song song : model.getLibrary()) {
             try {
                 model.getPlaylist().addSong(song);
@@ -61,7 +58,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     }
 
     @Override
-    public void addToPlaylist(Song s) throws RemoteException {
+    public synchronized void addToPlaylist(Song s) throws RemoteException {
         try {
             if (s !=  null) {
                 model.getPlaylist().addSong(s);
@@ -74,7 +71,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     }
 
     @Override
-    public void removeFromPlaylist(Song s) throws RemoteException{
+    public synchronized void removeFromPlaylist(Song s) throws RemoteException{
         s = view.getPlaylist().getSelectionModel().getSelectedItem();
         long id = view.getPlaylist().getSelectionModel().getSelectedIndex();
         try {
@@ -86,7 +83,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     }
 
     @Override
-    public void play(int index) throws RemoteException{
+    public synchronized void play(int index) throws RemoteException{
         try {
 
             currentIndex = index;
@@ -169,7 +166,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     }
 
     @Override
-    public void pause() throws RemoteException{
+    public synchronized void pause() throws RemoteException{
 
         //Song lied = view.getPlaylist().getSelectionModel().getSelectedItem();
         if (player != null && player.getStatus().equals(MediaPlayer.Status.PLAYING)) { //ein Lied wird gespiet
@@ -181,7 +178,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     }
 
     @Override
-    public void skip()throws RemoteException {
+    public synchronized void skip()throws RemoteException {
         try {
             //die selectNext()-Methode wählt das Lied mit dem nächsthöheren Index in der ListView aus.
             //Wenn aktuell kein Lied gewählt ist, wählt diese Methode das erste Lied aus.
@@ -195,7 +192,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     }
 
     @Override
-    public void edit() throws RemoteException{
+    public synchronized void edit() throws RemoteException{
         Song s = view.getPlaylist().getSelectionModel().getSelectedItem();
         String titel = view.getTitel();
         String interpret = view.getInterpret();
@@ -225,7 +222,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     }
 
     @Override
-    public void load() throws RemoteException{
+    public synchronized void load() throws RemoteException{
         //delete current library and playlist
         try {
             model.getLibrary().clearPlaylist();
@@ -284,7 +281,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     }
 
     @Override
-    public void save() throws RemoteException{
+    public synchronized void save() throws RemoteException{
 
         /*save (serialize) library and playlist using strategy strat */
         SerializableStrategy strat = serializationType();

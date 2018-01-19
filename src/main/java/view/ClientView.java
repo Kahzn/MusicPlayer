@@ -72,6 +72,7 @@ public class ClientView extends BorderPane {
         play.setOnAction(e -> {
             try {
                 controller.play(playlist.getSelectionModel().getSelectedIndex());
+                bindData();
             } catch (RemoteException e1) {
                 e1.printStackTrace();
             }
@@ -79,17 +80,67 @@ public class ClientView extends BorderPane {
         addToPlaylist.setOnAction(e -> {
             try {
                 controller.addToPlaylist(library.getSelectionModel().getSelectedItem());
+                bindData();
             } catch (RemoteException e1) {
                 e1.printStackTrace();
             }
         });
-//        delete.setOnAction(e -> controller.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem()));
-//        enter.setOnAction(e -> controller.edit());
-//        addAll.setOnAction(e -> controller.addAll());
-//        skip.setOnAction(e -> controller.skip());
-//        pause.setOnAction(e -> controller.pause());
-//        save.setOnAction(e -> controller.save());
-//        load.setOnAction(e -> controller.load());
+        delete.setOnAction(e -> {
+            try {
+                controller.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem());
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        enter.setOnAction(e -> {
+            try {
+                controller.edit();
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        addAll.setOnAction(e -> {
+            try {
+                controller.addAll();
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        skip.setOnAction(e -> {
+            try {
+                controller.skip();
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        pause.setOnAction(e -> {
+            try {
+                controller.pause();
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        save.setOnAction(e -> {
+            try {
+                controller.save();
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        load.setOnAction(e -> {
+            try {
+                controller.load();
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
     }
 
     private void createTopPanel() {

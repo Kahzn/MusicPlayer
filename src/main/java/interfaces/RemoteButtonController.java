@@ -8,8 +8,6 @@ import java.rmi.RemoteException;
 
 public interface RemoteButtonController extends Remote{
 
-    String saysomething() throws RemoteException;
-
     void addAll()throws RemoteException;
     void addToPlaylist(Song s) throws RemoteException;
     void removeFromPlaylist(Song s) throws RemoteException;
