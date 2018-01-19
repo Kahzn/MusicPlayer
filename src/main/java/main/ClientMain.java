@@ -1,16 +1,15 @@
 package main;
 
 import TCP.TCPClient;
-import controller.ClientController;
+import interfaces.RemoteButtonController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Model;
 import view.ClientView;
 
-/**
- * Created by rebeccamarsh on 1/9/18.
- */
+import java.rmi.Naming;
+
+
 public class ClientMain extends Application {
 
     public static void main(String[] args){
@@ -19,18 +18,23 @@ public class ClientMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Model model = new Model();
-        ClientView view = new ClientView();
-        ClientController controller = new ClientController();
-        controller.link(model, view);
-
-        Thread tcp = new TCPClient();
+        //ist ok??? (war vorher Thread tcp = new TCPClient();
+        TCPClient tcp = new TCPClient();
         tcp.start();
 
+        //TCPClient braucht Zeit, den serverName über Streams zu bekommen
+        while(tcp.getServerName() == null){
+            Thread.sleep(1000);
+            System.out.println("Sleep");
+        }
 
+        RemoteButtonController remoteController =
+                (RemoteButtonController) Naming.lookup(tcp.getServerName());
 
-        //Show GUI
-        primaryStage.setTitle("Music Player");
+        ClientView view = new ClientView(remoteController);
+
+        //Show JavaFX GUI
+        primaryStage.setTitle("Music Player: " + tcp.getClientName());
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
         primaryStage.show();

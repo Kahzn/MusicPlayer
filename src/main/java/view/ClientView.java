@@ -1,13 +1,14 @@
 package view;
 
-import interfaces.ButtonController;
+import interfaces.RemoteButtonController;
 import interfaces.Song;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import model.Model;
+
+import java.rmi.RemoteException;
 
 /**
  * Created by rebeccamarsh on 1/9/18.
@@ -42,28 +43,98 @@ public class ClientView extends BorderPane {
     private Button delete = new Button("Delete Song ");
 
     //Muss über RMI (nicht lokal) ausgeführt werden
-    private ButtonController controller;   //Für EventHandling
+   RemoteButtonController controller;   //Für EventHandling
 
+    public ClientView(RemoteButtonController controller){
 
-
-    public ClientView(){
+        this.controller = controller;
 
         createTopPanel();
         createLibraryPanel();
         createPlaylistPanel();
         createRightPanel();
         createBottomPanel();
-        play.setOnAction(e -> controller.play(playlist.getSelectionModel().getSelectedIndex()));
-        addToPlaylist.setOnAction(e -> controller.addToPlaylist(library.getSelectionModel().getSelectedItem()));
-        delete.setOnAction(e -> controller.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem()));
-        enter.setOnAction(e -> controller.edit());
-        addAll.setOnAction(e -> controller.addAll());
-        skip.setOnAction(e -> controller.skip());
-        pause.setOnAction(e -> controller.pause());
-        save.setOnAction(e -> controller.save());
-        load.setOnAction(e -> controller.load());
+
+        setEventHandling();
+        bindData();
 
 
+
+    }
+
+    private void setEventHandling() {
+        play.setOnAction(e -> {
+            try {
+                controller.play(playlist.getSelectionModel().getSelectedIndex());
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        addToPlaylist.setOnAction(e -> {
+            try {
+                controller.addToPlaylist(library.getSelectionModel().getSelectedItem());
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        delete.setOnAction(e -> {
+            try {
+                controller.removeFromPlaylist(playlist.getSelectionModel().getSelectedItem());
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        enter.setOnAction(e -> {
+            try {
+                controller.edit();
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        addAll.setOnAction(e -> {
+            try {
+                controller.addAll();
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        skip.setOnAction(e -> {
+            try {
+                controller.skip();
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        pause.setOnAction(e -> {
+            try {
+                controller.pause();
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        save.setOnAction(e -> {
+            try {
+                controller.save();
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
+        load.setOnAction(e -> {
+            try {
+                controller.load();
+                bindData();
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
     }
 
     private void createTopPanel() {
@@ -118,16 +189,26 @@ public class ClientView extends BorderPane {
         });
     }
 
-    public void bindData(Model model){
+    public void bindData(){
         //Sets items in listview objects so that they are filled with objects in the model,
         //listview will observe the models playlists, because the playlists are observable
-        library.setItems(model.getLibrary());
-        playlist.setItems(model.getPlaylist());
+//        library.setItems(model.getLibrary());
+//        playlist.setItems(model.getPlaylist());
+
+
+        try {
+            library.setItems(controller.getLibary());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        try {
+            playlist.setItems(controller.getPlaylist());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
     }
 
-    public void setController(ButtonController controller) {
-        this.controller = controller;
-    }
 
     public ListView<Song> getPlaylist() {
         return playlist;

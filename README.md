@@ -7,8 +7,8 @@ A1 set-up
 - RMI: Änderung der Button-Funktionalität beim Client
 
 A2 UDP
-- Klassen UDPServer und UDPClient erstellen: Check!
-- View: Darstellung der momentanen Abspielzeit (mm:ss) einfügen: Check!
+- Klassen UDPServer und UDPClient erstellen 
+- View: Darstellung der momentanen Abspielzeit (mm:ss) einfügen
 - UDPServer wartet auf Port 5000 auf eingehende JSON-Pakete mit dem Inhalt {"cmd":"time"}
 - UDPSever-Methode zur Rückgabe der Abspielzeit bei Eintreffen von Paketen implememtieren
 - UDPClient-Methode implementieren, die jeden Client jede Sekunde ein Paket an den Server senden lässt und bei Rückantwort des Servers die View neu rendert. (-->Threads nutzen!)
@@ -23,12 +23,12 @@ A3 TCP
 Abarbeitung den Server nicht zu blockieren.
 
 A4 RMI
-- Remote Interface schreiben
-- Remote Object Klasse schreiben
-- Servermethode implementieren: Anmeldung in der Registry
-- Clientmethode implementieren: getPlaylists(), die sowohl die Library als auch die Playlist vom Server bekommt und in der View darstellt
-- Alle implementierten Button-Funktionen müssen auf dem Server ablaufen
-- Auf dem Client werden die Server-Button-Funktionen per RMI aufgerufen
-- Clientmethode implementieren, die die View anpasst, wenn die Daten auf dem Server geändert werden.
-- Zugriffe des Remote-Objekts synchronisieren.
+- Remote Interface schreiben ✓
+- Remote Object Klasse schreiben ✓
+- Servermethode implementieren: Anmeldung in der Registry ✓
+- Clientmethode implementieren: getPlaylists(), die sowohl die Library als auch die Playlist vom Server bekommt und in der View darstellt ✓
+- Alle implementierten Button-Funktionen müssen auf dem Server ablaufen ✓
+- Auf dem Client werden die Server-Button-Funktionen per RMI aufgerufen ✓
+- Clientmethode implementieren, die die View anpasst, wenn die Daten auf dem Server geändert werden. ✓
+- Zugriffe des Remote-Objekts synchronisieren. ✓
 
