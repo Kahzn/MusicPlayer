@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import view.ClientView;
 
 import java.rmi.Naming;
+import java.rmi.RemoteException;
 
 
 public class ClientMain extends Application {
@@ -38,6 +39,13 @@ public class ClientMain extends Application {
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
         primaryStage.show();
+        primaryStage.setOnCloseRequest(e-> {
+            try {
+                remoteController.logout(tcp.getClientName());
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+        });
 
     }
 }

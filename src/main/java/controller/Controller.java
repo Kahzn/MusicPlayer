@@ -1,6 +1,7 @@
 package controller;
 
 
+import TCP.TCPServer;
 import interfaces.RemoteButtonController;
 import interfaces.SerializableStrategy;
 import interfaces.Song;
@@ -25,9 +26,12 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     private int currentIndex = 0; //index des ausgewählten Liedes
     private MediaPlayer player;
     private String path;
+    TCPServer tcpServer;
 
-    public Controller() throws RemoteException{
+    public Controller(TCPServer t) throws RemoteException{
         super();
+        this.tcpServer = t;
+
     }
 
     public void link(Model model, View view) {
@@ -329,6 +333,11 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     @Override
     public Playlist getPlaylist() throws RemoteException {
         return model.getPlaylist();
+    }
+
+    @Override
+    public void logout(String cName) throws RemoteException {
+        tcpServer.removeClient(cName);
     }
 
 

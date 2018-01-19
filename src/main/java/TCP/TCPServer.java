@@ -28,6 +28,12 @@ public class TCPServer extends Thread {
             e.printStackTrace();
         }
     }
+
+    public synchronized void removeClient(String cName){
+        clientNames.remove(cName);
+        System.out.println("Print registered client names. ");
+        for(String c : clientNames) System.out.println(c);
+    }
 }
 
 
@@ -77,4 +83,6 @@ class TCPServerThreadForClients implements Runnable {
         }
 
     }
+
+
 }
