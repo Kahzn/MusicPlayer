@@ -31,6 +31,7 @@ public class Main extends Application {
 
         controller.link(model, view);
         Naming.rebind("//127.0.0.1:1099/server", remote);
+        //Naming.rebind("//134.91.44.132:1099/server", remote);
 
 
         //start TCPServer (Thread) to manage requests from Clients to access remote object
