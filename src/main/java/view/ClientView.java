@@ -1,7 +1,5 @@
 package view;
 
-import TCP.TCPClient;
-import interfaces.ButtonController;
 import interfaces.RemoteButtonController;
 import interfaces.Song;
 import javafx.scene.control.*;
@@ -9,11 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import model.Model;
 
-import java.net.MalformedURLException;
-import java.rmi.Naming;
-import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 /**
@@ -215,9 +209,6 @@ public class ClientView extends BorderPane {
 
     }
 
-    //public void setController(ButtonController controller) {
-//        this.controller = controller;
-//    }
 
     public ListView<Song> getPlaylist() {
         return playlist;

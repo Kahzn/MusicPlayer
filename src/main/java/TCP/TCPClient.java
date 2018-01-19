@@ -14,7 +14,7 @@ public class TCPClient extends Thread {
 
     public void run() {
         System.out.println("TCPClient started");
-        try (Socket serverCon = new Socket("localhost", 5021);
+        try (Socket serverCon = new Socket("localhost", 5020);
              InputStream in = serverCon.getInputStream();
              OutputStream out = serverCon.getOutputStream();
              ObjectOutputStream os = new ObjectOutputStream(out);
@@ -49,4 +49,5 @@ public class TCPClient extends Thread {
     public String getServerName(){
         return serverName;
     }
+    public String getClientName() { return clientName;}
 }

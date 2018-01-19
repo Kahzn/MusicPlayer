@@ -1,9 +1,7 @@
 package view;
 
-import interfaces.ButtonController;
 import interfaces.RemoteButtonController;
 import interfaces.Song;
-import javafx.collections.FXCollections;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;

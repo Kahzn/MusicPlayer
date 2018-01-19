@@ -1,20 +1,15 @@
 package main;
 
 import TCP.TCPClient;
-import controller.ClientController;
-import controller.Controller;
 import interfaces.RemoteButtonController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Model;
 import view.ClientView;
 
 import java.rmi.Naming;
 
-/**
- * Created by rebeccamarsh on 1/9/18.
- */
+
 public class ClientMain extends Application {
 
     public static void main(String[] args){
@@ -38,11 +33,8 @@ public class ClientMain extends Application {
 
         ClientView view = new ClientView(remoteController);
 
-        //Model model = new Model();
-        //ClientController controller = new ClientController();
-
         //Show JavaFX GUI
-        primaryStage.setTitle("Music Player");
+        primaryStage.setTitle("Music Player: " + tcp.getClientName());
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
         primaryStage.show();
