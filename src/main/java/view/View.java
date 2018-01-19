@@ -178,6 +178,10 @@ public class View extends BorderPane {
         playlist.setItems(model.getPlaylist());
     }
 
+    public void setTimeLabel(String s) {
+        this.time.setText(s);
+    }
+
     public void setController(RemoteButtonController controller) {
         this.controller = controller;
     }
