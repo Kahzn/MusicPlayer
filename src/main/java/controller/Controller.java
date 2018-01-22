@@ -46,9 +46,9 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         view.setController(this);
 
         //        //initialize player to first song
-//        player = new MediaPlayer(
-//                new Media("file:///" + model.getLibrary().get(0).getPath().replace('\\', '/')));
-//        player.play();
+        player = new MediaPlayer(
+                new Media("file:///" + model.getLibrary().get(0).getPath().replace('\\', '/')));
+        player.play();
 
         //start Timer
         timer = new Timer(player, view);

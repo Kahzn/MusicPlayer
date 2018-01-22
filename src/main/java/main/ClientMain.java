@@ -1,6 +1,7 @@
 package main;
 
 import TCP.TCPClient;
+import UDP.UDPClient;
 import interfaces.RemoteButtonController;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -33,6 +34,10 @@ public class ClientMain extends Application {
                 (RemoteButtonController) Naming.lookup(tcp.getServerName());
 
         ClientView view = new ClientView(remoteController);
+
+        //Start UDPClient
+        UDPClient udpClient = new UDPClient(view);
+        new Thread(udpClient).start();
 
         //Show JavaFX GUI
         primaryStage.setTitle("Music Player: " + tcp.getClientName());
