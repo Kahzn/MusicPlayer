@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0f0a877-3eec-4cb8-8018-39138170b590" name="Default" comment="Timer-Klasse hinzugefügt (package: Controller)&#10;braucht (evtl.) Überarbeitung" />
+    <list default="true" id="e0f0a877-3eec-4cb8-8018-39138170b590" name="Default" comment="Timer-Klasse hinzugefügt (package: Controller)&#10;braucht (evtl.) Überarbeitung">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,14 +15,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClientMain.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClientMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/main/ClientMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
+            <state relative-caret-position="465">
               <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding>
-                <marker date="1516628242000" expanded="true" signature="1134:1143" ph="{...}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -28,11 +28,9 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
+            <state relative-caret-position="270">
               <caret line="28" column="48" lean-forward="false" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-              <folding>
-                <marker date="1516628242000" expanded="true" signature="982:1005" ph="//..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -40,11 +38,9 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
+            <state relative-caret-position="4740">
               <caret line="330" column="35" lean-forward="false" selection-start-line="330" selection-start-column="35" selection-end-line="330" selection-end-column="35" />
-              <folding>
-                <marker date="1516628242000" expanded="true" signature="12297:12305" ph="{...}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,24 +48,14 @@
       <file leaf-file-name="TCPClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/TCP/TCPClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="604">
+            <state relative-caret-position="645">
               <caret line="51" column="54" lean-forward="false" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/view/View.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="188" column="14" lean-forward="false" selection-start-line="188" selection-start-column="14" selection-end-line="188" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UDPServer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UDPServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/UDP/UDPServer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="470">
@@ -82,7 +68,7 @@
       <file leaf-file-name="TCPServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/TCP/TCPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
+            <state relative-caret-position="450">
               <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -114,7 +100,7 @@
       <file leaf-file-name="ClientView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/ClientView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="2970">
               <caret line="209" column="0" lean-forward="false" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
               <folding />
             </state>
@@ -173,7 +159,6 @@
         <option value="$PROJECT_DIR$/src/main/java/TCP/TCPClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/main/ClientMain.java" />
         <option value="$PROJECT_DIR$/src/main/java/main/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/UDP/UDPServer.java" />
       </list>
     </option>
   </component>
@@ -223,9 +208,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -440,6 +422,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -807,7 +792,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29045996" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2955707" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20123565" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1094,18 +1079,33 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/ClientController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2625">
+          <caret line="188" column="14" lean-forward="false" selection-start-line="188" selection-start-column="14" selection-end-line="188" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/interfaces/ButtonController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/interfaces/RemoteButtonController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/ClientView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2970">
+          <caret line="209" column="0" lean-forward="false" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TCP/TCPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="450">
           <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1133,7 +1133,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1141,27 +1140,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="53" column="39" lean-forward="false" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
+        <state relative-caret-position="4740">
           <caret line="330" column="35" lean-forward="false" selection-start-line="330" selection-start-column="35" selection-end-line="330" selection-end-column="35" />
-          <folding>
-            <marker date="1516628242000" expanded="true" signature="12297:12305" ph="{...}" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/ClientMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
+        <state relative-caret-position="270">
           <caret line="28" column="48" lean-forward="false" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding>
-            <marker date="1516628242000" expanded="true" signature="982:1005" ph="//..." />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TCP/TCPClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="51" column="54" lean-forward="false" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1170,40 +1180,6 @@
         <state relative-caret-position="470">
           <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TCP/TCPClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="51" column="54" lean-forward="false" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="188" column="14" lean-forward="false" selection-start-line="188" selection-start-column="14" selection-end-line="188" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/ClientView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="209" column="0" lean-forward="false" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/main/ClientMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <marker date="1516628242000" expanded="true" signature="1134:1143" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
