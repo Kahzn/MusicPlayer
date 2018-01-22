@@ -131,9 +131,8 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
                     toURI() konvertiert den Pfad ins richtige Format
                     toString() konvertiert das Ergebnis von toURI() in einen String**/
                     player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //player wird auf die ID des ausgewählten Liedes initialisiert
-                    timer.interrupt();
-                    timer = new Timer(player, view);
-                    timer.start();
+                    timer.setPlayer(player);
+
                     if (player.getStatus().equals(MediaPlayer.Status.PLAYING)) {
                         //player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //Erklärung: 115
                         player.play();

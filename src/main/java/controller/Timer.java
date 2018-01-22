@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.application.Platform;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import view.View;
 
@@ -18,6 +19,10 @@ public class Timer extends Thread{
     public Timer (MediaPlayer player, View view) {
         this.player = player;
         this.view = view;
+    }
+
+    public void setPlayer(MediaPlayer player){
+        this.player = player;
     }
 
     @Override
