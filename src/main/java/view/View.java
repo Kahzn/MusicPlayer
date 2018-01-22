@@ -204,5 +204,7 @@ public class View extends BorderPane {
        return dropDownMenu.getSelectionModel().getSelectedItem().toString();
     }
 
-
+    public void setTimeLabel(String time) {
+        this.time.setText(time);
+    }
 }

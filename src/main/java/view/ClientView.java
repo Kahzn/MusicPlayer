@@ -229,4 +229,8 @@ public class ClientView extends BorderPane {
     public String getSerializationType(){
         return dropDownMenu.getSelectionModel().getSelectedItem().toString();
     }
+
+    public void setTimeLabel(String time) {
+        this.time.setText(time);
+    }
 }
