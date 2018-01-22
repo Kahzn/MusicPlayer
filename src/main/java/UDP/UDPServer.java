@@ -84,11 +84,10 @@ class UDPServerThread  extends Thread {
             if(cmd.equals("cmd")){
                 String time = sc.next();
                 if(time.equals("time")){
-                    System.out.println("Neue Abspielzeit an Client gesendet");
-                    //Timer timer = controller.getTimer();
 
                     //String dt = new Timer().getTime();
                     String dt = controller.getTimer().getTime();
+                    System.out.println("time sent is: " +dt);
                     byte[] myTime =dt.getBytes();
 
 

@@ -46,10 +46,10 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         view.setController(this);
 
 
-        //initialize player to first song
-        player = new MediaPlayer(
-                new Media("file:///" + model.getLibrary().get(0).getPath().replace('\\', '/')));
-        player.play();
+//        //initialize player to first song
+//        player = new MediaPlayer(
+//                new Media("file:///" + model.getLibrary().get(0).getPath().replace('\\', '/')));
+//        player.play();
 
         //start Timer
         timer = new Timer(player, view);
@@ -102,7 +102,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     @Override
     public synchronized void play(int index) throws RemoteException{
         try {
-
+            System.out.println(player.getCurrentTime());
             currentIndex = index;
             System.out.println("This index is: "+ currentIndex);
 
