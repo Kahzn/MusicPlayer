@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 import model.Model;
 
 import java.rmi.RemoteException;
+import java.util.Scanner;
 
 
 public class View extends BorderPane {
@@ -121,9 +122,10 @@ public class View extends BorderPane {
 
     private void createTopPanel() {
         hboxTop.setSpacing(10);
-        hboxTop.getChildren().addAll(dropDownMenu, time, load, save);
-        dropDownMenu.getItems().addAll("Binary", "XML", "JDBC", "OpenJPA");
-        dropDownMenu.getSelectionModel().selectFirst();
+        //hboxTop.getChildren().addAll(dropDownMenu, time, load, save);
+        hboxTop.getChildren().add(time);
+//        dropDownMenu.getItems().addAll("Binary", "XML", "JDBC", "OpenJPA");
+//        dropDownMenu.getSelectionModel().selectFirst();
         setTop(hboxTop);
     }
 
@@ -186,8 +188,6 @@ public class View extends BorderPane {
         return playlist;
     }
 
-//    public ListView<Song> getLibrary() { return library;}
-
     public String getTitel() {
         return titel.getText();
     }
@@ -204,5 +204,12 @@ public class View extends BorderPane {
        return dropDownMenu.getSelectionModel().getSelectedItem().toString();
     }
 
-
+    public void setTimeLabel(String s) {
+        this.time.setText(s);
+//        Scanner sc = new Scanner(time).useDelimiter(":");
+//        String min = sc.next();
+//        String sec = sc.next();
+//        System.out.println(" min "+ min + " sec " + sec);
+//        this.time.setText(min + ":" +sec);
+    }
 }

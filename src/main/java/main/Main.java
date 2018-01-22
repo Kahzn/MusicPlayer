@@ -1,6 +1,7 @@
 package main;
 
 import TCP.TCPServer;
+import UDP.UDPServer;
 import controller.Controller;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -34,6 +35,12 @@ public class Main extends Application {
         Remote remote = controller;
 
         controller.link(model, view);
+
+        //Starte UDPServer wo Zeit von clients abgefragt werden kann
+        UDPServer udpServer = new UDPServer(controller);
+        Thread udpthread = new Thread(udpServer);
+        udpthread.start();
+
         Naming.rebind("//127.0.0.1:1099/server", remote);
         //Naming.rebind("//134.91.44.132:1099/server", remote);
 

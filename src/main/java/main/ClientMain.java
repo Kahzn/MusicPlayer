@@ -1,6 +1,7 @@
 package main;
 
 import TCP.TCPClient;
+import UDP.UDPClient;
 import interfaces.RemoteButtonController;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -19,7 +20,8 @@ public class ClientMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //ist ok??? (war vorher Thread tcp = new TCPClient();
+
+
         TCPClient tcp = new TCPClient();
         tcp.start();
 
@@ -33,6 +35,10 @@ public class ClientMain extends Application {
                 (RemoteButtonController) Naming.lookup(tcp.getServerName());
 
         ClientView view = new ClientView(remoteController);
+
+        //Start UDPClient
+        UDPClient udpClient = new UDPClient(view);
+        new Thread(udpClient).start();
 
         //Show JavaFX GUI
         primaryStage.setTitle("Music Player: " + tcp.getClientName());

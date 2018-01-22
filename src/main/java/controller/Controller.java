@@ -26,7 +26,8 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     private int currentIndex = 0; //index des ausgewählten Liedes
     private MediaPlayer player;
     private String path;
-    TCPServer tcpServer;
+    private TCPServer tcpServer;
+    private Timer timer;
 
     public Controller(TCPServer t) throws RemoteException{
         super();
@@ -43,9 +44,21 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
 
         //Wichtig: eine Instanz der View Klasse braucht einen ButtonController Feld um das EventHandling auszuführen
         view.setController(this);
+
+
+        //initialize player to first song
+        player = new MediaPlayer(
+                new Media("file:///" + model.getLibrary().get(0).getPath().replace('\\', '/')));
+        player.play();
+
+        //start Timer
+        timer = new Timer(player, view);
+        timer.start();
     }
 
-
+    public Timer getTimer(){
+        return timer;
+    }
 
     //Methoden haben bei der Server's Controller keine Funktionalität... löschen?
     @Override

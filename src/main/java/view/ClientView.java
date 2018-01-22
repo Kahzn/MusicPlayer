@@ -10,9 +10,6 @@ import javafx.scene.text.Text;
 
 import java.rmi.RemoteException;
 
-/**
- * Created by rebeccamarsh on 1/9/18.
- */
 public class ClientView extends BorderPane {
 
     private HBox hboxTop = new HBox();
@@ -207,6 +204,13 @@ public class ClientView extends BorderPane {
             e.printStackTrace();
         }
 
+//        try {
+//            String s = controller.getTimer().getTime();
+//            setTimeLabel(s);
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//        }
+
     }
 
 
@@ -228,5 +232,9 @@ public class ClientView extends BorderPane {
 
     public String getSerializationType(){
         return dropDownMenu.getSelectionModel().getSelectedItem().toString();
+    }
+
+    public void setTimeLabel(String time) {
+        this.time.setText(time);
     }
 }

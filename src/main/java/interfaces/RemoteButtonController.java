@@ -1,10 +1,12 @@
 package interfaces;
 
+import controller.Timer;
 import model.*;
 import model.Playlist;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+
 
 public interface RemoteButtonController extends Remote{
 
@@ -24,4 +26,5 @@ public interface RemoteButtonController extends Remote{
     Playlist getPlaylist() throws RemoteException;
 
     void logout(String cName) throws RemoteException;
+    Timer getTimer() throws RemoteException;
 }
