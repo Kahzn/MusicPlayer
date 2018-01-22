@@ -119,7 +119,7 @@ public class View extends BorderPane {
 
     }
 
-    public void createTopPanel() {
+    private void createTopPanel() {
         hboxTop.setSpacing(10);
         hboxTop.getChildren().addAll(dropDownMenu, time, load, save);
         dropDownMenu.getItems().addAll("Binary", "XML", "JDBC", "OpenJPA");
@@ -178,10 +178,6 @@ public class View extends BorderPane {
         playlist.setItems(model.getPlaylist());
     }
 
-    public void setTimeLabel(String s) {
-        this.time.setText(s);
-    }
-
     public void setController(RemoteButtonController controller) {
         this.controller = controller;
     }
@@ -205,8 +201,10 @@ public class View extends BorderPane {
     }
 
     public String getSerializationType(){
-       return dropDownMenu.getSelectionModel().getSelectedItem().toString();
+        return dropDownMenu.getSelectionModel().getSelectedItem().toString();
     }
 
-
+    public void setTimeLabel(String time) {
+        this.time.setText(time);
+    }
 }

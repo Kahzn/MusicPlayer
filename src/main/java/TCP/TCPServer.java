@@ -28,6 +28,12 @@ public class TCPServer extends Thread {
             e.printStackTrace();
         }
     }
+
+    public synchronized void removeClient(String cName){
+        clientNames.remove(cName);
+        System.out.println("Print registered client names. ");
+        for(String c : clientNames) System.out.println(c);
+    }
 }
 
 
@@ -47,8 +53,8 @@ class TCPServerThreadForClients implements Runnable {
         //Access to clientNames from Threads is mutually exclusive to avoid inconsistent data
         try (InputStream in = socket.getInputStream();
              OutputStream out = socket.getOutputStream();
-            ObjectOutputStream os = new ObjectOutputStream(out);
-            ObjectInputStream is = new ObjectInputStream(in)){
+             ObjectOutputStream os = new ObjectOutputStream(out);
+             ObjectInputStream is = new ObjectInputStream(in)){
             String name = (String) is.readObject();
             String inputPassword = (String) is.readObject();
             if(inputPassword.equals(PASSWORD)){
@@ -77,4 +83,6 @@ class TCPServerThreadForClients implements Runnable {
         }
 
     }
+
+
 }

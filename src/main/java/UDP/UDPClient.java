@@ -1,23 +1,29 @@
 package UDP;
 
 
+import javafx.application.Platform;
+import view.ClientView;
+
 import java.io.IOException;
 import java.net.*;
 import java.rmi.RemoteException;
 
-public class UDPClient {
+public class UDPClient implements Runnable {
+    ClientView view;
 
+    //public static String currentPacketTime = "";
+//
+//    public static String getCurrentPacketTime(){
+//        return currentPacketTime;
+//    }
 
-    public static String currentPacketTime = "";
-
-    public static String getCurrentPacketTime(){
-        return currentPacketTime;
+    public UDPClient(ClientView view){
+        this.view = view;
     }
 
-    public static void main(String[] args) {
-        // Eigene Adresse erstellen
+    @Override
+    public void run() {
         InetAddress ia = null;
-
 
         try {
             ia = InetAddress.getByName("localhost");
@@ -25,13 +31,11 @@ public class UDPClient {
             e2.printStackTrace();
         }
         // Socket für den Klienten anlegen
-        try (DatagramSocket dSocket = new DatagramSocket(1234);) {
-
+        //"Wilcard" port wird benutzt für DatagramSocket -> belieber Port
+        try (DatagramSocket dSocket = new DatagramSocket();) {
             try {
-                int i = 0;
-                while (i < 10) {
-                    String command = "cmd:time";
-
+                String command = "cmd:time";
+                while(true) {
                     byte buffer[] = command.getBytes();
 
                     // Paket mit der Anfrage vorbereiten
@@ -45,16 +49,18 @@ public class UDPClient {
                     packet = new DatagramPacket(answer, answer.length);
                     // Auf die Antwort warten
                     dSocket.receive(packet);
-                    currentPacketTime = new String(packet.getData(), 0,packet.getLength());
-                    System.out.println(currentPacketTime);
-
+                    String currentPacketTime = new String(packet.getData(), 0, packet.getLength());
+                    //System.out.println(currentPacketTime);
+                    Platform.runLater(() -> {
+                        view.setTimeLabel(currentPacketTime);
+                    });
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
 
-                    i++;
+
                 }
             } catch (IOException e1) {
                 e1.printStackTrace();
@@ -66,4 +72,7 @@ public class UDPClient {
 
         }
     }
+
+
+
 }

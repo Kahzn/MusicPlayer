@@ -1,5 +1,6 @@
 package interfaces;
 
+import controller.Timer;
 import model.*;
 import model.Playlist;
 
@@ -22,4 +23,7 @@ public interface RemoteButtonController extends Remote{
 
     Playlist getLibary() throws RemoteException;
     Playlist getPlaylist() throws RemoteException;
+
+    void logout(String cName) throws RemoteException;
+    Timer getTimer() throws RemoteException;
 }

@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.application.Platform;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import view.View;
 
@@ -9,12 +10,7 @@ public class Timer extends Thread{
 
     private MediaPlayer player;
     private View view;
-
     private static String timeShown = "00:00";
-    private String minutes = "00";
-    private String seconds = "00";
-    private int min;
-    private int sec;
     private int time;
 
     private boolean request = false;
@@ -25,7 +21,9 @@ public class Timer extends Thread{
         this.view = view;
     }
 
-
+    public void setPlayer(MediaPlayer player){
+        this.player = player;
+    }
 
     @Override
     public void run() {
@@ -33,14 +31,13 @@ public class Timer extends Thread{
 
             //ermittle aktuelle Abspielzeit
             if (player != null) {
-                System.out.println("Bin drin");
-                setTime();
+                //System.out.println("Bin drin");
+                timeShown = calculateTime();
+                System.out.println("Timer's time: " + timeShown);
                 Platform.runLater(()
-                -> view.setTimeLabel(timeShown));
+                        -> view.setTimeLabel(timeShown));
                 System.out.println(timeShown);
             }
-            //Upadte UI in JavaFX Application Thread using Platform.runLater()
-            //Platform.runLater(() -> view.setTime(t));
 
             //lasse 1 Sekunde vergehen
             try {
@@ -51,30 +48,16 @@ public class Timer extends Thread{
         }
     }
 
-    //setzt den Double time auf die aktuelle Abspielzeit (in Sekunden)
-    //target: Controler => Server
-    public void setTime() {
+    public String calculateTime() {
         time = (int) player.getCurrentTime().toSeconds();
-        timeShown = "00:"+ time;
+        int min = time/60;
+        int sec = time%60;
+        //Für führende Nullen usw. (zB. 4 min soll 04 min sein)
+        String mins = min/10 + "" + min%10;
+        String secs = sec/10 + "" + sec%10;
+        return mins + ":" +secs;
 
     }
-
-    /***
-    //setzt den String timeShown zusammen
-    public void setTimeShown () {
-
-        //ermittle Werte für Minuten & Sekunden
-        this.min = (int) time / 60;
-        this.sec = (int) time % 60;
-
-        //erzeuge Bestandteile des zu erstellenden Strings timeShown
-        this.minutes = min / 10 + "" + min % 10;
-        this.seconds = sec / 10 + "" + sec % 10;
-        //ts = this.minutes + ":" + this.seconds;
-        //Endergebnis:
-        //"minutes:seconds"
-    }
-    **/
 
     //zum Beenden von Operationen
     public void closeRequest() {
@@ -82,7 +65,7 @@ public class Timer extends Thread{
     }
 
     //
-    public static String getTime() {
+    public String getTime() {
         return timeShown;
     }
 

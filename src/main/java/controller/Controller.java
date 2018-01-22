@@ -1,7 +1,7 @@
 package controller;
 
 
-import UDP.UDPClient;
+import TCP.TCPServer;
 import interfaces.RemoteButtonController;
 import interfaces.SerializableStrategy;
 import interfaces.Song;
@@ -11,8 +11,6 @@ import model.Model;
 import model.Playlist;
 import view.View;
 import serializable.*;
-
-
 
 import java.io.File;
 import java.io.IOException;
@@ -28,23 +26,18 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     private int currentIndex = 0; //index des ausgewählten Liedes
     private MediaPlayer player;
     private String path;
+    TCPServer tcpServer;
     private Timer timer;
 
-    public void timerStart(){
-        //starte Timer
-        timer = new Timer(player, view);
-        timer.start();
-        System.out.println("Timer-Objekt erstellt!");
-    }
-
-    public Controller() throws RemoteException{
+    public Controller(TCPServer t) throws RemoteException{
         super();
+        this.tcpServer = t;
+
     }
 
     public void link(Model model, View view) {
         this.model = model;
         this.view = view;
-        //new Timer(player,view);
 
         //Bind data to view. D.h.: den ListView elements werden Elemente aus dem Model mit Methode setItems hinzugefügt
         this.view.bindData(this.model);
@@ -52,8 +45,17 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         //Wichtig: eine Instanz der View Klasse braucht einen ButtonController Feld um das EventHandling auszuführen
         view.setController(this);
 
+        //        //initialize player to first song
+        player = new MediaPlayer(
+                new Media("file:///" + model.getLibrary().get(0).getPath().replace('\\', '/')));
+        //player.play();
 
+        //start Timer
+        timer = new Timer(player, view);
+        timer.start();
     }
+
+
 
 
     //Methoden haben bei der Server's Controller keine Funktionalität... löschen?
@@ -95,27 +97,14 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         }
     }
 
-    /**
-    while(player.getStatus().equals(MediaPlayer.Status.PLAYING)){
-
-        updateTime(UDPClient.getCurrentPacketTime());
-
-    }
-     **/
-
     @Override
     public synchronized void play(int index) throws RemoteException{
-
-
-
-
-
         try {
 
             currentIndex = index;
             System.out.println("This index is: "+ currentIndex);
 
-            /** 
+            /**
              *  jetzt: tatsächlicher Index des Liedes dient als Parameter der Play-Methode
              */
             Song so; //Objekt des Liedes wird erstellt (Typ Song) = null
@@ -138,12 +127,12 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
                 if(player == null || !so.getPath().equals(path)){
                     path = so.getPath();
                     /**der MediaPlayer arbeitet mit Media Objekten
-                    Klasse Media nimmt sich ein File Objekt
-                    toURI() konvertiert den Pfad ins richtige Format
-                    toString() konvertiert das Ergebnis von toURI() in einen String**/
+                     Klasse Media nimmt sich ein File Objekt
+                     toURI() konvertiert den Pfad ins richtige Format
+                     toString() konvertiert das Ergebnis von toURI() in einen String**/
                     player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //player wird auf die ID des ausgewählten Liedes initialisiert
-                    //Timer start
-                    timerStart();
+                    timer.setPlayer(player);
+
                     if (player.getStatus().equals(MediaPlayer.Status.PLAYING)) {
                         //player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //Erklärung: 115
                         player.play();
@@ -162,7 +151,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
                  * Runnable() ist ein Interface
                  * run() ist die einzige Methode des Interfaces Runnable
                  *    muss überschrieben werden
-                **/
+                 **/
                 /* player.setOnEndOfMedia(new Runnable() {
                     @Override
                     public void run() {
@@ -216,7 +205,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         }
         catch(NullPointerException | IndexOutOfBoundsException e){
             System.out.println("kein Lied ausgewählt!");
-    }
+        }
     }
 
     @Override
@@ -348,11 +337,6 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         return strat;
     }
 
-    public void updateTime(String s){
-        view.setTimeLabel(s);
-        view.createTopPanel();
-    }
-
 
     @Override
     public Playlist getLibary() throws RemoteException {
@@ -364,14 +348,15 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         return model.getPlaylist();
     }
 
+    @Override
+    public void logout(String cName) throws RemoteException {
+        tcpServer.removeClient(cName);
+    }
 
-    public Timer getTimer()throws RemoteException{
+    @Override
+    public Timer getTimer() throws RemoteException {
         return timer;
     }
 
-
-    public MediaPlayer getPlayer(){
-        return player;
-    }
 
 }

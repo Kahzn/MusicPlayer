@@ -43,7 +43,7 @@ public class ClientView extends BorderPane {
     private Button delete = new Button("Delete Song ");
 
     //Muss über RMI (nicht lokal) ausgeführt werden
-   RemoteButtonController controller;   //Für EventHandling
+    RemoteButtonController controller;   //Für EventHandling
 
     public ClientView(RemoteButtonController controller){
 
@@ -57,6 +57,7 @@ public class ClientView extends BorderPane {
 
         setEventHandling();
         bindData();
+
 
 
     }
@@ -227,5 +228,9 @@ public class ClientView extends BorderPane {
 
     public String getSerializationType(){
         return dropDownMenu.getSelectionModel().getSelectedItem().toString();
+    }
+
+    public void setTimeLabel(String time) {
+        this.time.setText(time);
     }
 }
