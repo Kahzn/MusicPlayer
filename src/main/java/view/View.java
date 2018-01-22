@@ -119,7 +119,7 @@ public class View extends BorderPane {
 
     }
 
-    private void createTopPanel() {
+    public void createTopPanel() {
         hboxTop.setSpacing(10);
         hboxTop.getChildren().addAll(dropDownMenu, time, load, save);
         dropDownMenu.getItems().addAll("Binary", "XML", "JDBC", "OpenJPA");

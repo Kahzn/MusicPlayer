@@ -2,6 +2,7 @@ package main;
 
 import TCP.TCPServer;
 import controller.Controller;
+import controller.Timer;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -34,8 +35,10 @@ public class Main extends Application {
         //Naming.rebind("//134.91.44.132:1099/server", remote);
 
 
+
         //start TCPServer (Thread) to manage requests from Clients to access remote object
         new TCPServer().start();
+
 
 
 

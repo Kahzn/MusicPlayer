@@ -1,6 +1,7 @@
 package controller;
 
 
+import UDP.UDPClient;
 import interfaces.RemoteButtonController;
 import interfaces.SerializableStrategy;
 import interfaces.Song;
@@ -27,6 +28,14 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     private int currentIndex = 0; //index des ausgewählten Liedes
     private MediaPlayer player;
     private String path;
+    private Timer timer;
+
+    public void timerStart(){
+        //starte Timer
+        timer = new Timer(player, view);
+        timer.start();
+        System.out.println("Timer-Objekt erstellt!");
+    }
 
     public Controller() throws RemoteException{
         super();
@@ -35,15 +44,16 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     public void link(Model model, View view) {
         this.model = model;
         this.view = view;
-        new Timer(player,view);
+        //new Timer(player,view);
 
         //Bind data to view. D.h.: den ListView elements werden Elemente aus dem Model mit Methode setItems hinzugefügt
         this.view.bindData(this.model);
 
         //Wichtig: eine Instanz der View Klasse braucht einen ButtonController Feld um das EventHandling auszuführen
         view.setController(this);
-    }
 
+
+    }
 
 
     //Methoden haben bei der Server's Controller keine Funktionalität... löschen?
@@ -85,8 +95,21 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         }
     }
 
+    /**
+    while(player.getStatus().equals(MediaPlayer.Status.PLAYING)){
+
+        updateTime(UDPClient.getCurrentPacketTime());
+
+    }
+     **/
+
     @Override
     public synchronized void play(int index) throws RemoteException{
+
+
+
+
+
         try {
 
             currentIndex = index;
@@ -119,6 +142,8 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
                     toURI() konvertiert den Pfad ins richtige Format
                     toString() konvertiert das Ergebnis von toURI() in einen String**/
                     player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //player wird auf die ID des ausgewählten Liedes initialisiert
+                    //Timer start
+                    timerStart();
                     if (player.getStatus().equals(MediaPlayer.Status.PLAYING)) {
                         //player = new MediaPlayer(new Media(new File((so.getPath())).toURI().toString())); //Erklärung: 115
                         player.play();
@@ -323,6 +348,11 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         return strat;
     }
 
+    public void updateTime(String s){
+        view.setTimeLabel(s);
+        view.createTopPanel();
+    }
+
 
     @Override
     public Playlist getLibary() throws RemoteException {
@@ -334,5 +364,14 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         return model.getPlaylist();
     }
 
+
+    public Timer getTimer()throws RemoteException{
+        return timer;
+    }
+
+
+    public MediaPlayer getPlayer(){
+        return player;
+    }
 
 }

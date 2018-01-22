@@ -1,13 +1,24 @@
 package UDP;
 
+
 import java.io.IOException;
 import java.net.*;
+import java.rmi.RemoteException;
 
 public class UDPClient {
+
+
+    public static String currentPacketTime = "";
+
+    public static String getCurrentPacketTime(){
+        return currentPacketTime;
+    }
 
     public static void main(String[] args) {
         // Eigene Adresse erstellen
         InetAddress ia = null;
+
+
         try {
             ia = InetAddress.getByName("localhost");
         } catch (UnknownHostException e2) {
@@ -34,8 +45,9 @@ public class UDPClient {
                     packet = new DatagramPacket(answer, answer.length);
                     // Auf die Antwort warten
                     dSocket.receive(packet);
+                    currentPacketTime = new String(packet.getData(), 0,packet.getLength());
+                    System.out.println(currentPacketTime);
 
-                    System.out.println(new String(packet.getData(),0,packet.getLength()));
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
