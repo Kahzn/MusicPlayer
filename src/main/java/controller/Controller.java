@@ -45,10 +45,9 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         //Wichtig: eine Instanz der View Klasse braucht einen ButtonController Feld um das EventHandling auszuführen
         view.setController(this);
 
-        //        //initialize player to first song
+        //initialize player to first song
         player = new MediaPlayer(
                 new Media("file:///" + model.getLibrary().get(0).getPath().replace('\\', '/')));
-        //player.play();
 
         //start Timer
         timer = new Timer(player, view);
@@ -56,9 +55,6 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     }
 
 
-
-
-    //Methoden haben bei der Server's Controller keine Funktionalität... löschen?
     @Override
     public synchronized void addAll() throws RemoteException{
         for(Song song : model.getLibrary()) {
@@ -77,7 +73,6 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         try {
             if (s !=  null) {
                 model.getPlaylist().addSong(s);
-                System.out.println(s.getPath()); //wenn alles klappt: auskommentieren
             }
         } catch (RemoteException e) {
             System.out.println("Entfernter Rechner nicht zu erreichen:");
@@ -102,7 +97,6 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         try {
 
             currentIndex = index;
-            System.out.println("This index is: "+ currentIndex);
 
             /**
              *  jetzt: tatsächlicher Index des Liedes dient als Parameter der Play-Methode
@@ -152,13 +146,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
                  * run() ist die einzige Methode des Interfaces Runnable
                  *    muss überschrieben werden
                  **/
-                /* player.setOnEndOfMedia(new Runnable() {
-                    @Override
-                    public void run() {
-                        this.play(index + 1);
-                    }
-                });
-                */
+
                 player.setOnEndOfMedia(() -> {
                     try {
                         play(index + 1);
@@ -175,7 +163,6 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
                 if(player != null && player.getStatus().equals(MediaPlayer.Status.PAUSED)) player.play();
             }
 
-
         }
         catch(NullPointerException | ArrayIndexOutOfBoundsException e){
             System.out.println("kein Lied ausgewählt!");
@@ -183,15 +170,11 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     }
 
     @Override
-    public synchronized void pause() throws RemoteException{
+    public synchronized void pause() throws RemoteException {
 
-        //Song lied = view.getPlaylist().getSelectionModel().getSelectedItem();
         if (player != null && player.getStatus().equals(MediaPlayer.Status.PLAYING)) { //ein Lied wird gespiet
             player.pause(); //pausiert ein lied
         }
-//        if (player != null && player.getStatus().equals(MediaPlayer.Status.PAUSED)) { //ein Lied wird gespiet
-//            play(currentIndex); //spielt den pausierten Song ab
-//        }
     }
 
     @Override
@@ -199,8 +182,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         try {
             //die selectNext()-Methode wählt das Lied mit dem nächsthöheren Index in der ListView aus.
             //Wenn aktuell kein Lied gewählt ist, wählt diese Methode das erste Lied aus.
-            //view.getPlaylist().getSelectionModel().selectNext();
-            //Song naechstesLied = view.getPlaylist().getSelectionModel().getSelectedItem();
+
             play(currentIndex+1);
         }
         catch(NullPointerException | IndexOutOfBoundsException e){

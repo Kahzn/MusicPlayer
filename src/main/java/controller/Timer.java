@@ -33,10 +33,10 @@ public class Timer extends Thread{
             if (player != null) {
                 //System.out.println("Bin drin");
                 timeShown = calculateTime();
-                System.out.println("Timer's time: " + timeShown);
+                //System.out.println("Timer's time: " + timeShown);
                 Platform.runLater(()
                         -> view.setTimeLabel(timeShown));
-                System.out.println(timeShown);
+
             }
 
             //lasse 1 Sekunde vergehen

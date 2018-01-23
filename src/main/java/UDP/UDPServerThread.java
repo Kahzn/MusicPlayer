@@ -5,9 +5,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
-import java.rmi.RemoteException;
 import java.util.Scanner;
-import controller.Timer;
 import controller.Controller;
 
 public class UDPServerThread  extends Thread {
@@ -44,7 +42,6 @@ public class UDPServerThread  extends Thread {
 
                     //String dt = new Timer().getTime();
                     String dt = controller.getTimer().getTime();
-                    System.out.println("time sent is: " +dt);
                     byte[] myTime =dt.getBytes();
 
 

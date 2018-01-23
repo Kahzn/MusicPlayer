@@ -14,7 +14,7 @@ import java.rmi.Remote;
 import java.rmi.registry.LocateRegistry;
 
 
-public class Main extends Application {
+public class ServerMain extends Application {
 
     public static void main(String[] args) throws Exception{
         launch(args);
