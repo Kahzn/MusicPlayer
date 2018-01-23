@@ -348,8 +348,8 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         tcpServer.removeClient(cName);
     }
 
-    @Override
-    public Timer getTimer() throws RemoteException {
+
+    public Timer getTimer() {
         return timer;
     }
 

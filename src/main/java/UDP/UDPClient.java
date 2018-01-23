@@ -9,7 +9,8 @@ import java.net.*;
 import java.rmi.RemoteException;
 
 public class UDPClient implements Runnable {
-    ClientView view;
+    private ClientView view;
+    private boolean request = true;
 
     //public static String currentPacketTime = "";
 //
@@ -35,7 +36,7 @@ public class UDPClient implements Runnable {
         try (DatagramSocket dSocket = new DatagramSocket();) {
             try {
                 String command = "cmd:time";
-                while(true) {
+                while(request) {
                     byte buffer[] = command.getBytes();
 
                     // Paket mit der Anfrage vorbereiten
@@ -73,6 +74,10 @@ public class UDPClient implements Runnable {
         }
     }
 
+    public void closeRequest(){
+        this.request = false;
+
+    }
 
 
 }

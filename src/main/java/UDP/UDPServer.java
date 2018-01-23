@@ -14,6 +14,7 @@ import java.util.Scanner;
 
 public class UDPServer implements Runnable {
     private Controller controller;
+    private boolean request=true;
 
     public UDPServer(Controller controller) {
         this.controller = controller;
@@ -25,7 +26,7 @@ public class UDPServer implements Runnable {
         // Socket erstellen, unter dem der Server erreichbar ist
         try {
             socket = new DatagramSocket(5000);
-            while (true) {
+            while (request) {
                 // Neues Paket anlegen
                 DatagramPacket packet = new DatagramPacket(new byte[8], 8);
                 // Auf eingehende Pakete warten
@@ -49,7 +50,9 @@ public class UDPServer implements Runnable {
         }
     }
 
-
+    public void closeRequest(){
+        request = false;
+    }
 
 }//end of UDPServer
 

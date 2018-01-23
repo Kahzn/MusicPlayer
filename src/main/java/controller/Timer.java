@@ -13,7 +13,7 @@ public class Timer extends Thread{
     private static String timeShown = "00:00";
     private int time;
 
-    private boolean request = false;
+    private boolean request = true;
 
 
     public Timer (MediaPlayer player, View view) {
@@ -27,7 +27,7 @@ public class Timer extends Thread{
 
     @Override
     public void run() {
-        while(true) {
+        while(request) {
 
             //ermittle aktuelle Abspielzeit
             if (player != null) {
@@ -61,7 +61,7 @@ public class Timer extends Thread{
 
     //zum Beenden von Operationen
     public void closeRequest() {
-        this.request = true;
+        this.request = false;
     }
 
     //

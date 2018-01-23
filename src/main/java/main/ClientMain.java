@@ -46,7 +46,8 @@ public class ClientMain extends Application {
         primaryStage.show();
         primaryStage.setOnCloseRequest(e-> {
             try {
-                remoteController.logout(tcp.getClientName());
+                remoteController.logout(tcp.getClientName()); //remove client from server's client list
+                udpClient.closeRequest(); //close udp connection
             } catch (RemoteException e1) {
                 e1.printStackTrace();
             }

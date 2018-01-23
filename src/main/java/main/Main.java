@@ -50,6 +50,10 @@ public class Main extends Application {
         Scene scene = new Scene(view);
         primaryStage.setScene(scene);
         primaryStage.show();
+        primaryStage.setOnCloseRequest(e-> {
+            controller.getTimer().closeRequest(); //close timer thread
+            udpServer.closeRequest(); //no new clients can request time
+        });
 
     }
 }
