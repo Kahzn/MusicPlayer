@@ -12,12 +12,6 @@ public class UDPClient implements Runnable {
     private ClientView view;
     private boolean request = true;
 
-    //public static String currentPacketTime = "";
-//
-//    public static String getCurrentPacketTime(){
-//        return currentPacketTime;
-//    }
-
     public UDPClient(ClientView view){
         this.view = view;
     }

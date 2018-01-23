@@ -25,5 +25,4 @@ public interface RemoteButtonController extends Remote{
     Playlist getPlaylist() throws RemoteException;
 
     void logout(String cName) throws RemoteException;
-    //Timer getTimer() throws RemoteException;
 }
