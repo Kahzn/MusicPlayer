@@ -116,7 +116,7 @@ class UDPServerThread  extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        //don't close socket.... otherwise time doesn't show up for client!
 
     }
 
