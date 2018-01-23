@@ -12,6 +12,8 @@ import model.Playlist;
 import view.View;
 import serializable.*;
 
+
+
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -38,6 +40,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
     public void link(Model model, View view) {
         this.model = model;
         this.view = view;
+        new Timer(player,view);
 
         //Bind data to view. D.h.: den ListView elements werden Elemente aus dem Model mit Methode setItems hinzugefügt
         this.view.bindData(this.model);

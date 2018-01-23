@@ -1,9 +1,9 @@
 package controller;
 
 import javafx.application.Platform;
-import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import view.View;
+
 
 
 public class Timer extends Thread{
@@ -23,10 +23,12 @@ public class Timer extends Thread{
 
     public void setPlayer(MediaPlayer player){
         this.player = player;
+
     }
 
     @Override
     public void run() {
+
         while(request) {
 
             //ermittle aktuelle Abspielzeit
@@ -47,6 +49,7 @@ public class Timer extends Thread{
             }
         }
     }
+
 
  public String calculateTime() {
         time = (int) player.getCurrentTime().toSeconds();

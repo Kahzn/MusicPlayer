@@ -178,6 +178,7 @@ public class View extends BorderPane {
         playlist.setItems(model.getPlaylist());
     }
 
+
     public void setController(RemoteButtonController controller) {
         this.controller = controller;
     }
