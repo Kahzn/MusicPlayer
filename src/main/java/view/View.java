@@ -51,7 +51,7 @@ public class View extends BorderPane {
         createLibraryPanel();
         createPlaylistPanel();
         //createRightPanel(); //do not add because the server's view has no functionality
-        //createBottomPanel();//do not add becasue the server's view has no functionality
+        //createBottomPanel();//do not add because the server's view has no functionality
         play.setOnAction(e -> {
             try {
                 controller.play(playlist.getSelectionModel().getSelectedIndex());

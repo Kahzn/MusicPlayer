@@ -50,7 +50,7 @@ public class UDPClient implements Runnable {
                     // Auf die Antwort warten
                     dSocket.receive(packet);
                     String currentPacketTime = new String(packet.getData(), 0, packet.getLength());
-                    //System.out.println(currentPacketTime);
+
                     Platform.runLater(() -> {
                         view.setTimeLabel(currentPacketTime);
                     });

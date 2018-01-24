@@ -226,7 +226,6 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
         try {
             model.getLibrary().clearPlaylist();
             model.getPlaylist().clearPlaylist();
-            //OpenJPA kompatibel? (nur library wird (de)serialsiert)
         } catch (RemoteException e) {
             System.out.println("Problem beim Löschen der Library oder Playlist.");
         }
@@ -256,7 +255,7 @@ public class Controller extends UnicastRemoteObject implements RemoteButtonContr
                 try {
                     strat.openReadablePlaylist();
                     for (Song s : strat.readPlaylist()) {
-                        //System.out.println("Song in playlist is: "+ s.getTitle());
+
                         if (model.getLibrary().findSongByID(s.getId()) != null) {
                             s = model.getLibrary().findSongByID(s.getId());
 
