@@ -20,11 +20,10 @@ public class ClientMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //ist ok??? (war vorher Thread tcp = new TCPClient();
         TCPClient tcp = new TCPClient();
         tcp.start();
 
-        //TCPClient braucht Zeit, den serverName über Streams zu bekommen
+        //TCPClient braucht Zeit,um den serverName über Streams zu bekommen
         while(tcp.getServerName() == null){
             Thread.sleep(1000);
             System.out.println("Sleep");

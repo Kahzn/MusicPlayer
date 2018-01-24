@@ -1,9 +1,6 @@
 package UDP;
 
 import controller.Controller;
-import controller.Timer;
-
-
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -36,12 +33,9 @@ public class UDPServer implements Runnable {
                     // Empfangendes Paket in einem neuen Thread abarbeiten
                     new UDPServerThread(packet, socket, controller).start();
 
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-
             }
         } catch (SocketException e) {
             e.printStackTrace();
@@ -75,7 +69,6 @@ class UDPServerThread  extends Thread {
         // Daten auslesen
         InetAddress address = packet.getAddress();
         int port = packet.getPort();
-        int len = packet.getLength();
         byte[] data = packet.getData();
 
         // Nutzdaten in ein Stringobjekt übergeben
@@ -88,7 +81,6 @@ class UDPServerThread  extends Thread {
                 String time = sc.next();
                 if(time.equals("time")){
 
-                    //String dt = new Timer().getTime();
                     String dt = controller.getTimer().getTime();
                     System.out.println("time sent is: " +dt);
                     byte[] myTime =dt.getBytes();

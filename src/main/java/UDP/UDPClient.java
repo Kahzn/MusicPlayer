@@ -45,7 +45,6 @@ public class UDPClient implements Runnable {
                     // Auf die Antwort warten
                     dSocket.receive(packet);
                     String currentPacketTime = new String(packet.getData(), 0, packet.getLength());
-                    //System.out.println(currentPacketTime);
                     Platform.runLater(() -> {
                         view.setTimeLabel(currentPacketTime);
                     });
@@ -54,23 +53,20 @@ public class UDPClient implements Runnable {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-
-
                 }
+
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
-
         }
+
         catch(SocketException e){
             e.printStackTrace();
-
         }
     }
 
     public void closeRequest(){
         this.request = false;
-
     }
 
 

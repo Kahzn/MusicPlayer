@@ -1,12 +1,9 @@
 package TCP;
 
-import org.apache.openjpa.lib.meta.SourceTracker;
-
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.Random;
-import java.util.Scanner;
+
 
 public class TCPClient extends Thread {
     private static String serverName;
