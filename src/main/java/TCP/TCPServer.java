@@ -11,7 +11,7 @@ public class TCPServer extends Thread {
 
     public void run(){
         clientNames = new ArrayList<>();
-        //int connections = 0;
+
         try {
             ServerSocket server = new ServerSocket(5020);
             while(true){

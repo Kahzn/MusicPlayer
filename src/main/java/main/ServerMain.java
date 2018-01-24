@@ -14,7 +14,7 @@ import java.rmi.Remote;
 import java.rmi.registry.LocateRegistry;
 
 
-public class Main extends Application {
+public class ServerMain extends Application {
 
     public static void main(String[] args) throws Exception{
         launch(args);
@@ -36,7 +36,7 @@ public class Main extends Application {
 
         controller.link(model, view);
         Naming.rebind("//127.0.0.1:1099/server", remote);
-        //Naming.rebind("//134.91.44.132:1099/server", remote);
+
 
         //Starte UDPServer wo Zeit von clients abgefragt werden kann
         UDPServer udpServer = new UDPServer(controller);

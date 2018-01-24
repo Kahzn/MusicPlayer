@@ -192,9 +192,6 @@ public class ClientView extends BorderPane {
     public void bindData(){
         //Sets items in listview objects so that they are filled with objects in the model,
         //listview will observe the models playlists, because the playlists are observable
-//        library.setItems(model.getLibrary());
-//        playlist.setItems(model.getPlaylist());
-
 
         try {
             library.setItems(controller.getLibary());
@@ -206,7 +203,6 @@ public class ClientView extends BorderPane {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-
     }
 
 
