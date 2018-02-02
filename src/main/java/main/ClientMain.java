@@ -23,7 +23,7 @@ public class ClientMain extends Application {
         TCPClient tcp = new TCPClient();
         tcp.start();
 
-        //TCPClient braucht Zeit,um den serverName über Streams zu bekommen
+        //TCPClient verursacht Verzögerung -> warte auf tcp
         while(tcp.getServerName() == null){
             Thread.sleep(1000);
             System.out.println("Sleep");

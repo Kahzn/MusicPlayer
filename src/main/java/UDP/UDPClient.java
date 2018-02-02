@@ -36,7 +36,7 @@ public class UDPClient implements Runnable {
                     // Paket mit der Anfrage vorbereiten
                     DatagramPacket packet = new DatagramPacket(buffer,
                             buffer.length, ia, 5000);
-                    // Paket versenden
+                    // Paket mit command "cmd:time" versenden
                     dSocket.send(packet);
 
                     byte answer[] = new byte[1024];
